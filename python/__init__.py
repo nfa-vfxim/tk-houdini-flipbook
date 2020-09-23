@@ -20,9 +20,4 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-display_name: "Shotgun Toolkit Houdini Flipbook"
-description: "A Shotgun Toolkit app to create flipbook of your current scene with use of SGTK templates."
-
-configuration: {}
-
-supported_engines: [tk-houdini]
+from . import tk_houdini_flipbook

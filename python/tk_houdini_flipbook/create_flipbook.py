@@ -20,9 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-display_name: "Shotgun Toolkit Houdini Flipbook"
-description: "A Shotgun Toolkit app to create flipbook of your current scene with use of SGTK templates."
+import hou
 
-configuration: {}
-
-supported_engines: [tk-houdini]
+class CreateFlipbook(object):
+    def

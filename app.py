@@ -19,3 +19,17 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+
+import sgtk
+
+class TkHoudiniFlipbook(sgtk.platform.Application):
+    """
+    A Shotgun Toolkit app to create flipbook of your current scene with use of SGTK templates. 
+    """
+
+    def init_app(self):
+        """
+        Import Python modules and other initialisation.
+        """
+
+        tk_houdini_flipbook = self.import_module("tk_houdini_flipbook")
