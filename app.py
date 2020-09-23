@@ -21,6 +21,8 @@
 # SOFTWARE.
 
 import sgtk
+from hutil.Qt import QtCore
+import hou
 
 class TkHoudiniFlipbook(sgtk.platform.Application):
     """
@@ -47,6 +49,7 @@ class TkHoudiniFlipbook(sgtk.platform.Application):
         """
         Launch the UI for the flipbook settings.
         """
-
+        
         dialog = self.tk_houdini_flipbook.FlipbookDialog()
-        (return_code, widget) = self.engine.show_modal("Flipbook", self, dialog)
+        dialog.setParent(hou.qt.mainWindow(), QtCore.Qt.Window)
+        dialog.show()

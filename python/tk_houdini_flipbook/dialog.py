@@ -24,45 +24,19 @@ import hou
 import sgtk
 from .create_flipbook import CreateFlipbook
 
-from sgtk.platform.qt import QtCore, QtGui
+from PySide2 import QtCore
+from PySide2 import QtWidgets
 
-class FlipbookDialog(QtGui.QWidget):
-    """
-    Dialog Class
-    """
+class FlipbookDialog(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
 
-    @property 
-    def hide_tk_title_bar(self):
-        return True
-
-    def __init__(self):
-        QtGui.QWidget.__init__(self)
-
-        hbox = QtGui.QHBoxLayout()
+        hbox = QtWidgets.QHBoxLayout()
 
         self.setGeometry(500, 300, 250, 110)
-        self.setWindowTitle('Font Demo')
+        self.setWindowTitle('SGTK Flipbook')
 
-        button = QtGui.QPushButton('Change Font', self)
-        button.setFocusPolicy(QtCore.Qt.NoFocus)
-        button.move(20, 20)
+        test = hou.qt.InputField(hou.qt.InputField.IntegerType, 1, label="Test")
+        hbox.addWidget(test)
 
-        hbox.addWidget(button)
-
-        self.connect(button, QtCore.SIGNAL('clicked()'), self.showDialog)
-
-        self.label = QtGui.QLabel('This is some sample text', self)
-        self.label.move(130, 20)
-
-        hbox.addWidget(self.label, 1)
         self.setLayout(hbox)
-
-    def showDialog(self):
-        font, ok = QtGui.QFontDialog.getFont()
-        if ok:
-            self.label.setFont(font)
-
-
-    # @property
-    # __name__: 
-    #     return "testing"
