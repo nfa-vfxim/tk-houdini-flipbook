@@ -32,4 +32,19 @@ class TkHoudiniFlipbook(sgtk.platform.Application):
         Import Python modules and other initialisation.
         """
 
-        tk_houdini_flipbook = self.import_module("tk_houdini_flipbook")
+        self.tk_houdini_flipbook = self.import_module("tk_houdini_flipbook")
+
+        # register the flipbook command
+        self.engine.register_command(
+            "Flipbook...",
+            self.__show_dialog,
+            {
+                "short_name": "flipbook"
+            },
+        )
+
+    def __show_dialog(self):
+        """
+        Launch the UI for the flipbook settings.
+        """
+        self.tk_houdini_flipbook.flipbookUI.show_dialog()

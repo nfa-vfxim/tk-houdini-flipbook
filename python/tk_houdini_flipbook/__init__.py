@@ -20,15 +20,4 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import hou
-from hou import SceneViewer
-
-class CreateFlipbook(object):
-    
-    @staticmethod
-    def runFlipbook(settings):
-        SceneViewer.flipbook(settings)
-
-    @staticmethod
-    def setFlipbook():
-        settings = hou.SceneViewer.flipbookSettings().stash()
+from .dialog import flipbookUI

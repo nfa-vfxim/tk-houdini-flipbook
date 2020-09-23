@@ -20,4 +20,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import hou
+import sgtk
 from .create_flipbook import CreateFlipbook
+
+class flipbookUI(object):
+
+    @staticmethod
+    def show_dialog():
+        hou.qt.Window()
