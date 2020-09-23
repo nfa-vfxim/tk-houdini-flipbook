@@ -47,4 +47,6 @@ class TkHoudiniFlipbook(sgtk.platform.Application):
         """
         Launch the UI for the flipbook settings.
         """
-        self.tk_houdini_flipbook.flipbookUI.show_dialog()
+
+        dialog = self.tk_houdini_flipbook.FlipbookDialog()
+        (return_code, widget) = self.engine.show_modal("Flipbook", self, dialog)
