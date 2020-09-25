@@ -26,17 +26,25 @@ from .create_flipbook import CreateFlipbook
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
+from PySide2 import QtUiTools
 
 class FlipbookDialog(QtWidgets.QWidget):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
 
-        hbox = QtWidgets.QHBoxLayout()
+        self.setWindowTitle("SGTK Flipbook")
 
-        self.setGeometry(500, 300, 250, 110)
-        self.setWindowTitle('SGTK Flipbook')
+        self.outputLabel = QtWidgets.QLabel(CreateFlipbook.getOutputPath())
 
-        test = hou.qt.InputField(hou.qt.InputField.IntegerType, 1, label="Test")
-        hbox.addWidget(test)
+        self.cancelButton = QtWidgets.QPushButton("Cancel")
+        self.startButton = QtWidgets.QPushButton("Start Flipbook")
 
-        self.setLayout(hbox)
+        layout = QtWidgets.QVBoxLayout()
+
+        buttonBox = QtWidgets.QDialogButtonBox()
+        buttonBox.addButton(self.startButton, QtWidgets.QDialogButtonBox.ActionRole)
+        buttonBox.addButton(self.cancelButton, QtWidgets.QDialogButtonBox.ActionRole)
+
+        layout.addWidget(self.outputLabel)
+        layout.addWidget(buttonBox)
+        self.setLayout(layout)

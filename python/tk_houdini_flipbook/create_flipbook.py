@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import sgtk
 import hou
 from hou import SceneViewer
 
@@ -30,5 +31,28 @@ class CreateFlipbook(object):
         SceneViewer.flipbook(settings)
 
     @staticmethod
-    def setFlipbook():
+    def getFlipbookSettings(inputSettings):
         settings = hou.SceneViewer.flipbookSettings().stash()
+
+        # standard settings
+        settings.outputToMPlay(True)
+        settings.output(inputSettings.output)
+        settings.useResolution(True)
+        settings.resolution(inputSettings.resolution)
+        settings.cropOutMaskOverlay(True)
+        settings.frameRange(inputSettings.frameRange)
+        settings.visibleObjects(inputSettings.visibleObjects)
+        settings.beautyPassOnly(inputSettings.beautyPassOnly)
+        settings.antialias(hou.flipbookAntialias.HighQuality)
+        settings.sessionLabel(inputSettings.sessionLabel)
+        settings.useMotionBlur(inputSettings.useMotionBlur)
+
+        return settings
+
+    @staticmethod
+    def getOutputPath():
+        outputPath = ""
+
+        
+
+        return outputPath
