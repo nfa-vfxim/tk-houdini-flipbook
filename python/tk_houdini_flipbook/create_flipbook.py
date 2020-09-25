@@ -25,14 +25,19 @@ import hou
 from hou import SceneViewer
 
 class CreateFlipbook(object):
-    
-    @staticmethod
-    def runFlipbook(settings):
+
+    # constructing the app
+    def __init__(self, app):
+        self.app = app
+        self.scene = hou.ui.paneTabOfType(hou.paneTabType.SceneViewer)
+
+    # run a flipbook render with given settings
+    def runFlipbook(self, settings):
         SceneViewer.flipbook(settings)
 
-    @staticmethod
-    def getFlipbookSettings(inputSettings):
-        settings = hou.SceneViewer.flipbookSettings().stash()
+    # get a flipbook settings object and return with given inputs
+    def getFlipbookSettings(self, inputSettings):
+        settings = self.scene.flipbookSettings().stash()
 
         # standard settings
         settings.outputToMPlay(True)
@@ -49,10 +54,9 @@ class CreateFlipbook(object):
 
         return settings
 
-    @staticmethod
-    def getOutputPath():
-        outputPath = ""
+    def getOutputPath(self):
+        outputPath = "C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.$F4.jpg"
 
-        
+        # template = self.app.get_template("houdini_flipbook_publish")
 
         return outputPath

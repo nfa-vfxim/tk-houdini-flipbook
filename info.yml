@@ -24,5 +24,4 @@ display_name: "Shotgun Toolkit Houdini Flipbook"
 description: "A Shotgun Toolkit app to create flipbook of your current scene with use of SGTK templates."
 
 configuration: {}
-
 supported_engines: [tk-houdini]

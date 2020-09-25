@@ -35,6 +35,7 @@ class TkHoudiniFlipbook(sgtk.platform.Application):
         """
 
         self.tk_houdini_flipbook = self.import_module("tk_houdini_flipbook")
+        self.dialog = self.tk_houdini_flipbook.FlipbookDialog(self)
 
         # register the flipbook command
         self.engine.register_command(
@@ -50,6 +51,6 @@ class TkHoudiniFlipbook(sgtk.platform.Application):
         Launch the UI for the flipbook settings.
         """
         
-        dialog = self.tk_houdini_flipbook.FlipbookDialog()
-        dialog.setParent(hou.qt.mainWindow(), QtCore.Qt.Window)
-        dialog.show()
+        self.dialog.setParent(hou.qt.mainWindow(), QtCore.Qt.Window)
+        self.dialog.setModal(True)
+        self.dialog.show()

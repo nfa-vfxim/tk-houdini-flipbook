@@ -28,23 +28,62 @@ from PySide2 import QtCore
 from PySide2 import QtWidgets
 from PySide2 import QtUiTools
 
-class FlipbookDialog(QtWidgets.QWidget):
-    def __init__(self, parent=None):
-        QtWidgets.QWidget.__init__(self, parent)
+class FlipbookDialog(QtWidgets.QDialog):
+    def __init__(self, app, parent=None):
+        QtWidgets.QDialog.__init__(self, parent)
 
+        # create an instance of CreateFlipbook
+        self.flipbook = CreateFlipbook(app)
+
+        # other properties
         self.setWindowTitle("SGTK Flipbook")
+        
+        # define general layout
+        layout = QtWidgets.QVBoxLayout()
+        resolutionLayout = QtWidgets.QHBoxLayout()
+        groupLayout = QtWidgets.QVBoxLayout()
 
-        self.outputLabel = QtWidgets.QLabel(CreateFlipbook.getOutputPath())
+        # widgets
+        self.outputLabel = QtWidgets.QLabel("Flipbooking to: %s" % (self.flipbook.getOutputPath()))
+        self.outputToMplay = QtWidgets.QCheckBox("MPlay Output", self)
+        self.beautyPassOnly = QtWidgets.QCheckBox("Beauty Pass", self)
+        self.useMotionblur = QtWidgets.QCheckBox("Motion Blur", self)
+        
+        # resolution widget
+        # self.resolution = QtWidgets.QFrame()
+        # self.resolution.setLayout(resolutionLayout)
+        # self.resolutionX = QtWidgets.QLineEdit()
+        # self.resolutionY = QtWidgets.QLineEdit()
+        # self.resolution.addWidget(self.resolutionX)
+        # self.resolution.addWidget(self.resolutionY)
 
+        # options group
+        self.optionsGroup = QtWidgets.QGroupBox("Flipbook options")
+        groupLayout.addWidget(self.outputToMplay)
+        groupLayout.addWidget(self.beautyPassOnly)
+        groupLayout.addWidget(self.useMotionblur)
+        self.optionsGroup.setLayout(groupLayout)
+
+        # button box buttons
         self.cancelButton = QtWidgets.QPushButton("Cancel")
         self.startButton = QtWidgets.QPushButton("Start Flipbook")
 
-        layout = QtWidgets.QVBoxLayout()
-
+        # lower right button box
         buttonBox = QtWidgets.QDialogButtonBox()
         buttonBox.addButton(self.startButton, QtWidgets.QDialogButtonBox.ActionRole)
         buttonBox.addButton(self.cancelButton, QtWidgets.QDialogButtonBox.ActionRole)
 
+        # widgets additions
         layout.addWidget(self.outputLabel)
+        # layout.addWidget(self.resolution)
+        layout.addWidget(self.optionsGroup)
         layout.addWidget(buttonBox)
+
+        self.cancelButton.clicked.connect(self.closeWindow)
+        # self.startButton.clicked.connect()
+
+        # finally, set layout
         self.setLayout(layout)
+
+    def closeWindow(self):
+        self.close()
