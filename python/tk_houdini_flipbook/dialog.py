@@ -58,7 +58,8 @@ class FlipbookDialog(QtWidgets.QDialog):
         resolutionXLayout = QtWidgets.QVBoxLayout()
         self.resolutionXLabel = QtWidgets.QLabel("Width")
         self.resolutionXLine = QtWidgets.QLineEdit()
-        self.resolutionXLine.setPlaceholderText("1920")
+        self.resolutionX.default = "1920"
+        self.resolutionXLine.setPlaceholderText(self.resolutionX.default)
         self.resolutionXLine.setInputMask("9990")
         resolutionXLayout.addWidget(self.resolutionXLabel)
         resolutionXLayout.addWidget(self.resolutionXLine)
@@ -69,7 +70,8 @@ class FlipbookDialog(QtWidgets.QDialog):
         resolutionYLayout = QtWidgets.QVBoxLayout()
         self.resolutionYLabel = QtWidgets.QLabel("Height")
         self.resolutionYLine = QtWidgets.QLineEdit()
-        self.resolutionYLine.setPlaceholderText("1080")
+        self.resolutionY.default = "1080"
+        self.resolutionYLine.setPlaceholderText(self.resolutionY.default)
         self.resolutionYLine.setInputMask("9990")
         resolutionYLayout.addWidget(self.resolutionYLabel)
         resolutionYLayout.addWidget(self.resolutionYLine)
@@ -159,6 +161,7 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # validation of inputs
         frameRange = self.validateFrameRange()
+        resolution = self.validateResolution()
 
         return
 
@@ -181,3 +184,23 @@ class FlipbookDialog(QtWidgets.QDialog):
             frameRange.append(self.flipbook.getFrameRange()[1])
 
         return tuple(frameRange)
+
+    def validateResolution(self):
+        # validating the resolution input
+        resolution = []
+        
+        if self.resolutionXLine.hasAcceptableInput():
+            self.app.logger.debug("Setting width resolution to %s" % (self.resolutionXLine.text()))
+            resolution.append(self.resolutionXLine.text())    
+        else:
+            self.app.logger.debug("Setting width resolution to %s" % (self.resolutionX.default))
+            resolution.append(self.resolutionX.default)
+
+        if self.resolutionYLine.hasAcceptableInput():
+            self.app.logger.debug("Setting height resolution to %s" % (self.resolutionYLine.text()))
+            resolution.append(self.resolutionYLine.text())
+        else:
+            self.app.logger.debug("Setting height resolution to %s" % (self.resolutionY.default))
+            resolution.append(self.resolutionY.default)
+
+        return tuple(resolution)
