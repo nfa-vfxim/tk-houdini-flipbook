@@ -180,4 +180,4 @@ class FlipbookDialog(QtWidgets.QDialog):
             self.app.logger.debug("Setting end of frame range to %i" % (self.flipbook.getFrameRange()[1]))
             frameRange.append(self.flipbook.getFrameRange()[1])
 
-        return frameRange
+        return tuple(frameRange)
