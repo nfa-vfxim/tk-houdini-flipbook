@@ -31,6 +31,7 @@ from PySide2 import QtUiTools
 class FlipbookDialog(QtWidgets.QDialog):
     def __init__(self, app, parent=None):
         QtWidgets.QDialog.__init__(self, parent)
+        self.app = app
 
         # create an instance of CreateFlipbook
         self.flipbook = CreateFlipbook(app)
@@ -40,7 +41,6 @@ class FlipbookDialog(QtWidgets.QDialog):
         
         # define general layout
         layout = QtWidgets.QVBoxLayout()
-        resolutionLayout = QtWidgets.QHBoxLayout()
         groupLayout = QtWidgets.QVBoxLayout()
 
         # widgets
@@ -50,12 +50,72 @@ class FlipbookDialog(QtWidgets.QDialog):
         self.useMotionblur = QtWidgets.QCheckBox("Motion Blur", self)
         
         # resolution widget
-        # self.resolution = QtWidgets.QFrame()
-        # self.resolution.setLayout(resolutionLayout)
-        # self.resolutionX = QtWidgets.QLineEdit()
-        # self.resolutionY = QtWidgets.QLineEdit()
-        # self.resolution.addWidget(self.resolutionX)
-        # self.resolution.addWidget(self.resolutionY)
+        resolutionLayout = QtWidgets.QHBoxLayout()
+        self.resolution = QtWidgets.QWidget()
+
+        # resolution sub-widgets x
+        self.resolutionX = QtWidgets.QWidget()
+        resolutionXLayout = QtWidgets.QVBoxLayout()
+        self.resolutionXLabel = QtWidgets.QLabel("Width")
+        self.resolutionXLine = QtWidgets.QLineEdit()
+        self.resolutionXLine.setPlaceholderText("1920")
+        self.resolutionXLine.setInputMask("9990")
+        resolutionXLayout.addWidget(self.resolutionXLabel)
+        resolutionXLayout.addWidget(self.resolutionXLine)
+        self.resolutionX.setLayout(resolutionXLayout)
+
+        # resolution sub-widgets y
+        self.resolutionY = QtWidgets.QWidget()
+        resolutionYLayout = QtWidgets.QVBoxLayout()
+        self.resolutionYLabel = QtWidgets.QLabel("Height")
+        self.resolutionYLine = QtWidgets.QLineEdit()
+        self.resolutionYLine.setPlaceholderText("1080")
+        self.resolutionYLine.setInputMask("9990")
+        resolutionYLayout.addWidget(self.resolutionYLabel)
+        resolutionYLayout.addWidget(self.resolutionYLine)
+        self.resolutionY.setLayout(resolutionYLayout)
+
+        # resolution widget finalizing
+        resolutionLayout.addWidget(self.resolutionX)
+        resolutionLayout.addWidget(self.resolutionY)
+        self.resolution.setLayout(resolutionLayout)
+
+        # resolution group
+        self.resolutionGroup = QtWidgets.QGroupBox("Resolution")
+        resolutionGroupLayout = QtWidgets.QVBoxLayout()
+        resolutionGroupLayout.addWidget(self.resolution)
+        self.resolutionGroup.setLayout(resolutionGroupLayout)
+
+        # frame range widget
+        self.frameRange = QtWidgets.QGroupBox("Frame range")
+        frameRangeGroupLayout = QtWidgets.QHBoxLayout()
+
+        # frame range start sub-widget 
+        self.frameRangeStart = QtWidgets.QWidget()
+        frameRangeStartLayout = QtWidgets.QVBoxLayout()
+        self.frameRangeStartLabel = QtWidgets.QLabel("Start")
+        self.frameRangeStartLine = QtWidgets.QLineEdit()
+        self.frameRangeStartLine.setPlaceholderText("%i" % (self.flipbook.getFrameRange()[0]))
+        self.frameRangeStartLine.setInputMask("9000")
+        frameRangeStartLayout.addWidget(self.frameRangeStartLabel)
+        frameRangeStartLayout.addWidget(self.frameRangeStartLine)
+        self.frameRangeStart.setLayout(frameRangeStartLayout)
+        frameRangeGroupLayout.addWidget(self.frameRangeStart)
+
+        # frame range end sub-widget 
+        self.frameRangeEnd = QtWidgets.QWidget()
+        frameRangeEndLayout = QtWidgets.QVBoxLayout()
+        self.frameRangeEndLabel = QtWidgets.QLabel("End")
+        self.frameRangeEndLine = QtWidgets.QLineEdit()
+        self.frameRangeEndLine.setPlaceholderText("%i" % (self.flipbook.getFrameRange()[1]))
+        self.frameRangeEndLine.setInputMask("9000")
+        frameRangeEndLayout.addWidget(self.frameRangeEndLabel)
+        frameRangeEndLayout.addWidget(self.frameRangeEndLine)
+        self.frameRangeEnd.setLayout(frameRangeEndLayout)
+        frameRangeGroupLayout.addWidget(self.frameRangeEnd)
+
+        # frame range widget finalizing
+        self.frameRange.setLayout(frameRangeGroupLayout)
 
         # options group
         self.optionsGroup = QtWidgets.QGroupBox("Flipbook options")
@@ -75,15 +135,49 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # widgets additions
         layout.addWidget(self.outputLabel)
-        # layout.addWidget(self.resolution)
+        layout.addWidget(self.frameRange)
+        layout.addWidget(self.resolutionGroup)
         layout.addWidget(self.optionsGroup)
         layout.addWidget(buttonBox)
 
+        # connect button functionality
         self.cancelButton.clicked.connect(self.closeWindow)
-        # self.startButton.clicked.connect()
+        self.startButton.clicked.connect(self.startFlipbook)
 
         # finally, set layout
         self.setLayout(layout)
 
     def closeWindow(self):
         self.close()
+
+    def startFlipbook(self):
+        """
+        TODO
+        - Transform JPG's into .mp4.
+        - Create version in Shotgun and upload.
+        """
+
+        # validation of inputs
+        frameRange = self.validateFrameRange()
+
+        return
+
+    def validateFrameRange(self):
+        # validating the frame range input
+        frameRange = []
+        
+        if self.frameRangeStartLine.hasAcceptableInput():
+            self.app.logger.debug("Setting start of frame range to %s" % (self.frameRangeStartLine.text()))
+            frameRange.append(self.frameRangeStartLine.text())    
+        else:
+            self.app.logger.debug("Setting start of frame range to %i" % (self.flipbook.getFrameRange()[0]))
+            frameRange.append(self.flipbook.getFrameRange()[0])
+
+        if self.frameRangeEndLine.hasAcceptableInput():
+            self.app.logger.debug("Setting end of frame range to %s" % (self.frameRangeEndLine.text()))
+            frameRange.append(self.frameRangeEndLine.text())
+        else:
+            self.app.logger.debug("Setting end of frame range to %i" % (self.flipbook.getFrameRange()[1]))
+            frameRange.append(self.flipbook.getFrameRange()[1])
+
+        return frameRange

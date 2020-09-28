@@ -29,7 +29,6 @@ class CreateFlipbook(object):
     # constructing the app
     def __init__(self, app):
         self.app = app
-        self.scene = hou.ui.paneTabOfType(hou.paneTabType.SceneViewer)
 
     # run a flipbook render with given settings
     def runFlipbook(self, settings):
@@ -37,6 +36,7 @@ class CreateFlipbook(object):
 
     # get a flipbook settings object and return with given inputs
     def getFlipbookSettings(self, inputSettings):
+        self.scene = hou.ui.paneTabOfType(hou.paneTabType.SceneViewer)
         settings = self.scene.flipbookSettings().stash()
 
         # standard settings
@@ -46,7 +46,6 @@ class CreateFlipbook(object):
         settings.resolution(inputSettings.resolution)
         settings.cropOutMaskOverlay(True)
         settings.frameRange(inputSettings.frameRange)
-        settings.visibleObjects(inputSettings.visibleObjects)
         settings.beautyPassOnly(inputSettings.beautyPassOnly)
         settings.antialias(hou.flipbookAntialias.HighQuality)
         settings.sessionLabel(inputSettings.sessionLabel)
@@ -60,3 +59,11 @@ class CreateFlipbook(object):
         # template = self.app.get_template("houdini_flipbook_publish")
 
         return outputPath
+
+    def getFrameRange(self):
+        frameRange = []
+
+        frameRange.append(hou.hscriptExpression("$FSTART"))
+        frameRange.append(hou.hscriptExpression("$FEND"))
+
+        return frameRange
