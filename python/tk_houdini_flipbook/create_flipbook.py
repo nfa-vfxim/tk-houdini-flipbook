@@ -40,13 +40,13 @@ class CreateFlipbook(object):
         settings = self.scene.flipbookSettings().stash()
 
         # standard settings
-        settings.outputToMPlay(True)
+        settings.outputToMPlay(inputSettings.mplay)
         settings.output(inputSettings.output)
         settings.useResolution(True)
         settings.resolution(inputSettings.resolution)
         settings.cropOutMaskOverlay(True)
         settings.frameRange(inputSettings.frameRange)
-        settings.beautyPassOnly(inputSettings.beautyPassOnly)
+        settings.beautyPassOnly(inputSettings.beautyPass)
         settings.antialias(hou.flipbookAntialias.HighQuality)
         settings.sessionLabel(inputSettings.sessionLabel)
         settings.useMotionBlur(inputSettings.useMotionBlur)

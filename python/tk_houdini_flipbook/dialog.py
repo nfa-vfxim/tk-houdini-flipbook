@@ -145,15 +145,17 @@ class FlipbookDialog(QtWidgets.QDialog):
         self.close()
 
     def startFlipbook(self):
-        """
-        TODO
-        - Transform JPG's into .mp4.
-        - Create version in Shotgun and upload.
-        """
+
+        inputSettings = {}
 
         # validation of inputs
-        frameRange = self.validateFrameRange()
-        resolution = self.validateResolution()
+        inputSettings["frameRange"] = self.validateFrameRange()
+        inputSettings["resolution"] = self.validateResolution()
+        inputSettings["mplay"] = self.validateMplay()
+        inputSettings["beautyPass"] = self.validateBeauty()
+        inputSettings["motionBlur"] = self.validateMotionBlur()
+        inputSettings["output"] = self.flipbook.getOutputPath()
+        inputSettings["sessionLabel"] = self.flipbook.getOutputPath()
 
         return
 
@@ -196,3 +198,18 @@ class FlipbookDialog(QtWidgets.QDialog):
             resolution.append(self.resolutionY.default)
 
         return tuple(resolution)
+
+    def validateMplay(self):
+        # validating the mplay checkbox
+
+        return self.outputToMplay.isChecked()
+
+    def validateBeauty(self):
+        # validating the beauty pass checkbox
+
+        return self.beautyPassOnly.isChecked()
+
+    def validateMotionBlur(self):
+        # validating the motion blur checkbox
+
+        return self.useMotionblur.isChecked()
