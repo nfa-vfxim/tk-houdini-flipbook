@@ -48,10 +48,6 @@ class FlipbookDialog(QtWidgets.QDialog):
         self.outputToMplay = QtWidgets.QCheckBox("MPlay Output", self)
         self.beautyPassOnly = QtWidgets.QCheckBox("Beauty Pass", self)
         self.useMotionblur = QtWidgets.QCheckBox("Motion Blur", self)
-        
-        # resolution widget
-        resolutionLayout = QtWidgets.QHBoxLayout()
-        self.resolution = QtWidgets.QWidget()
 
         # resolution sub-widgets x
         self.resolutionX = QtWidgets.QWidget()
@@ -77,15 +73,11 @@ class FlipbookDialog(QtWidgets.QDialog):
         resolutionYLayout.addWidget(self.resolutionYLine)
         self.resolutionY.setLayout(resolutionYLayout)
 
-        # resolution widget finalizing
-        resolutionLayout.addWidget(self.resolutionX)
-        resolutionLayout.addWidget(self.resolutionY)
-        self.resolution.setLayout(resolutionLayout)
-
         # resolution group
         self.resolutionGroup = QtWidgets.QGroupBox("Resolution")
-        resolutionGroupLayout = QtWidgets.QVBoxLayout()
-        resolutionGroupLayout.addWidget(self.resolution)
+        resolutionGroupLayout = QtWidgets.QHBoxLayout()
+        resolutionGroupLayout.addWidget(self.resolutionX)
+        resolutionGroupLayout.addWidget(self.resolutionY)
         self.resolutionGroup.setLayout(resolutionGroupLayout)
 
         # frame range widget
