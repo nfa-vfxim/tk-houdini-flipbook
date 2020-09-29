@@ -163,9 +163,14 @@ class FlipbookDialog(QtWidgets.QDialog):
         settings = self.flipbook.getFlipbookSettings(inputSettings)
 
         # run the actual flipbook
-        self.flipbook.runFlipbook(settings)
+        # self.flipbook.runFlipbook(settings)
 
-        self.closeWindow()
+        try:
+            with hou.InterruptableOperation("Flipbooking...", long_operation_name="Flipbooking...", open_interrupt_dialog=True) as operation:
+                self.flipbook.runFlipbook(settings)
+            self.closeWindow()
+        except:
+            self.app.logger.error("Oops, something went wrong!")
 
         return
 
@@ -175,7 +180,7 @@ class FlipbookDialog(QtWidgets.QDialog):
         
         if self.frameRangeStartLine.hasAcceptableInput():
             self.app.logger.debug("Setting start of frame range to %s" % (self.frameRangeStartLine.text()))
-            frameRange.append(self.frameRangeStartLine.text())    
+            frameRange.append(int(self.frameRangeStartLine.text()))    
         else:
             self.app.logger.debug("Setting start of frame range to %i" % (self.flipbook.getFrameRange()[0]))
             frameRange.append(self.flipbook.getFrameRange()[0])
