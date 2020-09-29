@@ -32,24 +32,26 @@ class CreateFlipbook(object):
 
     # run a flipbook render with given settings
     def runFlipbook(self, settings):
-        SceneViewer.flipbook(settings)
+        SceneViewer.flipbook(self.scene, settings=settings)
 
     # get a flipbook settings object and return with given inputs
     def getFlipbookSettings(self, inputSettings):
-        self.scene = hou.ui.paneTabOfType(hou.paneTabType.SceneViewer)
+        self.__getSceneViewer()
+
         settings = self.scene.flipbookSettings().stash()
+        self.app.logger.debug("Using %s object" % (settings))
 
         # standard settings
-        settings.outputToMPlay(inputSettings.mplay)
-        settings.output(inputSettings.output)
+        settings.outputToMPlay(inputSettings["mplay"])
+        settings.output(inputSettings["output"])
         settings.useResolution(True)
-        settings.resolution(inputSettings.resolution)
+        settings.resolution(inputSettings["resolution"])
         settings.cropOutMaskOverlay(True)
-        settings.frameRange(inputSettings.frameRange)
-        settings.beautyPassOnly(inputSettings.beautyPass)
+        settings.frameRange(inputSettings["frameRange"])
+        settings.beautyPassOnly(inputSettings["beautyPass"])
         settings.antialias(hou.flipbookAntialias.HighQuality)
-        settings.sessionLabel(inputSettings.sessionLabel)
-        settings.useMotionBlur(inputSettings.useMotionBlur)
+        settings.sessionLabel(inputSettings["sessionLabel"])
+        settings.useMotionBlur(inputSettings["motionBlur"])
 
         return settings
 
@@ -67,3 +69,7 @@ class CreateFlipbook(object):
         frameRange.append(hou.hscriptExpression("$FEND"))
 
         return frameRange
+
+    def __getSceneViewer(self):
+        self.scene = hou.ui.paneTabOfType(hou.paneTabType.SceneViewer)
+        self.app.logger.debug("Using panetab %s" % (self.scene))

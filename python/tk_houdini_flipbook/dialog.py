@@ -157,6 +157,16 @@ class FlipbookDialog(QtWidgets.QDialog):
         inputSettings["output"] = self.flipbook.getOutputPath()
         inputSettings["sessionLabel"] = self.flipbook.getOutputPath()
 
+        self.app.logger.debug("Using the following settings, %s" % (inputSettings))
+
+        # retrieve full settings object
+        settings = self.flipbook.getFlipbookSettings(inputSettings)
+
+        # run the actual flipbook
+        self.flipbook.runFlipbook(settings)
+
+        self.closeWindow()
+
         return
 
     def validateFrameRange(self):
@@ -172,7 +182,7 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         if self.frameRangeEndLine.hasAcceptableInput():
             self.app.logger.debug("Setting end of frame range to %s" % (self.frameRangeEndLine.text()))
-            frameRange.append(self.frameRangeEndLine.text())
+            frameRange.append(int(self.frameRangeEndLine.text()))
         else:
             self.app.logger.debug("Setting end of frame range to %i" % (self.flipbook.getFrameRange()[1]))
             frameRange.append(self.flipbook.getFrameRange()[1])
@@ -185,17 +195,17 @@ class FlipbookDialog(QtWidgets.QDialog):
         
         if self.resolutionXLine.hasAcceptableInput():
             self.app.logger.debug("Setting width resolution to %s" % (self.resolutionXLine.text()))
-            resolution.append(self.resolutionXLine.text())    
+            resolution.append(int(self.resolutionXLine.text()))    
         else:
             self.app.logger.debug("Setting width resolution to %s" % (self.resolutionX.default))
-            resolution.append(self.resolutionX.default)
+            resolution.append(int(self.resolutionX.default))
 
         if self.resolutionYLine.hasAcceptableInput():
             self.app.logger.debug("Setting height resolution to %s" % (self.resolutionYLine.text()))
-            resolution.append(self.resolutionYLine.text())
+            resolution.append(int(self.resolutionYLine.text()))
         else:
             self.app.logger.debug("Setting height resolution to %s" % (self.resolutionY.default))
-            resolution.append(self.resolutionY.default)
+            resolution.append(int(self.resolutionY.default))
 
         return tuple(resolution)
 
