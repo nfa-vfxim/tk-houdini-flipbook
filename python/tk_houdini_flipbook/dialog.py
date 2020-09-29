@@ -163,8 +163,6 @@ class FlipbookDialog(QtWidgets.QDialog):
         settings = self.flipbook.getFlipbookSettings(inputSettings)
 
         # run the actual flipbook
-        # self.flipbook.runFlipbook(settings)
-
         try:
             with hou.InterruptableOperation("Flipbooking...", long_operation_name="Flipbooking...", open_interrupt_dialog=True) as operation:
                 self.flipbook.runFlipbook(settings)
