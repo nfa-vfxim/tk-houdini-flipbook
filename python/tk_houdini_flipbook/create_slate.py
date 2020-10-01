@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import os
+import subprocess
 
 class CreateSlate(object):
     def __init__(self, app):
@@ -31,3 +32,4 @@ class CreateSlate(object):
         __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
         self.file = os.path.join(__location__, 'slate.py')
         launch = "%s -t %s %s %s" % (self.path, self.file, inputFile, outputFile)
+        subprocess.Popen([launch])
