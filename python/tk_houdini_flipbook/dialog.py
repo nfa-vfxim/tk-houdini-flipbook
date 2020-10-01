@@ -23,6 +23,7 @@
 import hou
 import sgtk
 from .create_flipbook import CreateFlipbook
+from .nuke_test import nukeHandler
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
@@ -166,6 +167,7 @@ class FlipbookDialog(QtWidgets.QDialog):
         try:
             with hou.InterruptableOperation("Flipbooking...", long_operation_name="Flipbooking...", open_interrupt_dialog=True) as operation:
                 self.flipbook.runFlipbook(settings)
+                operation.updateLongeProgress(0.5)   
             self.closeWindow()
         except:
             self.app.logger.error("Oops, something went wrong!")
