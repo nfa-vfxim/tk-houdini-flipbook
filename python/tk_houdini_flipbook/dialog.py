@@ -23,7 +23,7 @@
 import hou
 import sgtk
 from .create_flipbook import CreateFlipbook
-from .nuke_test import nukeHandler
+from .create_slate import CreateSlate
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
@@ -36,6 +36,7 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # create an instance of CreateFlipbook
         self.flipbook = CreateFlipbook(app)
+        self.slate = CreateSlate(app)
 
         # other properties
         self.setWindowTitle("SGTK Flipbook")
@@ -167,7 +168,8 @@ class FlipbookDialog(QtWidgets.QDialog):
         try:
             with hou.InterruptableOperation("Flipbooking...", long_operation_name="Flipbooking...", open_interrupt_dialog=True) as operation:
                 self.flipbook.runFlipbook(settings)
-                operation.updateLongeProgress(0.5)   
+                operation.updateLongeProgress(0.5)
+                self.slate.runSlate("C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.####.jpg", "C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.mov") 
             self.closeWindow()
         except:
             self.app.logger.error("Oops, something went wrong!")

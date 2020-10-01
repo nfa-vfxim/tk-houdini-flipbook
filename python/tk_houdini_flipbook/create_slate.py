@@ -20,13 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-display_name: "Shotgun Toolkit Houdini Flipbook"
-description: "A Shotgun Toolkit app to create flipbook of your current scene with use of SGTK templates."
+import os
 
-configuration:
-    nuke_path:
-        type: str
-        default_value: "C:/Program Files/Nuke12.1v4/Nuke12.1.exe"
-        description: "Path to your Nuke installation for creating slates."
+class CreateSlate(object):
+    def __init__(self, app):
+        self.app = app
+        self.path = app.get_setting("nuke_path")
 
-supported_engines: [tk-houdini]
+    def runSlate(self, inputFile, outputFile):
+        __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+        self.file = os.path.join(__location__, 'slate.py')
+        launch = "%s -t %s %s %s" % (self.path, self.file, inputFile, outputFile)

@@ -20,13 +20,5 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-display_name: "Shotgun Toolkit Houdini Flipbook"
-description: "A Shotgun Toolkit app to create flipbook of your current scene with use of SGTK templates."
-
-configuration:
-    nuke_path:
-        type: str
-        default_value: "C:/Program Files/Nuke12.1v4/Nuke12.1.exe"
-        description: "Path to your Nuke installation for creating slates."
-
-supported_engines: [tk-houdini]
+import nuke
+import sys
