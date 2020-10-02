@@ -169,7 +169,7 @@ class FlipbookDialog(QtWidgets.QDialog):
             with hou.InterruptableOperation("Flipbooking...", long_operation_name="Flipbooking...", open_interrupt_dialog=True) as operation:
                 self.flipbook.runFlipbook(settings)
                 operation.updateLongProgress(0.5)
-                self.slate.runSlate("C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.####.jpg", "C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.mov") 
+                self.slate.runSlate("C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.####.jpg", "C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.mov", inputSettings) 
             self.closeWindow()
         except Exception as e:
             self.app.logger.error("Oops, something went wrong!")

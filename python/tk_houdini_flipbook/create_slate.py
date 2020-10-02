@@ -22,6 +22,8 @@
 
 import os
 import subprocess
+import hou
+import sgtk
 
 class CreateSlate(object):
     def __init__(self, app):
@@ -33,7 +35,23 @@ class CreateSlate(object):
         __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
         self.slatePath = os.path.join(__location__, "slate.py")
 
-    def runSlate(self, inputFile, outputFile):
-        # call subprocess of nuke and convert
+    def runSlate(self, inputFile, outputFile, settings):
+        # setup arguments for call
+        context = self.app.context
+        project_name = context.project["name"]
+        user_name = context.user["name"]
+        file_name = hou.hipFile.basename().lower()
+        first_frame = settings["frameRange"]
+        first_frame = first_frame[0]
+        last_frame = settings["frameRange"]
+        last_frame = last_frame[1]
+        appPath = self.app.disk_location
+        
+        # calculate version number
+        template = self.app.get_template("work_file_template")
+        fields = template.get_fields(hou.hipFile.path())
+        version = fields['version']
+        resolution = "%d x %d"
 
-        subprocess.call([self.nukePath, "-t", self.slatePath, inputFile, outputFile], shell=True)
+        # call subprocess of nuke and convert
+        subprocess.call([self.nukePath, "-t", self.slatePath, inputFile, outputFile, project_name, file_name, first_frame, last_frame, appPath, version, resolution, user_name], shell=False)

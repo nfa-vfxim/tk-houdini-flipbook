@@ -24,9 +24,15 @@ display_name: "Shotgun Toolkit Houdini Flipbook"
 description: "A Shotgun Toolkit app to create flipbook of your current scene with use of SGTK templates."
 
 configuration:
+    
     nuke_path:
         type: str
         default_value: "C:/Program Files/Nuke12.1v4/Nuke12.1.exe"
         description: "Path to your Nuke installation for creating slates."
+    
+    work_file_template:
+        type: template
+        description: "Template for your current work file in Houdini."
+        fields: context, version, [name]
 
 supported_engines: [tk-houdini]

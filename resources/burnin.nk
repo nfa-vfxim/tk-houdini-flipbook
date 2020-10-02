@@ -1,0 +1,5243 @@
+Group {
+ name Group1
+ note_font Verdana
+ xpos 68
+ ypos -64
+ mapsize {0.15 0.15}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode2
+  tile_color 0x4b4b4b01
+  label "<center><img src=\"Merge.png\"> Greyed bars"
+  note_font_size 30
+  xpos -1746
+  ypos 1084
+  bdwidth 636
+  bdheight 1160
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode3
+  tile_color 0x4b4b4b01
+  label "<center><img src=\"Merge.png\"> Logo"
+  note_font_size 30
+  xpos 390
+  ypos 2408
+  bdwidth 993
+  bdheight 887
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode4
+  tile_color 0x4b4b4b01
+  label "<center><img src=\"Merge.png\"> Text"
+  note_font_size 30
+  xpos -1020
+  ypos 2502
+  bdwidth 1004
+  bdheight 880
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode5
+  tile_color 0x191901
+  label "<center><img src=\"Radial.png\"> Background"
+  note_font_size 30
+  xpos 1000
+  ypos 4225
+  bdwidth 440
+  bdheight 381
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode6
+  tile_color 0x7171c600
+  label "<img src=\"ColorBars.png\"> Colorbars"
+  note_font Verdana
+  note_font_size 42
+  xpos 659
+  ypos 1601
+  bdwidth 648
+  bdheight 547
+  addUserKnob {20 Backdrop}
+  addUserKnob {41 label_link l label T BackdropNode6.label}
+  addUserKnob {41 note_font_link l font T BackdropNode6.note_font}
+  addUserKnob {41 note_font_size_link l "" -STARTLINE T BackdropNode6.note_font_size}
+  addUserKnob {41 x_link l x: +INVISIBLE T BackdropNode6.xpos}
+  addUserKnob {41 y_link l y: -STARTLINE +INVISIBLE T BackdropNode6.ypos}
+  addUserKnob {41 w_link l w: -STARTLINE +INVISIBLE T BackdropNode6.bdwidth}
+  addUserKnob {41 h_link l h: -STARTLINE +INVISIBLE T BackdropNode6.bdheight}
+  addUserKnob {52 Colors l "" +STARTLINE T "backdrop_palette.backdrop_widget.ColorSwatch( nuke.thisNode() )" +STARTLINE}
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode7
+  tile_color 0x4b4b4b01
+  label "<center><img src=\"Merge.png\"> Frame_thumbnails"
+  note_font_size 30
+  xpos 227
+  ypos 764
+  bdwidth 441
+  bdheight 916
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode8
+  tile_color 0x4b4b4b01
+  label "<center><img src=\"SideBySide.png\"> Slate_info"
+  note_font_size 30
+  xpos 980
+  ypos 3384
+  bdwidth 331
+  bdheight 617
+ }
+ Input {
+  inputs 0
+  name Input1
+  xpos 404
+  ypos 239
+ }
+ Dot {
+  name Dot10
+  xpos 438
+  ypos 585
+ }
+set N9726c400 [stack 0]
+ Dot {
+  name Dot21
+  xpos -1702
+  ypos 585
+ }
+ Dot {
+  name Dot1
+  xpos -1702
+  ypos 677
+ }
+set Nd1125c00 [stack 0]
+ Remove {
+  name Remove3
+  xpos -1557
+  ypos 837
+ }
+ Dot {
+  name Dot5
+  xpos -1523
+  ypos 925
+ }
+set Nd1125400 [stack 0]
+ Dot {
+  name Dot6
+  xpos -976
+  ypos 925
+ }
+ Dot {
+  name Dot9
+  xpos -976
+  ypos 2587
+ }
+set Nd1124c00 [stack 0]
+ Text {
+  message ""
+  font C:/Windows/Fonts/arial.ttf
+  size {{40*(input.width/3840)}}
+  xjustify center
+  yjustify top
+  Transform 1
+  box {{input.width-((input.width/100)*98.3)} 0 {input.width-((input.width/100)*2)} {input.height-((input.height/100)*97.67)}}
+  center {960 540}
+  name bottom_center_text
+  xpos -555
+  ypos 2954
+ }
+push $Nd1124c00
+ Text {
+  message ""
+  font C:/Windows/Fonts/arial.ttf
+  size {{40*(input.width/3840)}}
+  yjustify top
+  Transform 1
+  box {{input.width-((input.width/100)*98.3)} 0 {input.width-((input.width/100)*2)} {input.height-((input.height/100)*97.67)}}
+  center {960 540}
+  name bottom_left_text
+  xpos -665
+  ypos 2955
+ }
+push $Nd1124c00
+ Text {
+  message ""
+  font C:/Windows/Fonts/arial.ttf
+  size {{40*(input.width/3840)}}
+  Transform 1
+  box {{input.width-((input.width/100)*98.3)} {input.height-((input.height/100)*2.5)} {input.width-((input.width/100)*2)} {input.height-((input.height/100)*97.67)}}
+  center {960 540}
+  name top_left_text
+  xpos -776
+  ypos 2955
+ }
+push 0
+push $Nd1124c00
+ Text {
+  message ""
+  font C:/Windows/Fonts/arial.ttf
+  size {{40*(input.width/3840)}}
+  xjustify right
+  Transform 1
+  box {0 {input.height-((input.height/100)*2.5)} {input.width-((input.width/100)*2)} {input.height-((input.height/100)*97.67)}}
+  center {960 540}
+  name top_right_text
+  xpos -885
+  ypos 2955
+ }
+push $Nd1124c00
+ Text {
+  message "\[format %04d \[frame]]"
+  font C:/Windows/Fonts/arial.ttf
+  size {{40*(input.width/3840)}}
+  xjustify right
+  yjustify top
+  Transform 1
+  box {0 0 {input.width-((input.width/100)*2)} {input.height-((input.height/100)*97.67)}}
+  center {960 540}
+  name framecounter
+  xpos -995
+  ypos 2955
+ }
+ Merge2 {
+  inputs 5+1
+  name Merge6
+  xpos -995
+  ypos 3332
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  name Constant1
+  xpos -1244
+  ypos 1169
+ }
+ Reformat {
+  type "to box"
+  box_width {{parent.width}}
+  box_height {{parent.height/30}}
+  box_fixed true
+  resize distort
+  center false
+  filter impulse
+  name Reformat2
+  xpos -1244
+  ypos 1334
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name Shuffle1
+  xpos -1244
+  ypos 1449
+ }
+ Multiply {
+  value 0.56
+  name Multiply1
+  xpos -1244
+  ypos 1473
+ }
+ Premult {
+  name Premult1
+  xpos -1244
+  ypos 1567
+ }
+ Transform {
+  center {1057.5 13.5}
+  name Transform1
+  xpos -1244
+  ypos 1610
+ }
+ Dot {
+  name Dot4
+  xpos -1210
+  ypos 1786
+ }
+push $Nd1125400
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos -1557
+  ypos 1851
+ }
+ Dot {
+  name Dot3
+  xpos -1523
+  ypos 1913
+ }
+set Nb1b3f800 [stack 0]
+ Mirror2 {
+  flip true
+  name Mirror2_3
+  xpos -1557
+  ypos 2044
+ }
+ Dot {
+  name Dot2
+  xpos -1523
+  ypos 2131
+ }
+push $Nb1b3f800
+push $Nd1125c00
+ Merge2 {
+  inputs 2
+  name Merge1
+  xpos -1736
+  ypos 1966
+ }
+ Merge2 {
+  inputs 2
+  name Merge3
+  xpos -1736
+  ypos 2169
+ }
+ Merge2 {
+  inputs 2
+  name Merge16
+  xpos -1736
+  ypos 3591
+ }
+ Crop {
+  box {0 0 {parent.width} {parent.height}}
+  name Crop3
+  xpos -1736
+  ypos 4056
+ }
+ Dot {
+  name Dot22
+  xpos -1702
+  ypos 5420
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 0.03
+  name Constant28
+  xpos 1188
+  ypos 4367
+ }
+ Reformat {
+  type "to box"
+  box_width {{parent.width}}
+  box_height {{parent.height}}
+  box_fixed true
+  resize distort
+  center false
+  filter impulse
+  name Reformat6
+  xpos 1188
+  ypos 4439
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  format "5120 2048 0 0 5120 2048 1 textformat"
+  name Constant31
+  xpos 1100
+  ypos 3469
+ }
+ Remove {
+  name Remove2
+  xpos 1100
+  ypos 3559
+ }
+set N7a2cc800 [stack 0]
+ Text {
+  message ""
+  font C:/Windows/Fonts/arial.ttf
+  size 69
+  leading 0.397
+  yjustify top
+  Transform 1
+  box {767 294 3034 1739.5}
+  center {960 540}
+  name slate_info
+  xpos 1213
+  ypos 3658
+ }
+push 0
+push $N7a2cc800
+ Text {
+  message "file\nframes\ndate\nartist\nversion\n\nfps\nresolution"
+  font C:/Windows/Fonts/arial.ttf
+  size 69
+  leading 0.397
+  xjustify right
+  yjustify top
+  Transform 1
+  box {22 294 657.5 1739.5}
+  center {960 540}
+  name slate_titles
+  xpos 1100
+  ypos 3659
+ }
+push $N7a2cc800
+ Text {
+  message ""
+  font C:/Windows/Fonts/arial.ttf
+  size 100
+  yjustify center
+  Transform 1
+  box {767 1830 2796 1974}
+  center {960 540}
+  name slate_projectinfo
+  xpos 984
+  ypos 3659
+ }
+ Merge2 {
+  inputs 3+1
+  name Merge5
+  xpos 1100
+  ypos 3759
+ }
+ Transform {
+  translate {-610 -1000}
+  scale 2.325999975
+  center {360 1230}
+  name Transform21
+  xpos 1100
+  ypos 3847
+ }
+ Reformat {
+  type "to box"
+  box_width {{"(\[exists parent.input]==1?parent.input.format.w:root.format.w)/2"}}
+  box_height {{width}}
+  resize fit
+  pbb true
+  name Reformat_Logo2
+  xpos 1100
+  ypos 3902
+ }
+ Transform {
+  translate {{parent.height-((parent.height/100)*80)} {parent.height/2}}
+  center {528.5 528.5}
+  name Transform22
+  xpos 1100
+  ypos 3926
+ }
+ Reformat {
+  inputs 0
+  format "3840 2160 0 0 3840 2160 1 UHD_4K"
+  name Reformat9
+  xpos 693
+  ypos 2712
+ }
+set N837a7800 [stack 0]
+ Roto {
+  replace true
+  curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x44700000 x44070000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {layer Layer1
+     {f 2097664}
+     {t x42913333 x435b3333 0 x44a3e666 x422a6666 0 0 0 0 x4028c49c x4028c49c}
+     {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+     {curvegroup Shape86 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43815f1b x43558f5c}
+	 {0 x3f856042}
+	 {xbf7a9fbe 0}
+	 {x43822d2f x43574666}
+	 {x3f816873 0}
+	 {0 x3f8b851f}
+	 {x4382f917 x43558f5c}
+	 {0 0}
+	 {0 0}
+	 {x4382f917 x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x43815f1b x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x43815f1b x43558f5c}
+	 {0 0}}}      idem}
+      {tx 0 x43822c19 x4356645a}
+      {a str 1 ss 0}}
+     {curvegroup Shape81 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x436808b4 x43558f5c}
+	 {0 x3f856042}
+	 {xbf7a9fbe 0}
+	 {x4369a4dd x43574666}
+	 {x3f81a9fc 0}
+	 {0 x3f8b851f}
+	 {x436b3cac x43558f5c}
+	 {0 0}
+	 {0 0}
+	 {x436b3cac x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x436808b4 x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x436808b4 x43558f5c}
+	 {0 0}}}      idem}
+      {tx 0 x4369a2b0 x4356645a}
+      {a str 1 ss 0}}
+     {curvegroup Shape79 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x435f147b x4354dae1}
+	 {0 x3fbeb852}
+	 {xbf8b645a 0}
+	 {x4360cb44 x43573375}
+	 {x3fa8d4fe 0}
+	 {0 x3f8a9fbe}
+	 {x4362953f x4354f604}
+	 {0 xbfdbe76d}
+	 {x3fb08312 0}
+	 {x43609d71 x4352824e}
+	 {xbf72b021 0}
+	 {0 xbfb91687}
+	 {x435f147b x4354dae1}
+	 {0 0}}}      idem}
+      {tx 0 x4360d4dd x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape77 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4356d7cf x435371ec}
+	 {0 x3f83b646}
+	 {xbf6c8b44 0}
+	 {x4358d47b x43549b23}
+	 {0 0}
+	 {0 0}
+	 {x4359d6c9 x43549b23}
+	 {0 0}
+	 {0 0}
+	 {x4359d74c x43548ed9}
+	 {x3c656042 xbf27ae14}
+	 {x3ebced91 x3ec20c4a}
+	 {x43594a7f x4352f47b}
+	 {xbea978d5 xbead9168}
+	 {x3f0ac083 0}
+	 {x4357f53f x43526fdf}
+	 {xbf326e98 0}
+	 {0 xbf218937}
+	 {x4356d7cf x435371ec}
+	 {0 0}}}      idem}
+      {tx 0 x4358578d x43538581}
+      {a str 1 ss 0}}
+     {curvegroup Shape75 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4347445a x435371ec}
+	 {0 x3f83b646}
+	 {xbf6c8b44 0}
+	 {x434940c5 x43549b23}
+	 {0 0}
+	 {0 0}
+	 {x434a4354 x43549b23}
+	 {0 0}
+	 {0 0}
+	 {x434a43d7 x43548ed9}
+	 {x3c54fdf4 xbf27ae14}
+	 {x3ebced91 x3ec20c4a}
+	 {x4349b6c9 x4352f47b}
+	 {xbea8f5c3 xbead9168}
+	 {x3f0a7efa 0}
+	 {x434861cb x43526fdf}
+	 {xbf326e98 0}
+	 {0 xbf218937}
+	 {x4347445a x435371ec}
+	 {0 0}}}      idem}
+      {tx 0 x4348c419 x43538581}
+      {a str 1 ss 0}}
+     {curvegroup Shape67 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x431b747b x43558f5c}
+	 {0 x3f856042}
+	 {xbf7a5e35 0}
+	 {x431d10a4 x43574666}
+	 {x3f81a9fc 0}
+	 {0 x3f8b851f}
+	 {x431ea8b4 x43558f5c}
+	 {0 0}
+	 {0 0}
+	 {x431ea8b4 x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x431b747b x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x431b747b x43558f5c}
+	 {0 0}}}      idem}
+      {tx 0 x431d0e98 x4356645a}
+      {a str 1 ss 0}}
+     {curvegroup Shape64 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x430b1be7 x4354dae1}
+	 {0 x3fbeb852}
+	 {xbf8b645a 0}
+	 {x430cd2b0 x43573375}
+	 {x3fa8f5c3 0}
+	 {0 x3f8a9fbe}
+	 {x430e9cee x4354f604}
+	 {0 xbfdbe76d}
+	 {x3fb0c49c 0}
+	 {x430ca49c x4352824e}
+	 {xbf722d0e 0}
+	 {0 xbfb91687}
+	 {x430b1be7 x4354dae1}
+	 {0 0}}}      idem}
+      {tx 0 x430cdc6a x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape61 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42f26042 x435371ec}
+	 {0 x3f83b646}
+	 {xbf6c8b44 0}
+	 {x42f65917 x43549b23}
+	 {0 0}
+	 {0 0}
+	 {x42f85d2f x43549b23}
+	 {0 0}
+	 {0 0}
+	 {x42f85db2 x43548ed9}
+	 {x3c8b4396 xbf276c8b}
+	 {x3ebced91 x3ec18937}
+	 {x42f74625 x4352f4fe}
+	 {xbea9fbe7 xbeae147b}
+	 {x3f0a3d71 0}
+	 {x42f49ba6 x43526fdf}
+	 {xbf32f1aa 0}
+	 {0 xbf218937}
+	 {x42f26042 x435371ec}
+	 {0 0}}}      idem}
+      {tx 0 x42f55efa x43538581}
+      {a str 1 ss 0}}
+     {curvegroup Shape57 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42cd0bc7 x43558f5c}
+	 {0 x3f856042}
+	 {xbf7a1cac 0}
+	 {x42d04396 x43574666}
+	 {x3f81a9fc 0}
+	 {0 x3f8b851f}
+	 {x42d373b6 x43558f5c}
+	 {0 0}
+	 {0 0}
+	 {x42d373b6 x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x42cd0bc7 x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x42cd0bc7 x43558f5c}
+	 {0 0}}}      idem}
+      {tx 0 x42d03fbe x4356645a}
+      {a str 1 ss 0}}
+     {curvegroup Shape55 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42bb224e x4354dae1}
+	 {0 x3fbeb852}
+	 {xbf8b851f 0}
+	 {x42be9062 x43573375}
+	 {x3fa8f5c3 0}
+	 {0 x3f8a9fbe}
+	 {x42c224dd x4354f604}
+	 {0 xbfdbe76d}
+	 {x3fb0c49c 0}
+	 {x42be33b6 x4352824e}
+	 {xbf722d0e 0}
+	 {0 xbfb91687}
+	 {x42bb224e x4354dae1}
+	 {0 0}}}      idem}
+      {t
+   {{0 x42bea396}}
+   {{0 x4354dae1}}
+   {{0 0}}
+   {{0 0}
+    {1}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 1}}
+   {{0 1}}
+   {{0 1}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 1}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 1}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 1}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 0}}
+   {{0 1}}}
+      {a str 1 ss 0}}
+     {curvegroup Shape53 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42ab0000 x43558f5c}
+	 {0 x3f856042}
+	 {xbf7a5e35 0}
+	 {x42ae37cf x43574666}
+	 {x3f81cac1 0}
+	 {0 x3f8b851f}
+	 {x42b16873 x43558f5c}
+	 {0 0}
+	 {0 0}
+	 {x42b16873 x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x42ab0000 x4355824e}
+	 {0 0}
+	 {0 0}
+	 {x42ab0000 x43558f5c}
+	 {0 0}}}      idem}
+      {tx 0 x42ae3439 x4356645a}
+      {a str 1 ss 0}}
+     {curvegroup Shape49 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43844917 x434a4c08}
+	 {0 x3f31eb85}
+	 {xbf272b02 0}
+	 {x4384d2b0 x434b70a4}
+	 {x3f2ccccd 0}
+	 {0 x3f3a1cac}
+	 {x43855ae1 x434a4c08}
+	 {0 0}
+	 {0 0}
+	 {x43855ae1 x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x43844917 x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x43844917 x434a4c08}
+	 {0 0}}}      idem}
+      {tx 0 x4384d1fc x434ad9fc}
+      {a str 1 ss 0}}
+     {curvegroup Shape42 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4364c72b x434a4c08}
+	 {0 x3f31eb85}
+	 {xbf272b02 0}
+	 {x4365da5e x434b70a4}
+	 {x3f2ccccd 0}
+	 {0 x3f3a1cac}
+	 {x4366eac1 x434a4c08}
+	 {0 0}
+	 {0 0}
+	 {x4366eac1 x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x4364c72b x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x4364c72b x434a4c08}
+	 {0 0}}}      idem}
+      {tx 0 x4365d8f6 x434ad9fc}
+      {a str 1 ss 0}}
+     {curvegroup Shape40 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x435eb8d5 x4349d3b6}
+	 {0 x3f7e76c9}
+	 {xbf3a1cac 0}
+	 {x435fddf4 x434b645a}
+	 {x3f618937 0}
+	 {0 x3f391687}
+	 {x43610fdf x4349e5a2}
+	 {0 xbf926e98}
+	 {x3f6bc6a8 0}
+	 {x435fbefa x43484354}
+	 {xbf218937 0}
+	 {0 xbf770a3d}
+	 {x435eb8d5 x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x435fe45a x4349d3d7}
+      {a str 1 ss 0}}
+     {curvegroup Shape37 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4353326f x4349d3b6}
+	 {0 x3f7ae148}
+	 {xbf391687 0}
+	 {x435459db x434b645a}
+	 {x3f389375 0}
+	 {0 x3f7ae148}
+	 {x435580c5 x4349d3b6}
+	 {0 xbf7a9fbe}
+	 {x3f389375 0}
+	 {x435459db x43484354}
+	 {xbf391687 0}
+	 {0 xbf7a9fbe}
+	 {x4353326f x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x4354599a x4349d3d7}
+      {a str 1 ss 0}}
+     {curvegroup Shape35 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x434d9d2f x4349d3b6}
+	 {0 x3f7ae148}
+	 {xbf391687 0}
+	 {x434ec4dd x434b645a}
+	 {x3f38d4fe 0}
+	 {0 x3f7ae148}
+	 {x434fec4a x4349d3b6}
+	 {0 xbf7a9fbe}
+	 {x3f38d4fe 0}
+	 {x434ec4dd x43484354}
+	 {xbf391687 0}
+	 {0 xbf7a9fbe}
+	 {x434d9d2f x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x434ec4bc x4349d3d7}
+      {a str 1 ss 0}}
+     {curvegroup Shape31 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x433d220c x4349d3b6}
+	 {0 x3f7ae148}
+	 {xbf389375 0}
+	 {x433e4937 x434b645a}
+	 {x3f395810 0}
+	 {0 x3f7ae148}
+	 {x433f70a4 x4349d3b6}
+	 {0 xbf7a9fbe}
+	 {x3f395810 0}
+	 {x433e4937 x43484354}
+	 {xbf389375 0}
+	 {0 xbf7a9fbe}
+	 {x433d220c x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x433e4958 x4349d3d7}
+      {a str 1 ss 0}}
+     {curvegroup Shape29 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43378d91 x4349d3b6}
+	 {0 x3f7ae148}
+	 {xbf391687 0}
+	 {x4338b4bc x434b645a}
+	 {x3f391687 0}
+	 {0 x3f7ae148}
+	 {x4339dc29 x4349d3b6}
+	 {0 xbf7a9fbe}
+	 {x3f391687 0}
+	 {x4338b4bc x43484354}
+	 {xbf391687 0}
+	 {0 xbf7a9fbe}
+	 {x43378d91 x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x4338b4dd x4349d3d7}
+      {a str 1 ss 0}}
+     {curvegroup Shape24 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43220d50 x434a4c08}
+	 {0 x3f31eb85}
+	 {xbf26e979 0}
+	 {x43232042 x434b70a4}
+	 {x3f2d0e56 0}
+	 {0 x3f3a1cac}
+	 {x432430a4 x434a4c08}
+	 {0 0}
+	 {0 0}
+	 {x432430a4 x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x43220d50 x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x43220d50 x434a4c08}
+	 {0 0}}}      idem}
+      {tx 0 x43231efa x434ad9fc}
+      {a str 1 ss 0}}
+     {curvegroup Shape22 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x431c0000 x4349e0c5}
+	 {0 x3f6f5c29}
+	 {xbf3df3b6 0}
+	 {x431d2f1b x434b5f3b}
+	 {x3f38d4fe 0}
+	 {0 x3f67ae14}
+	 {x431e5646 x4349ed50}
+	 {0 xbf68f5c3}
+	 {x3f3c28f6 0}
+	 {x431d29ba x43487917}
+	 {xbf4dd2f2 0}
+	 {0 xbf333333}
+	 {x431c0000 x4349e0c5}
+	 {0 0}}}      idem}
+      {tx 0 x431d2b23 x4349ec29}
+      {a str 1 ss 0}}
+     {curvegroup Shape20 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x431665a2 x4349d3b6}
+	 {0 x3f7ae148}
+	 {xbf38d4fe 0}
+	 {x43178d0e x434b645a}
+	 {x3f38d4fe 0}
+	 {0 x3f7ae148}
+	 {x4318b47b x4349d3b6}
+	 {0 xbf7a9fbe}
+	 {x3f38d4fe 0}
+	 {x43178d0e x43484354}
+	 {xbf38d4fe 0}
+	 {0 xbf7a9fbe}
+	 {x431665a2 x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x43178d0e x4349d3d7}
+      {a str 1 ss 0}}
+     {curvegroup Shape17 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4307849c x434a4c08}
+	 {0 x3f31eb85}
+	 {xbf26e979 0}
+	 {x4308978d x434b70a4}
+	 {x3f2d0e56 0}
+	 {0 x3f3a1cac}
+	 {x4309a7f0 x434a4c08}
+	 {0 0}
+	 {0 0}
+	 {x4309a7f0 x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x4307849c x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x4307849c x434a4c08}
+	 {0 0}}}      idem}
+      {tx 0 x43089646 x434ad9fc}
+      {a str 1 ss 0}}
+     {curvegroup Shape13 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42e6d3f8 x4348e312}
+	 {0 x3f2fdf3b}
+	 {xbf1db22d 0}
+	 {x42e97958 x4349a979}
+	 {0 0}
+	 {0 0}
+	 {x42ead26f x4349a979}
+	 {0 0}
+	 {0 0}
+	 {x42ead26f x4349a0c5}
+	 {x3c343958 xbedfbe77}
+	 {x3e7be76d x3e810625}
+	 {x42ea178d x43488f1b}
+	 {xbe624dd3 xbe676c8b}
+	 {x3eb851ec 0}
+	 {x42e850e5 x43483687}
+	 {xbeee978d 0}
+	 {0 xbed81062}
+	 {x42e6d3f8 x4348e312}
+	 {0 0}}}      idem}
+      {tx 0 x42e8d333 x4348f000}
+      {a str 1 ss 0}}
+     {curvegroup Shape11 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42dac000 x4349d3b6}
+	 {0 x3f7e76c9}
+	 {xbf3a5e35 0}
+	 {x42dd0a3d x434b645a}
+	 {x3f6147ae 0}
+	 {0 x3f391687}
+	 {x42df6d91 x4349e5a2}
+	 {0 xbf926e98}
+	 {x3f6c0831 0}
+	 {x42dccc4a x43484354}
+	 {xbf218937 0}
+	 {0 xbf770a3d}
+	 {x42dac000 x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x42dd16c9 x4349d3d7}
+      {a str 1 ss 0}}
+     {curvegroup Shape8 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42c748b4 x434a4c08}
+	 {0 x3f31eb85}
+	 {xbf26e979 0}
+	 {x42c96e98 x434b70a4}
+	 {x3f2d4fdf 0}
+	 {0 x3f3a1cac}
+	 {x42cb8f5c x434a4c08}
+	 {0 0}
+	 {0 0}
+	 {x42cb8f5c x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x42c748b4 x434a4354}
+	 {0 0}
+	 {0 0}
+	 {x42c748b4 x434a4c08}
+	 {0 0}}}      idem}
+      {tx 0 x42c96c08 x434ad9fc}
+      {a str 1 ss 0}}
+     {curvegroup Shape3 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x429714fe x434d0a7f}
+	 {0 0}
+	 {0 0}
+	 {x429923d7 x434a676d}
+	 {0 0}
+	 {0 0}
+	 {x4294fae1 x434a676d}
+	 {0 0}
+	 {0 0}
+	 {x429714fe x434d0a7f}
+	 {0 0}}}      idem}
+      {tx 0 x42970f5c x434bb8f6}
+      {a str 1 ss 0}}}}}}}
+  toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+  toolbar_brush_hardness 0.200000003
+  toolbar_source_transform_scale {1 1}
+  toolbar_source_transform_center {960 540}
+  colorOverlay {0 0 0 0}
+  lifetime_type "all frames"
+  motionblur_shutter_offset_type centred
+  name Roto4
+  xpos 636
+  ypos 2816
+ }
+push $N837a7800
+ Roto {
+  curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x44700000 x44070000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {layer Layer1
+     {f 2097664}
+     {t x42913333 x435b3333 0 x44a3e666 x422a6666 0 0 0 0 x4028c49c x4028c49c}
+     {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+     {curvegroup Shape85 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x438062d1 x4354f1ec}
+	 {0 xc018e560}
+	 {xc0171aa0 0}
+	 {x43823e56 x43512f5c}
+	 {x3fe18937 0}
+	 {xbe9db22d xbfb9db23}
+	 {x4383de98 x43537852}
+	 {0 0}
+	 {0 0}
+	 {x4382fb44 x43537852}
+	 {xbe449ba6 xbf316873}
+	 {x3f428f5c 0}
+	 {x43824625 x43526fdf}
+	 {xbf90c49c 0}
+	 {0 xbf941893}
+	 {x43815f1b x435448f6}
+	 {0 0}
+	 {0 0}
+	 {x43815f1b x43545604}
+	 {0 0}
+	 {0 0}
+	 {x4383ebe7 x43545604}
+	 {0 x3ef0a3d7}
+	 {x3db43958 xbf0872b0}
+	 {x4383e062 x4355de77}
+	 {xbe91eb85 x3fd1a9fc}
+	 {x3fe0e560 0}
+	 {x43823873 x43588666}
+	 {xc00e978d 0}
+	 {0 x400b3333}
+	 {x438062d1 x4354f1ec}
+	 {0 0}}}      idem}
+      {tx 0 x4382275c x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape84 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x437c2560 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x437c2560 x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x437d1eb8 x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x437d1eb8 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x437c2560 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x437c2560 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x437ffd2f x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x437ffd2f x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x437f03d7 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x437f03d7 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x437c2560 x435850e5}
+	 {0 0}}}      idem}
+      {tx 0 x437e1148 x4354db02}
+      {a a 0 str 1 ss 0}}
+     {curvegroup Shape83 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x437d0b44 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x437d0b44 x43596b85}
+	 {0 0}
+	 {0 0}
+	 {x437f03d7 x43596b85}
+	 {0 0}
+	 {0 0}
+	 {x437f03d7 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x437d0b44 x435b50e5}
+	 {0 0}}}      idem}
+      {tx 0 x437e078d x435a5e35}
+      {a str 1 ss 0}}
+     {curvegroup Shape82 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43757a5e x43573f3b}
+	 {0 0}
+	 {0 0}
+	 {x43756f5c x43572a7f}
+	 {0 0}
+	 {0 0}
+	 {x4375645a x43573f3b}
+	 {xbef74bc7 x3f6872b0}
+	 {x3f92f1aa 0}
+	 {x43731852 x43588666}
+	 {xbf8147ae 0}
+	 {x3ee8f5c3 x3f5b22d1}
+	 {x4370c0c5 x43572873}
+	 {0 0}
+	 {0 0}
+	 {x4370bd2f x435721cb}
+	 {0 0}
+	 {0 0}
+	 {x4370a148 x435721cb}
+	 {0 0}
+	 {0 0}
+	 {x4370a148 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x436df021 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x436df021 x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x436ee9ba x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x436ee9ba x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x436df021 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x436df021 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4371b53f x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4371b53f x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4370ced9 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4370ced9 x435542d1}
+	 {0 x3f770a3d}
+	 {xbf8a3d71 0}
+	 {x43725f3b x43573375}
+	 {x3f618937 0}
+	 {0 x3f33f7cf}
+	 {x4373a72b x4355bdb2}
+	 {0 0}
+	 {0 0}
+	 {x4373a72b x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4372c0c5 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4372c0c5 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x437672b0 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x437672b0 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43758ccd x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43758ccd x43555604}
+	 {0 x3f5c28f6}
+	 {xbf96c8b4 0}
+	 {x437724dd x43573375}
+	 {x3f4e5604 0}
+	 {0 x3f70e560}
+	 {x437864dd x4355bdb2}
+	 {0 0}
+	 {0 0}
+	 {x437864dd x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43777e35 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43777e35 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x437b43d7 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x437b43d7 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x437a49ba x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x437a49ba x43564bc7}
+	 {xbd27ef9e x3fbd4fdf}
+	 {x3fd6872b 0}
+	 {x4377b333 x43588666}
+	 {xbf800000 0}
+	 {x3ee8f5c3 x3f5645a2}
+	 {x43757a5e x43573f3b}
+	 {0 0}}}      idem}
+      {tx 0 x437499fc x4354f5c3}
+      {a str 1 ss 0}}
+     {curvegroup Shape80 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43661021 x4354f1ec}
+	 {0 xc018e560}
+	 {xc0171aa0 0}
+	 {x4369c72b x43512f5c}
+	 {x3fe18937 0}
+	 {xbe9eb852 xbfb9db23}
+	 {x436d0831 x43537852}
+	 {0 0}
+	 {0 0}
+	 {x436b4148 x43537852}
+	 {xbe45a1cb xbf316873}
+	 {x3f428f5c 0}
+	 {x4369d6c9 x43526fdf}
+	 {xbf90c49c 0}
+	 {0 xbf941893}
+	 {x436808b4 x435448f6}
+	 {0 0}
+	 {0 0}
+	 {x436808b4 x43545604}
+	 {0 0}
+	 {0 0}
+	 {x436d22d1 x43545604}
+	 {0 x3ef0a3d7}
+	 {x3db020c5 xbf0872b0}
+	 {x436d0bc7 x4355de77}
+	 {xbe91eb85 x3fd1a9fc}
+	 {x3fe0c49c 0}
+	 {x4369bba6 x43588666}
+	 {xc00eb852 0}
+	 {0 x400b3333}
+	 {x43661021 x4354f1ec}
+	 {0 0}}}      idem}
+      {tx 0 x43699979 x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape78 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43617cee x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x43617cee x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x4362774c x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x4362774c x435747f0}
+	 {0 0}
+	 {0 0}
+	 {x43625a5e x435747f0}
+	 {0 0}
+	 {0 0}
+	 {x436256c9 x43574f1b}
+	 {xbe8ac083 x3f0e147b}
+	 {x3fa28f5c 0}
+	 {x4360353f x43588666}
+	 {xbff83127 0}
+	 {0 x40173b64}
+	 {x435d1be7 x4354c083}
+	 {0 xbfe353f8}
+	 {xc003b646 0}
+	 {x436016c9 x43512f5c}
+	 {x3f978d50 0}
+	 {xbf25a1cb xbf81cac1}
+	 {x43628979 x43528ac1}
+	 {0 0}
+	 {0 0}
+	 {x43628d50 x43529062}
+	 {0 0}
+	 {0 0}
+	 {x4362a873 x43529062}
+	 {0 0}
+	 {0 0}
+	 {x4362a873 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4365553f x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4365553f x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43645ba6 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43645ba6 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x43617cee x435b50e5}
+	 {0 0}}}      idem}
+      {tx 0 x43613893 x43564021}
+      {a str 1 ss 0}}
+     {curvegroup Shape76 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43554ccd x43564937}
+	 {0 0}
+	 {0 0}
+	 {x435713f8 x43564937}
+	 {x3d9374bc x3f4147ae}
+	 {xbf558106 0}
+	 {x43587062 x43576d0e}
+	 {x3f6a7efa 0}
+	 {0 x3f3d70a4}
+	 {x4359d74c x43564bc7}
+	 {0 0}
+	 {0 0}
+	 {x4359d74c x4355b47b}
+	 {0 0}
+	 {0 0}
+	 {x4359153f x4355b47b}
+	 {xbfcc6a7f 0}
+	 {0 x40146a7f}
+	 {x43551168 x435362d1}
+	 {0 xbfd00000}
+	 {xbf8d70a4 0}
+	 {x435776c9 x43512f5c}
+	 {x3f8d9168 0}
+	 {xbf14bc6a xbf63d70a}
+	 {x4359bf7d x4352645a}
+	 {0 0}
+	 {0 0}
+	 {x4359c354 x43526a7f}
+	 {0 0}
+	 {0 0}
+	 {x4359de77 x43526a7f}
+	 {0 0}
+	 {0 0}
+	 {x4359de77 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x435c83d7 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x435c83d7 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x435b9d71 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x435b9d71 x43558083}
+	 {0 x400d0e56}
+	 {x4009999a 0}
+	 {x4358aa7f x43588666}
+	 {xbfbf1aa0 0}
+	 {x3e189375 x3ffd9168}
+	 {x43554ccd x43564937}
+	 {0 0}}}      idem}
+      {tx 0 x4358caa0 x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape74 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4345b958 x43564937}
+	 {0 0}
+	 {0 0}
+	 {x43478042 x43564937}
+	 {x3d9374bc x3f4147ae}
+	 {xbf558106 0}
+	 {x4348dcac x43576d0e}
+	 {x3f6a7efa 0}
+	 {0 x3f3d70a4}
+	 {x434a43d7 x43564bc7}
+	 {0 0}
+	 {0 0}
+	 {x434a43d7 x4355b47b}
+	 {0 0}
+	 {0 0}
+	 {x434981cb x4355b47b}
+	 {xbfcc8b44 0}
+	 {0 x40146a7f}
+	 {x43457db2 x435362d1}
+	 {0 xbfd00000}
+	 {xbf8d9168 0}
+	 {x4347e354 x43512f5c}
+	 {x3f8d70a4 0}
+	 {xbf147ae1 xbf63d70a}
+	 {x434a2bc7 x4352645a}
+	 {0 0}
+	 {0 0}
+	 {x434a2fdf x43526a7f}
+	 {0 0}
+	 {0 0}
+	 {x434a4ac1 x43526a7f}
+	 {0 0}
+	 {0 0}
+	 {x434a4ac1 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x434cf021 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x434cf021 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x434c09ba x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x434c09ba x43558083}
+	 {0 x400d0e56}
+	 {x4009999a 0}
+	 {x434916c9 x43588666}
+	 {xbfbef9db 0}
+	 {x3e178d50 x3ffd9168}
+	 {x4345b958 x43564937}
+	 {0 0}}}      idem}
+      {tx 0 x434936e9 x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape73 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x434d774c x4354b4bc}
+	 {0 xbfcfdf3b}
+	 {xc02a9fbe 0}
+	 {x435113f8 x43512f5c}
+	 {x3fde76c9 0}
+	 {xbe21cac1 xbfc9fbe7}
+	 {x4354245a x4353bdf4}
+	 {0 0}
+	 {0 0}
+	 {x43527062 x4353bdf4}
+	 {xbd9fbe77 xbf3d2f1b}
+	 {x3f3c28f6 0}
+	 {x435117cf x4352824e}
+	 {xbf8cac08 0}
+	 {0 xbfc9db23}
+	 {x434f6fdf x4354e2d1}
+	 {0 x3f649ba6}
+	 {xbfb374bc 0}
+	 {x43510c4a x43574666}
+	 {x3f770a3d 0}
+	 {xbd810625 x3f8b020c}
+	 {x43528873 x4355b375}
+	 {0 0}
+	 {0 0}
+	 {x435403d7 x4355b375}
+	 {0 0}
+	 {0 0}
+	 {x435403d7 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x43529cee x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x43529cee x435781cb}
+	 {0 0}
+	 {0 0}
+	 {x43528148 x435781cb}
+	 {0 0}
+	 {0 0}
+	 {x43527d71 x435787f0}
+	 {xbebbe76d x3f1f7cee}
+	 {x3f4d0e56 0}
+	 {x4350a042 x43588666}
+	 {xc0300000 0}
+	 {0 x3fb6872b}
+	 {x434d774c x4354b4bc}
+	 {0 0}}}      idem}
+      {tx 0 x4350cdd3 x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape72 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x433f06e9 x43573f3b}
+	 {0 0}
+	 {0 0}
+	 {x433efba6 x43572a7f}
+	 {0 0}
+	 {0 0}
+	 {x433ef062 x43573f3b}
+	 {xbef645a2 x3f6872b0}
+	 {x3f933333 0}
+	 {x433ca49c x43588666}
+	 {xbf8126e9 0}
+	 {x3ee9fbe7 x3f5b22d1}
+	 {x433a4d50 x43572873}
+	 {0 0}
+	 {0 0}
+	 {x433a49ba x435721cb}
+	 {0 0}
+	 {0 0}
+	 {x433a2d91 x435721cb}
+	 {0 0}
+	 {0 0}
+	 {x433a2d91 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x43377cac x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x43377cac x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x43387646 x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x43387646 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43377cac x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43377cac x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x433b420c x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x433b420c x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x433a5ba6 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x433a5ba6 x435542d1}
+	 {0 x3f770a3d}
+	 {xbf8a5e35 0}
+	 {x433bec4a x43573375}
+	 {x3f610625 0}
+	 {0 x3f33f7cf}
+	 {x433d33b6 x4355bdb2}
+	 {0 0}
+	 {0 0}
+	 {x433d33b6 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x433c4d91 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x433c4d91 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x433fff7d x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x433fff7d x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x433f1917 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x433f1917 x43555604}
+	 {0 x3f5c28f6}
+	 {xbf96872b 0}
+	 {x4340b127 x43573375}
+	 {x3f4e978d 0}
+	 {0 x3f70e560}
+	 {x4341f168 x4355bdb2}
+	 {0 0}
+	 {0 0}
+	 {x4341f168 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43410ac1 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43410ac1 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4344d021 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4344d021 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4343d687 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4343d687 x43564bc7}
+	 {xbd23d70a x3fbd4fdf}
+	 {x3fd6c8b4 0}
+	 {x43413fbe x43588666}
+	 {xbf800000 0}
+	 {x3ee872b0 x3f5645a2}
+	 {x433f06e9 x43573f3b}
+	 {0 0}}}      idem}
+      {tx 0 x433e2666 x4354f5c3}
+      {a str 1 ss 0}}
+     {curvegroup Shape71 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4332c2d1 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x4332c2d1 x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x4333bc6a x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x4333bc6a x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4332c2d1 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4332c2d1 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x43369b23 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x43369b23 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4335a189 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x4335a189 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x4332c2d1 x435b50e5}
+	 {0 0}}}      idem}
+      {tx 0 x4334aefa x43565b02}
+      {a str 1 ss 0}}
+     {curvegroup Shape70 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x432e245a x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x432e245a x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x432f1db2 x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x432f1db2 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x432e245a x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x432e245a x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4331fcac x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4331fcac x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43310312 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43310312 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x432e245a x435850e5}
+	 {0 0}}}      idem}
+      {tx 0 x43301083 x4354db02}
+      {a a 0 str 1 ss 0}}
+     {curvegroup Shape69 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x432f0a7f x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x432f0a7f x43596b85}
+	 {0 0}
+	 {0 0}
+	 {x43310312 x43596b85}
+	 {0 0}
+	 {0 0}
+	 {x43310312 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x432f0a7f x435b50e5}
+	 {0 0}}}      idem}
+      {tx 0 x433006c9 x435a5e35}
+      {a str 1 ss 0}}
+     {curvegroup Shape68 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43242dd3 x435b1b23}
+	 {0 0}
+	 {0 0}
+	 {x43242dd3 x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x432568f6 x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x432568f6 x4352b852}
+	 {0 0}
+	 {0 0}
+	 {x43242dd3 x4352b852}
+	 {0 0}
+	 {0 0}
+	 {x43242dd3 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4328d5c3 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4328d5c3 x4352b852}
+	 {0 0}
+	 {0 0}
+	 {x43276148 x4352b852}
+	 {0 0}
+	 {0 0}
+	 {x43276148 x43559062}
+	 {0 0}
+	 {0 0}
+	 {x4328dbe7 x43559062}
+	 {0 0}
+	 {0 0}
+	 {x4328dbe7 x4354370a}
+	 {0 0}
+	 {0 0}
+	 {x432a55c3 x4354370a}
+	 {0 0}
+	 {0 0}
+	 {x432a55c3 x43581f3b}
+	 {0 0}
+	 {0 0}
+	 {x4328dbe7 x43581f3b}
+	 {0 0}
+	 {0 0}
+	 {x4328dbe7 x4356d0e5}
+	 {0 0}
+	 {0 0}
+	 {x43276148 x4356d0e5}
+	 {0 0}
+	 {0 0}
+	 {x43276148 x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x432b5d71 x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x432b5d71 x4357eb85}
+	 {0 0}
+	 {0 0}
+	 {x432cfd71 x4357eb85}
+	 {0 0}
+	 {0 0}
+	 {x432cfd71 x435b1b23}
+	 {0 0}
+	 {0 0}
+	 {x43242dd3 x435b1b23}
+	 {0 0}}}      idem}
+      {tx 0 x432895a2 x43564021}
+      {a str 1 ss 0}}
+     {curvegroup Shape66 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43197be7 x4354f1ec}
+	 {0 xc018e560}
+	 {xc0171aa0 0}
+	 {x431d32f2 x43512f5c}
+	 {x3fe18937 0}
+	 {xbe9eb852 xbfb9db23}
+	 {x432073b6 x43537852}
+	 {0 0}
+	 {0 0}
+	 {x431ead0e x43537852}
+	 {xbe47ae14 xbf316873}
+	 {x3f424dd3 0}
+	 {x431d428f x43526fdf}
+	 {xbf90a3d7 0}
+	 {0 xbf941893}
+	 {x431b747b x435448f6}
+	 {0 0}
+	 {0 0}
+	 {x431b747b x43545604}
+	 {0 0}
+	 {0 0}
+	 {x43208e14 x43545604}
+	 {0 x3ef0a3d7}
+	 {x3db020c5 xbf0872b0}
+	 {x4320774c x4355de77}
+	 {xbe91eb85 x3fd1a9fc}
+	 {x3fe0e560 0}
+	 {x431d27ae x43588666}
+	 {xc00eb852 0}
+	 {0 x400b3333}
+	 {x43197be7 x4354f1ec}
+	 {0 0}}}      idem}
+      {tx 0 x431d04fe x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape65 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4312578d x43566a7f}
+	 {0 xbfe76c8b}
+	 {xbf94bc6a x3e418937}
+	 {x4314f375 x43542f9e}
+	 {x3f547ae1 xbe09374c}
+	 {0 x3f23d70a}
+	 {x43167f3b x43534bc7}
+	 {0 xbf4c0831}
+	 {x3e849ba6 0}
+	 {x431565a2 x43526fdf}
+	 {xbf418937 0}
+	 {x3ce56042 xbf6b851f}
+	 {x4313da5e x4353c560}
+	 {0 0}
+	 {0 0}
+	 {x43125f3b x4353c560}
+	 {0 0}
+	 {0 0}
+	 {x43125f3b x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4313c5e3 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4313c5e3 x4352251f}
+	 {0 0}
+	 {0 0}
+	 {x4313e0c5 x4352251f}
+	 {0 0}
+	 {0 0}
+	 {x4313e49c x43522000}
+	 {x3ee56042 xbf21cac1}
+	 {xbf6d9168 0}
+	 {x4315f021 x43512f5c}
+	 {x3fb60419 0}
+	 {0 xbfa33333}
+	 {x4318649c x435362d1}
+	 {0 x3fe60419}
+	 {x3f95a1cb xbe418937}
+	 {x4315c4dd x43559be7}
+	 {xbf526e98 x3e083127}
+	 {0 xbf1e76c9}
+	 {x43143cee x435679db}
+	 {0 x3f041893}
+	 {xbf3a5e35 0}
+	 {x43155df4 x43574666}
+	 {x3f553f7d 0}
+	 {xbcb43958 x3f40c49c}
+	 {x4316b3f8 x4356170a}
+	 {0 0}
+	 {0 0}
+	 {x43182ed9 x4356170a}
+	 {0 0}
+	 {0 0}
+	 {x43182ed9 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x4316c873 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x4316c873 x4357947b}
+	 {0 0}
+	 {0 0}
+	 {x4316accd x4357947b}
+	 {0 0}
+	 {0 0}
+	 {x4316a937 x43579a5e}
+	 {xbed58106 x3f25a1cb}
+	 {x3f60c49c 0}
+	 {x4314d021 x43588666}
+	 {xbf9d70a4 0}
+	 {0 x3fba7efa}
+	 {x4312578d x43566a7f}
+	 {0 0}}}      idem}
+      {tx 0 x43155e14 x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape63 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x430d849c x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x430d849c x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x430e7e35 x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x430e7e35 x435747f0}
+	 {0 0}
+	 {0 0}
+	 {x430e61cb x435747f0}
+	 {0 0}
+	 {0 0}
+	 {x430e5e77 x43574f1b}
+	 {xbe8b4396 x3f0e147b}
+	 {x3fa24dd3 0}
+	 {x430c3cee x43588666}
+	 {xbff872b0 0}
+	 {0 x40173b64}
+	 {x43092354 x4354c083}
+	 {0 xbfe353f8}
+	 {xc003b646 0}
+	 {x430c1e35 x43512f5c}
+	 {x3f978d50 0}
+	 {xbf25a1cb xbf81cac1}
+	 {x430e9127 x43528ac1}
+	 {0 0}
+	 {0 0}
+	 {x430e94fe x43529062}
+	 {0 0}
+	 {0 0}
+	 {x430eafdf x43529062}
+	 {0 0}
+	 {0 0}
+	 {x430eafdf x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x43115d2f x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x43115d2f x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43106396 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43106396 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x430d849c x435b50e5}
+	 {0 0}}}      idem}
+      {tx 0 x430d4042 x43564021}
+      {a str 1 ss 0}}
+     {curvegroup Shape62 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43028fdf x43572873}
+	 {0 0}
+	 {0 0}
+	 {x43028c4a x435721cb}
+	 {0 0}
+	 {0 0}
+	 {x43027021 x435721cb}
+	 {0 0}
+	 {0 0}
+	 {x43027021 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x42ff7e77 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x42ff7e77 x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x4300b8d5 x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x4300b8d5 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42ff7e77 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42ff7e77 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4303849c x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4303849c x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43029e35 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43029e35 x435542d1}
+	 {0 x3f770a3d}
+	 {xbf8a5e35 0}
+	 {x43042ed9 x43573375}
+	 {x3f610625 0}
+	 {0 x3f33f7cf}
+	 {x43057646 x4355bdb2}
+	 {0 0}
+	 {0 0}
+	 {x43057646 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43048fdf x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43048fdf x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4308553f x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x4308553f x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43075b64 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x43075b64 x4355d0e5}
+	 {0 x3fefdf3b}
+	 {x3fd95810 0}
+	 {x4304e6e9 x43588666}
+	 {xbf8126e9 0}
+	 {x3ee978d5 x3f5b22d1}
+	 {x43028fdf x43572873}
+	 {0 0}}}      idem}
+      {tx 0 x43040a3d x4354f5c3}
+      {a str 1 ss 0}}
+     {curvegroup Shape60 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42ef4a3d x43564937}
+	 {0 0}
+	 {0 0}
+	 {x42f2d78d x43564937}
+	 {x3d958106 x3f4147ae}
+	 {xbf553f7d 0}
+	 {x42f59168 x43576d0e}
+	 {x3f6a3d71 0}
+	 {0 x3f3d70a4}
+	 {x42f85db2 x43564bc7}
+	 {0 0}
+	 {0 0}
+	 {x42f85db2 x4355b47b}
+	 {0 0}
+	 {0 0}
+	 {x42f6dba6 x4355b47b}
+	 {xbfccac08 0}
+	 {0 x40146a7f}
+	 {x42eed375 x435362d1}
+	 {0 xbfd00000}
+	 {xbf8d70a4 0}
+	 {x42f39e35 x43512f5c}
+	 {x3f8d70a4 0}
+	 {xbf147ae1 xbf63d70a}
+	 {x42f82f1b x4352645a}
+	 {0 0}
+	 {0 0}
+	 {x42f83646 x43526a7f}
+	 {0 0}
+	 {0 0}
+	 {x42f86d91 x43526a7f}
+	 {0 0}
+	 {0 0}
+	 {x42f86d91 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42fdb7cf x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42fdb7cf x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42fbeb02 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42fbeb02 x43558083}
+	 {0 x400d0e56}
+	 {x4009a9fc 0}
+	 {x42f60419 x43588666}
+	 {xbfbed917 0}
+	 {x3e189375 x3ffd9168}
+	 {x42ef4a3d x43564937}
+	 {0 0}}}      idem}
+      {tx 0 x42f645a2 x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape59 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42e53958 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x42e53958 x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x42e72c8b x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x42e72c8b x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42e53958 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42e53958 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42ecea7f x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42ecea7f x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42eaf6c9 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42eaf6c9 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x42e53958 x435b50e5}
+	 {0 0}}}      idem}
+      {tx 0 x42e911ec x43565b02}
+      {a str 1 ss 0}}
+     {curvegroup Shape58 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42dedf3b x4356fb23}
+	 {0 0}
+	 {0 0}
+	 {x42ded810 x4356f3b6}
+	 {0 0}
+	 {0 0}
+	 {x42de9f3b x4356f3b6}
+	 {0 0}
+	 {0 0}
+	 {x42de9f3b x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x42d92666 x435850e5}
+	 {0 0}
+	 {0 0}
+	 {x42d92666 x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x42db199a x435710a4}
+	 {0 0}
+	 {0 0}
+	 {x42db199a x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42d92666 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42d92666 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42e14ac1 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42e14ac1 x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42dee45a x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42dee45a x4354bc6a}
+	 {x3db020c5 x3fb39581}
+	 {xbf9a1cac 0}
+	 {x42e30312 x4356f99a}
+	 {x3e916873 0}
+	 {xbe8bc6a8 x3d79db23}
+	 {x42e4b646 x4356e937}
+	 {0 0}
+	 {0 0}
+	 {x42e4b646 x435871aa}
+	 {xbe7ef9db x3d54fdf4}
+	 {x3e8f5c29 0}
+	 {x42e31a1d x43588666}
+	 {xbf9374bc 0}
+	 {x3ea872b0 x3f347ae1}
+	 {x42dedf3b x4356fb23}
+	 {0 0}}}      idem}
+      {tx 0 x42deee56 x4354f5c3}
+      {a str 1 ss 0}}
+     {curvegroup Shape56 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42c91aa0 x4354f1ec}
+	 {0 xc018e560}
+	 {xc0170a3d 0}
+	 {x42d08831 x43512f5c}
+	 {x3fe1a9fc 0}
+	 {xbe9eb852 xbfb9db23}
+	 {x42d709ba x43537852}
+	 {0 0}
+	 {0 0}
+	 {x42d37c6a x43537852}
+	 {xbe47ae14 xbf316873}
+	 {x3f424dd3 0}
+	 {x42d0a76d x43526fdf}
+	 {xbf908312 0}
+	 {0 xbf941893}
+	 {x42cd0bc7 x435448f6}
+	 {0 0}
+	 {0 0}
+	 {x42cd0bc7 x43545604}
+	 {0 0}
+	 {0 0}
+	 {x42d73e77 x43545604}
+	 {0 x3ef0a3d7}
+	 {x3db22d0e xbf0872b0}
+	 {x42d710e5 x4355de77}
+	 {xbe91eb85 x3fd1a9fc}
+	 {x3fe0e560 0}
+	 {x42d071aa x43588666}
+	 {xc00ea7f0 0}
+	 {0 x400b3333}
+	 {x42c91aa0 x4354f1ec}
+	 {0 0}}}      idem}
+      {tx 0 x42d02c8b x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape54 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42bff3b6 x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x42bff3b6 x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x42c1e76d x435a10a4}
+	 {0 0}
+	 {0 0}
+	 {x42c1e76d x435747f0}
+	 {0 0}
+	 {0 0}
+	 {x42c1ae14 x435747f0}
+	 {0 0}
+	 {0 0}
+	 {x42c1a76d x43574f1b}
+	 {xbe8b4396 x3f0e147b}
+	 {x3fa26e98 0}
+	 {x42bd64dd x43588666}
+	 {xbff89375 0}
+	 {0 x40173b64}
+	 {x42b73127 x4354c083}
+	 {0 xbfe353f8}
+	 {xc003c6a8 0}
+	 {x42bd276d x43512f5c}
+	 {x3f978d50 0}
+	 {xbf25a1cb xbf81cac1}
+	 {x42c20ccd x43528ac1}
+	 {0 0}
+	 {0 0}
+	 {x42c2147b x43529062}
+	 {0 0}
+	 {0 0}
+	 {x42c24ac1 x43529062}
+	 {0 0}
+	 {0 0}
+	 {x42c24ac1 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42c7a4dd x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42c7a4dd x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42c5b22d x4352a560}
+	 {0 0}
+	 {0 0}
+	 {x42c5b22d x435b50e5}
+	 {0 0}
+	 {0 0}
+	 {x42bff3b6 x435b50e5}
+	 {0 0}}}      idem}
+      {tx 0 x42bf6b02 x43564021}
+      {a str 1 ss 0}}
+     {curvegroup Shape52 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42a70ed9 x4354f1ec}
+	 {0 xc018e560}
+	 {xc0171aa0 0}
+	 {x42ae7cee x43512f5c}
+	 {x3fe18937 0}
+	 {xbe9e353f xbfb9db23}
+	 {x42b4fdf4 x43537852}
+	 {0 0}
+	 {0 0}
+	 {x42b170a4 x43537852}
+	 {xbe47ae14 xbf316873}
+	 {x3f424dd3 0}
+	 {x42ae9ba6 x43526fdf}
+	 {xbf90a3d7 0}
+	 {0 xbf941893}
+	 {x42ab0000 x435448f6}
+	 {0 0}
+	 {0 0}
+	 {x42ab0000 x43545604}
+	 {0 0}
+	 {0 0}
+	 {x42b532b0 x43545604}
+	 {0 x3ef0a3d7}
+	 {x3db020c5 xbf0872b0}
+	 {x42b5051f x4355de77}
+	 {xbe916873 x3fd1a9fc}
+	 {x3fe10625 0}
+	 {x42ae65e3 x43588666}
+	 {xc00eb852 0}
+	 {0 x400b3333}
+	 {x42a70ed9 x4354f1ec}
+	 {0 0}}}      idem}
+      {tx 0 x42ae20c5 x4354dae1}
+      {a str 1 ss 0}}
+     {curvegroup Shape51 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x429d5e35 x435b1b23}
+	 {0 0}
+	 {0 0}
+	 {x429d5e35 x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x429fd47b x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x429fd47b x4353d0e5}
+	 {0 0}
+	 {0 0}
+	 {x429f9c29 x4353d0e5}
+	 {0 0}
+	 {x3ce56042 xbd591687}
+	 {x42980c4a x435b1b23}
+	 {0 0}
+	 {0 0}
+	 {x428fde35 x435b1b23}
+	 {0 0}
+	 {0 0}
+	 {x428fde35 x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x4292547b x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x4292547b x4352b852}
+	 {0 0}
+	 {0 0}
+	 {x428fde35 x4352b852}
+	 {0 0}
+	 {0 0}
+	 {x428fde35 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42985687 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42985687 x4352b852}
+	 {0 0}
+	 {0 0}
+	 {x4295e148 x4352b852}
+	 {0 0}
+	 {0 0}
+	 {x4295e148 x4358f893}
+	 {0 0}
+	 {0 0}
+	 {x42961917 x4358f893}
+	 {0 0}
+	 {xbce56042 x3d591687}
+	 {x429e147b x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42a36148 x4351651f}
+	 {0 0}
+	 {0 0}
+	 {x42a36148 x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x42a5d687 x4359c7ae}
+	 {0 0}
+	 {0 0}
+	 {x42a5d687 x435b1b23}
+	 {0 0}
+	 {0 0}
+	 {x429d5e35 x435b1b23}
+	 {0 0}}}      idem}
+      {tx 0 x429ada5e x43564021}
+      {a str 1 ss 0}}
+     {curvegroup Shape50 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43874958 x434b5c6a}
+	 {0 0}
+	 {0 0}
+	 {x43874810 x434b57cf}
+	 {0 0}
+	 {0 0}
+	 {x43873e56 x434b57cf}
+	 {0 0}
+	 {0 0}
+	 {x43873e56 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43865917 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43865917 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4386ac6a x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4386ac6a x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43865917 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43865917 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43879aa0 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43879aa0 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43874dd3 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43874dd3 x434a18d5}
+	 {0 x3f251eb8}
+	 {xbf38d4fe 0}
+	 {x4387d396 x434b645a}
+	 {x3f160419 0}
+	 {0 x3ef020c5}
+	 {x438840e5 x434a6b02}
+	 {0 0}
+	 {0 0}
+	 {x438840e5 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4387f419 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4387f419 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x438935a2 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x438935a2 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4388e26f x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4388e26f x434a778d}
+	 {0 x3f9fdf3b}
+	 {x3f910625 0}
+	 {x438810e5 x434c45e3}
+	 {xbf2c0831 0}
+	 {x3e9c28f6 x3f122d0e}
+	 {x43874958 x434b5c6a}
+	 {0 0}}}      idem}
+      {tx 0 x4387c75c x4349e5a2}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape48 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4383a127 x4349e312}
+	 {0 xbfcbc6a8}
+	 {xbfc978d5 0}
+	 {x4384de14 x43476189}
+	 {x3f960419 0}
+	 {xbe560419 xbf77ced9}
+	 {x4385f354 x4348e76d}
+	 {0 0}
+	 {0 0}
+	 {x43855c6a x4348e76d}
+	 {xbe0624dd xbeed9168}
+	 {x3f018937 0}
+	 {x4384e354 x43483687}
+	 {xbf410625 0}
+	 {0 xbf4624dd}
+	 {x43844917 x434972b0}
+	 {0 0}
+	 {0 0}
+	 {x43844917 x43497b64}
+	 {0 0}
+	 {0 0}
+	 {x4385fc6a x43497b64}
+	 {0 x3ea04189}
+	 {x3d6978d5 xbeb5c28f}
+	 {x4385f4dd x434a8083}
+	 {xbe418937 x3f8bc6a8}
+	 {x3f95c28f 0}
+	 {x4384da5e x434c45e3}
+	 {xbfbe353f 0}
+	 {0 x3fb9999a}
+	 {x4383a127 x4349e312}
+	 {0 0}}}      idem}
+      {tx 0 x4384cec9 x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape47 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4381e873 x434d0d91}
+	 {0 0}
+	 {0 0}
+	 {x4381e873 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43818873 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43818873 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4381e873 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4381e873 x4348b021}
+	 {0 xbf224dd3}
+	 {xbf6bc6a8 0}
+	 {x43829dd3 x43476189}
+	 {x3f020c4a 0}
+	 {xbe6b851f xbe77ced9}
+	 {x43832aa0 x4347bdb2}
+	 {x3e6a7efa x3e6f9db2}
+	 {0 xbf01cac1}
+	 {x438355e3 x4348d852}
+	 {0 x3d0f5c29}
+	 {x3b03126f xbd178d50}
+	 {x438355a2 x4348f439}
+	 {0 0}
+	 {0 0}
+	 {x4382f7f0 x4348f439}
+	 {xbc1374bc xbee9fbe7}
+	 {x3e90624e 0}
+	 {x4382c042 x43484354}
+	 {xbed89375 0}
+	 {0 xbea978d5}
+	 {x43828a1d x434901cb}
+	 {0 0}
+	 {0 0}
+	 {x43828a1d x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x43832a1d x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x43832a1d x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43828a1d x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43828a1d x434d7fbe}
+	 {xbdac0831 xbced9168}
+	 {x3d2c0831 x3c75c28f}
+	 {x4381e873 x434d0d91}
+	 {0 0}}}      idem}
+      {tx 0 x43826f2b x434a70a4}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape46 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x437e75c3 x434addf4}
+	 {0 xbf9a1cac}
+	 {xbf466666 x3e000000}
+	 {x43801958 x434961cb}
+	 {x3f0d9168 xbdb645a2}
+	 {0 x3eda9fbe}
+	 {x43809d50 x4348c9ba}
+	 {0 xbf08b439}
+	 {x3e3020c5 0}
+	 {x43803f5c x43483687}
+	 {xbf010625 0}
+	 {x3c9ba5e3 xbf1ced91}
+	 {x437f76c9 x43491aa0}
+	 {0 0}
+	 {0 0}
+	 {x437e7aa0 x43491aa0}
+	 {0 0}
+	 {0 0}
+	 {x437e7aa0 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437f6937 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437f6937 x43480560}
+	 {0 0}
+	 {0 0}
+	 {x437f7ba6 x43480560}
+	 {0 0}
+	 {0 0}
+	 {x437f7e35 x43480189}
+	 {x3e991687 xbed70a3d}
+	 {xbf1e353f 0}
+	 {x43806d71 x43476189}
+	 {x3f72b021 0}
+	 {0 xbf595810}
+	 {x43813ed9 x4348d8d5}
+	 {0 x3f995810}
+	 {x3f47ae14 xbe020c4a}
+	 {x43805ed9 x434a5439}
+	 {xbf0c0831 x3db645a2}
+	 {0 xbed2f1aa}
+	 {x437fb8d5 x434ae7f0}
+	 {0 x3eb0a3d7}
+	 {xbef95810 0}
+	 {x43803cee x434b70a4}
+	 {x3f0dd2f2 0}
+	 {xbc54fdf4 x3f004189}
+	 {x4380aed9 x434aa6a8}
+	 {0 0}
+	 {0 0}
+	 {x43812d2f x434aa6a8}
+	 {0 0}
+	 {0 0}
+	 {x43812d2f x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x4380b5a2 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x4380b5a2 x434ba4dd}
+	 {0 0}
+	 {0 0}
+	 {x4380ac4a x434ba4dd}
+	 {0 0}
+	 {0 0}
+	 {x4380aac1 x434ba8b4}
+	 {xbe8d4fdf x3edc28f6}
+	 {x3f15c28f 0}
+	 {x43800d71 x434c45e3}
+	 {xbf51a9fc 0}
+	 {0 x3f789375}
+	 {x437e75c3 x434addf4}
+	 {0 0}}}      idem}
+      {tx 0 x43803cdd x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape45 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4379cdd3 x434b5c6a}
+	 {0 0}
+	 {0 0}
+	 {x4379cb44 x434b57cf}
+	 {0 0}
+	 {0 0}
+	 {x4379b852 x434b57cf}
+	 {0 0}
+	 {0 0}
+	 {x4379b852 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x4377edd3 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x4377edd3 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x437893b6 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x437893b6 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4377edd3 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4377edd3 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437a70a4 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437a70a4 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4379d6c9 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4379d6c9 x434a18d5}
+	 {0 x3f251eb8}
+	 {xbf391687 0}
+	 {x437ae24e x434b645a}
+	 {x3f160419 0}
+	 {0 x3ef020c5}
+	 {x437bbcac x434a6b02}
+	 {0 0}
+	 {0 0}
+	 {x437bbcac x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x437b2354 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x437b2354 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437da625 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437da625 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x437cffbe x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x437cffbe x434a778d}
+	 {0 x3f9fdf3b}
+	 {x3f910625 0}
+	 {x437b5cac x434c45e3}
+	 {xbf2b851f 0}
+	 {x3e9ba5e3 x3f122d0e}
+	 {x4379cdd3 x434b5c6a}
+	 {0 0}}}      idem}
+      {tx 0 x437ac9fc x4349e5a2}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape44 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4374bdb2 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x4374bdb2 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x437556c9 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x437556c9 x43498e98}
+	 {0 xbf24dd2f}
+	 {x3f391687 0}
+	 {x43744bc7 x43484354}
+	 {xbf160419 0}
+	 {0 xbef020c5}
+	 {x43737127 x43493cac}
+	 {0 0}
+	 {0 0}
+	 {x43737127 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x437187ae x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x437187ae x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x43722e56 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x43722e56 x43493021}
+	 {0 xbfa00000}
+	 {xbf90e560 0}
+	 {x4373d127 x43476189}
+	 {x3f2c0831 0}
+	 {xbe9c28f6 xbf126e98}
+	 {x43756042 x43484b85}
+	 {0 0}
+	 {0 0}
+	 {x43756354 x43485021}
+	 {0 0}
+	 {0 0}
+	 {x437575c3 x43485021}
+	 {0 0}
+	 {0 0}
+	 {x437575c3 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437740c5 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437740c5 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43769a5e x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43769a5e x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x4374bdb2 x434c220c}
+	 {0 0}}}      idem}
+      {tx 0 x43746439 x4349c1cb}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape43 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x436e41cb x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x436e41cb x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x436ee7ae x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x436cbaa0 x434aeccd}
+	 {0 0}
+	 {0 0}
+	 {x436cbaa0 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x436d8c4a x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x436d8c4a x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x436a98d5 x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x436a98d5 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x436b6ac1 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x436b6ac1 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x436a98d5 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x436a98d5 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x436d8c4a x43478560}
+	 {0 0}
+	 {0 0}
+	 {x436d8c4a x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x436cbaa0 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x436cbaa0 x434aea7f}
+	 {0 0}
+	 {0 0}
+	 {x436efd2f x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x436e322d x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x436e322d x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437132b0 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x437132b0 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x43709e35 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x436e4e56 x434af581}
+	 {0 0}
+	 {0 0}
+	 {x43707021 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x437104dd x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x437104dd x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x436e41cb x434dfe77}
+	 {0 0}}}      idem}
+      {tx 0 x436de5c3 x434ac1ec}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape41 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4363774c x4349e312}
+	 {0 xbfcbc6a8}
+	 {xbfc9374c 0}
+	 {x4365f127 x43476189}
+	 {x3f9645a2 0}
+	 {xbe53f7cf xbf77ced9}
+	 {x43681ba6 x4348e76d}
+	 {0 0}
+	 {0 0}
+	 {x4366edd3 x4348e76d}
+	 {xbe0624dd xbeed9168}
+	 {x3f018937 0}
+	 {x4365fba6 x43483687}
+	 {xbf410625 0}
+	 {0 xbf4624dd}
+	 {x4364c72b x434972b0}
+	 {0 0}
+	 {0 0}
+	 {x4364c72b x43497b64}
+	 {0 0}
+	 {0 0}
+	 {x43682dd3 x43497b64}
+	 {0 x3ea04189}
+	 {x3d6978d5 xbeb5c28f}
+	 {x43681eb8 x434a8083}
+	 {xbe418937 x3f8bc6a8}
+	 {x3f95c28f 0}
+	 {x4365e9ba x434c45e3}
+	 {xbfbe353f 0}
+	 {0 x3fb9999a}
+	 {x4363774c x4349e312}
+	 {0 0}}}      idem}
+      {tx 0 x4365d28f x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape39 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4360547b x434e220c}
+	 {0 0}
+	 {0 0}
+	 {x4360547b x434d4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4360fae1 x434d4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4360fae1 x434b7168}
+	 {0 0}
+	 {0 0}
+	 {x4360e7f0 x434b7168}
+	 {0 0}
+	 {0 0}
+	 {x4360e560 x434b7646}
+	 {xbe3a5e35 x3ebd70a4}
+	 {x3f589375 0}
+	 {x435f79db x434c45e3}
+	 {xbfa58106 0}
+	 {0 x3fc9ba5e}
+	 {x435d68f6 x4349c1cb}
+	 {0 xbf974bc7}
+	 {xbfaf7cee 0}
+	 {x435f6560 x43476189}
+	 {x3f49fbe7 0}
+	 {xbedc28f6 xbf2d0e56}
+	 {x436106e9 x43484937}
+	 {0 0}
+	 {0 0}
+	 {x43610979 x43484d0e}
+	 {0 0}
+	 {0 0}
+	 {x43611c6a x43484d0e}
+	 {0 0}
+	 {0 0}
+	 {x43611c6a x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4362e45a x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4362e45a x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43623e77 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43623e77 x434e220c}
+	 {0 0}
+	 {0 0}
+	 {x4360547b x434e220c}
+	 {0 0}}}      idem}
+      {tx 0 x436026a8 x434ac1cb}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape38 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43595df4 x434b3e35}
+	 {0 0}
+	 {0 0}
+	 {x43595be7 x434b3917}
+	 {0 0}
+	 {0 0}
+	 {x43594873 x434b3917}
+	 {0 0}
+	 {0 0}
+	 {x43594873 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x435775c3 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x435775c3 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x43581c6a x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x43581c6a x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x435775c3 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x435775c3 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x435a2bc7 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x435a2bc7 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43595f7d x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43595f7d x4349bf3b}
+	 {x3d6d9168 x3f6fdf3b}
+	 {xbf4d0e56 0}
+	 {x435abefa x434b3df4}
+	 {x3e439581 0}
+	 {xbe3c6a7f x3d2c0831}
+	 {x435b5062 x434b322d}
+	 {0 0}
+	 {0 0}
+	 {x435b5062 x434c37cf}
+	 {xbe2c0831 x3d0f5c29}
+	 {x3e3d70a4 0}
+	 {x435ac6e9 x434c45e3}
+	 {xbf451eb8 0}
+	 {x3e5f3b64 x3ef0a3d7}
+	 {x43595df4 x434b3e35}
+	 {0 0}}}      idem}
+      {tx 0 x43596312 x4349e5a2}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape36 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4351e24e x4349d3b6}
+	 {0 xbfbe353f}
+	 {xbfbfbe77 0}
+	 {x435459db x43476189}
+	 {x3fbfbe77 0}
+	 {0 xbfbe353f}
+	 {x4356d0e5 x4349d3b6}
+	 {0 x3fbe353f}
+	 {x3fbfbe77 0}
+	 {x435459db x434c45e3}
+	 {xbfbfbe77 0}
+	 {0 x3fbe353f}
+	 {x4351e24e x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x4354599a x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape34 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x434c4dd3 x4349d3b6}
+	 {0 xbfbe353f}
+	 {xbfbfbe77 0}
+	 {x434ec4dd x43476189}
+	 {x3fbfbe77 0}
+	 {0 xbfbe353f}
+	 {x43513c29 x4349d3b6}
+	 {0 x3fbe353f}
+	 {x3fbfbe77 0}
+	 {x434ec4dd x434c45e3}
+	 {xbfbfbe77 0}
+	 {0 x3fbe353f}
+	 {x434c4dd3 x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x434ec4fe x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape33 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43496ac1 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43496ac1 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x434a21cb x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x43490b44 x43487b23}
+	 {0 0}
+	 {0 0}
+	 {x4347f99a x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4348b0a4 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4348b0a4 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43462396 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43462396 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4346a0c5 x434b4d0e}
+	 {0 0}
+	 {xbc83126f x3d2c0831}
+	 {x434834bc x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4349c354 x43478560}
+	 {x3c75c28f x3d27ef9e}
+	 {0 0}
+	 {x434b5c29 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x434bd9db x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x434bd9db x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43496ac1 x434c220c}
+	 {0 0}}}      idem}
+      {tx 0 x4348feb8 x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape32 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43414ed9 x434e220c}
+	 {0 0}
+	 {0 0}
+	 {x43414ed9 x434d4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4341f581 x434d4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4341f581 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43414ed9 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43414ed9 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4343deb8 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4343deb8 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43433893 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43433893 x434e220c}
+	 {0 0}
+	 {0 0}
+	 {x43414ed9 x434e220c}
+	 {0 0}}}      idem}
+      {tx 0 x434296c9 x434ad3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape30 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x433bd22d x4349d3b6}
+	 {0 xbfbe353f}
+	 {xbfbfbe77 0}
+	 {x433e4937 x43476189}
+	 {x3fbfbe77 0}
+	 {0 xbfbe353f}
+	 {x4340c0c5 x4349d3b6}
+	 {0 x3fbe353f}
+	 {x3fbfbe77 0}
+	 {x433e4937 x434c45e3}
+	 {xbfbfbe77 0}
+	 {0 x3fbe353f}
+	 {x433bd22d x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x433e4979 x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape28 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43363d2f x4349d3b6}
+	 {0 xbfbe353f}
+	 {xbfbfbe77 0}
+	 {x4338b4bc x43476189}
+	 {x3fbfbe77 0}
+	 {0 xbfbe353f}
+	 {x433b2c08 x4349d3b6}
+	 {0 x3fbe353f}
+	 {x3fbfbe77 0}
+	 {x4338b4bc x434c45e3}
+	 {xbfbfbe77 0}
+	 {0 x3fbe353f}
+	 {x43363d2f x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x4338b49c x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape27 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x433010a4 x434e220c}
+	 {0 0}
+	 {0 0}
+	 {x433010a4 x434d4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4330b78d x434d4d0e}
+	 {0 0}
+	 {0 0}
+	 {x4330b78d x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x433010a4 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x433010a4 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43329439 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43329439 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4331faa0 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x4331faa0 x434a353f}
+	 {0 x3ed374bc}
+	 {xbf4b851f 0}
+	 {x43331a5e x434b645a}
+	 {x3e93f7cf 0}
+	 {0 x3f5fbe77}
+	 {x4333e042 x434a6312}
+	 {0 0}
+	 {0 0}
+	 {x4333e042 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x433346a8 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x433346a8 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4335ca3d x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4335ca3d x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43352396 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x43352396 x434a98d5}
+	 {0 x3f8e76c9}
+	 {x3f8b020c 0}
+	 {x433380c5 x434c45e3}
+	 {xbf2e147b 0}
+	 {x3e8d4fdf x3f083127}
+	 {x43320fdf x434b7893}
+	 {0 0}
+	 {0 0}
+	 {x43320d91 x434b73f8}
+	 {0 0}
+	 {0 0}
+	 {x4331faa0 x434b73f8}
+	 {0 0}
+	 {0 0}
+	 {x4331faa0 x434e220c}
+	 {0 0}
+	 {0 0}
+	 {x433010a4 x434e220c}
+	 {0 0}}}      idem}
+      {tx 0 x4332ed71 x434ad3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape26 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x432b1db2 x4349ba1d}
+	 {0 xbf8a7efa}
+	 {xbfe353f8 0}
+	 {x432d85a2 x43476189}
+	 {x3f945a1d 0}
+	 {xbdd4fdf4 xbf866666}
+	 {x432f8fdf x43491581}
+	 {0 0}
+	 {0 0}
+	 {x432e6e56 x43491581}
+	 {xbd54fdf4 xbefbe76d}
+	 {x3efae148 0}
+	 {x432d8831 x43484354}
+	 {xbf3b645a 0}
+	 {0 xbf86a7f0}
+	 {x432c6dd3 x4349d8d5}
+	 {0 x3f1851ec}
+	 {xbf6f5c29 0}
+	 {x432d80c5 x434b70a4}
+	 {x3f24dd2f 0}
+	 {xbd27ef9e x3f391687}
+	 {x432e7e35 x434a645a}
+	 {0 0}
+	 {0 0}
+	 {x432f7aa0 x434a645a}
+	 {0 0}
+	 {0 0}
+	 {x432f7aa0 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x432e8c08 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x432e8c08 x434b97cf}
+	 {0 0}
+	 {0 0}
+	 {x432e7917 x434b97cf}
+	 {0 0}
+	 {0 0}
+	 {x432e7687 x434b9c29}
+	 {xbe7ae148 x3ed47ae1}
+	 {x3f083127 0}
+	 {x432d38d5 x434c45e3}
+	 {xbfea7efa 0}
+	 {0 x3f7374bc}
+	 {x432b1db2 x4349ba1d}
+	 {0 0}}}      idem}
+      {tx 0 x432d56c9 x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape25 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x432652b0 x434addf4}
+	 {0 xbf9a1cac}
+	 {xbf466666 x3e000000}
+	 {x43280fdf x434961cb}
+	 {x3f0d9168 xbdb645a2}
+	 {0 x3eda9fbe}
+	 {x432917cf x4348c9ba}
+	 {0 xbf08b439}
+	 {x3e3020c5 0}
+	 {x43285be7 x43483687}
+	 {xbf0147ae 0}
+	 {x3c9ba5e3 xbf1ced91}
+	 {x43275439 x43491aa0}
+	 {0 0}
+	 {0 0}
+	 {x432657cf x43491aa0}
+	 {0 0}
+	 {0 0}
+	 {x432657cf x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43274666 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43274666 x43480560}
+	 {0 0}
+	 {0 0}
+	 {x43275893 x43480560}
+	 {0 0}
+	 {0 0}
+	 {x43275b23 x43480189}
+	 {x3e9a1cac xbed70a3d}
+	 {xbf1db22d 0}
+	 {x4328b810 x43476189}
+	 {x3f72b021 0}
+	 {0 xbf595810}
+	 {x432a5ae1 x4348d8d5}
+	 {0 x3f995810}
+	 {x3f47ae14 xbe020c4a}
+	 {x43289ae1 x434a5439}
+	 {xbf0c0831 x3db645a2}
+	 {0 xbed2f1aa}
+	 {x43279581 x434ae7f0}
+	 {0 x3eb0a3d7}
+	 {xbef8d4fe 0}
+	 {x432856c9 x434b70a4}
+	 {x3f0e147b 0}
+	 {xbc656042 x3f004189}
+	 {x43293ae1 x434aa6a8}
+	 {0 0}
+	 {0 0}
+	 {x432a370a x434aa6a8}
+	 {0 0}
+	 {0 0}
+	 {x432a370a x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43294873 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x43294873 x434ba4dd}
+	 {0 0}
+	 {0 0}
+	 {x43293604 x434ba4dd}
+	 {0 0}
+	 {0 0}
+	 {x43293375 x434ba8b4}
+	 {xbe8ed917 x3edc28f6}
+	 {x3f15c28f 0}
+	 {x4327f810 x434c45e3}
+	 {xbf51eb85 0}
+	 {0 x3f789375}
+	 {x432652b0 x434addf4}
+	 {0 0}}}      idem}
+      {tx 0 x432856c9 x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape23 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x4320bd71 x4349e312}
+	 {0 xbfcbc6a8}
+	 {xbfc95810 0}
+	 {x4323374c x43476189}
+	 {x3f9624dd 0}
+	 {xbe53f7cf xbf77ced9}
+	 {x43256189 x4348e76d}
+	 {0 0}
+	 {0 0}
+	 {x43243333 x4348e76d}
+	 {xbe041893 xbeed9168}
+	 {x3f018937 0}
+	 {x43234189 x43483687}
+	 {xbf410625 0}
+	 {0 xbf4624dd}
+	 {x43220d50 x434972b0}
+	 {0 0}
+	 {0 0}
+	 {x43220d50 x43497b64}
+	 {0 0}
+	 {0 0}
+	 {x43257375 x43497b64}
+	 {0 x3ea04189}
+	 {x3d6d9168 xbeb5c28f}
+	 {x4325645a x434a8083}
+	 {xbe418937 x3f8bc6a8}
+	 {x3f95e354 0}
+	 {x43232f9e x434c45e3}
+	 {xbfbe353f 0}
+	 {0 x3fb9999a}
+	 {x4320bd71 x4349e312}
+	 {0 0}}}      idem}
+      {tx 0 x43231873 x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape21 512 bezier
+      {{cc
+        {f 8192}
+        {px
+	 {1 x41880000}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431aafdf -}}
+	  {{x4349d3b6 -}}}
+	 {{{0 -}}
+	  {{xbf8e5604 -}}}
+	 {{{xbfa53f7d -}}
+	  {{0 -}}}
+	 {{{x431ca72b -}}
+	  {{x4347974c -}}}
+	 {{{x3f4d9168 -}}
+	  {{0 -}}}
+	 {{{xbedd2f1b -}}
+	  {{xbef126e9 -}}}
+	 {{{x431e32b0 -}}
+	  {{x4348428f -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431e41cb -}}
+	  {{x43485333 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431e41cb -}}
+	  {{x4347b53f -}}}
+	 {{{0 -}}
+	  {{xbf133333 -}}}
+	 {{{x3f251eb8 -}}
+	  {{0 -}}}
+	 {{{x431d3687 -}}
+	  {{x43468354 -}}}
+	 {{{xbed47ae1 -}}
+	  {{0 -}}}
+	 {{{x3d656042 -}}
+	  {{xbf122d0e -}}}
+	 {{{x431c50a4 -}}
+	  {{x43472a3d -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431aeed9 -}}
+	  {{x43472a3d -}}}
+	 {{{x3da1cac1 -}}
+	  {{xbf83126f -}}}
+	 {{{xbfb33333 -}}
+	  {{0 -}}}
+	 {{{x431d12b0 -}}
+	  {{x4345ae56 -}}}
+	 {{{x40083127 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{xbf55c28f -}}}
+	 {{{x431f84dd -}}
+	  {{x4347eb02 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431f84dd -}}
+	  {{x434b4d0e -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x43202b44 -}}
+	  {{x434b4d0e -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x43202b44 -}}
+	  {{x434c220c -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431e60c5 -}}
+	  {{x434c220c -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431e60c5 -}}
+	  {{x434b69fc -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431e4e14 -}}
+	  {{x434b69fc -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{0 -}}}
+	 {{{x431e4b85 -}}
+	  {{x434b6dd3 -}}}
+	 {{{xbebc6a7f -}}
+	  {{x3f1020c5 -}}}
+	 {{{x3f283127 -}}
+	  {{0 -}}}
+	 {{{x431ccb02 -}}
+	  {{x434c40c5 -}}}
+	 {{{xbfab4396 -}}
+	  {{0 -}}}
+	 {{{0 -}}
+	  {{x3fc56042 -}}}
+	 {{{x431aafdf -}}
+	  {{x4349d3b6 -}}}
+	 {{{0 -}}
+	  {{0 -}}}}}      idem}
+      {tx 0 x431d6d91 x4348f78d}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape19 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x431515c3 x4349d3b6}
+	 {0 xbfbe353f}
+	 {xbfbfbe77 0}
+	 {x43178d0e x43476189}
+	 {x3fbfbe77 0}
+	 {0 xbfbe353f}
+	 {x431a045a x4349d3b6}
+	 {0 x3fbe353f}
+	 {x3fbfbe77 0}
+	 {x43178d0e x434c45e3}
+	 {xbfbfbe77 0}
+	 {0 x3fbe353f}
+	 {x431515c3 x4349d3b6}
+	 {0 0}}}      idem}
+      {tx 0 x43178d0e x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape18 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43116831 x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x43116831 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x43125b23 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x43125b23 x434b4354}
+	 {0 0}
+	 {0 0}
+	 {x430f77cf x434b4354}
+	 {0 0}
+	 {0 0}
+	 {x430f77cf x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x43106b02 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x43106b02 x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x430d5604 x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x430d5604 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x430e2831 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x430e2831 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x430d5604 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x430d5604 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43106b02 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43106b02 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x430f77cf x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x430f77cf x434a6189}
+	 {0 0}
+	 {0 0}
+	 {x43125b23 x434a6189}
+	 {0 0}
+	 {0 0}
+	 {x43125b23 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x43116831 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x43116831 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43147cee x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43147cee x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x4313ab02 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x4313ab02 x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x43147cee x434d1c6a}
+	 {0 0}
+	 {0 0}
+	 {x43147cee x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x43116831 x434dfe77}
+	 {0 0}}}      idem}
+      {tx 0 x4310e979 x434ac1ec}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape16 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x430634bc x4349e312}
+	 {0 xbfcbc6a8}
+	 {xbfc978d5 0}
+	 {x4308ae98 x43476189}
+	 {x3f960419 0}
+	 {xbe53f7cf xbf77ced9}
+	 {x430ad8d5 x4348e76d}
+	 {0 0}
+	 {0 0}
+	 {x4309aac1 x4348e76d}
+	 {xbe051eb8 xbeed9168}
+	 {x3f018937 0}
+	 {x4308b8d5 x43483687}
+	 {xbf410625 0}
+	 {0 xbf4624dd}
+	 {x4307849c x434972b0}
+	 {0 0}
+	 {0 0}
+	 {x4307849c x43497b64}
+	 {0 0}
+	 {0 0}
+	 {x430aeac1 x43497b64}
+	 {0 x3ea04189}
+	 {x3d6d9168 xbeb5c28f}
+	 {x430adba6 x434a8083}
+	 {xbe428f5c x3f8bc6a8}
+	 {x3f95e354 0}
+	 {x4308a6e9 x434c45e3}
+	 {xbfbe353f 0}
+	 {0 x3fb9999a}
+	 {x430634bc x4349e312}
+	 {0 0}}}      idem}
+      {tx 0 x43088fbe x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape15 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x43015c29 x434addf4}
+	 {0 xbf9a1cac}
+	 {xbf466666 x3e000000}
+	 {x43031917 x434961cb}
+	 {x3f0d9168 xbdb645a2}
+	 {0 x3eda9fbe}
+	 {x43042106 x4348c9ba}
+	 {0 xbf08b439}
+	 {x3e3020c5 0}
+	 {x4303651f x43483687}
+	 {xbf0147ae 0}
+	 {x3c9ba5e3 xbf1ced91}
+	 {x43025d71 x43491aa0}
+	 {0 0}
+	 {0 0}
+	 {x43016106 x43491aa0}
+	 {0 0}
+	 {0 0}
+	 {x43016106 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43024f9e x43478560}
+	 {0 0}
+	 {0 0}
+	 {x43024f9e x43480560}
+	 {0 0}
+	 {0 0}
+	 {x430261cb x43480560}
+	 {0 0}
+	 {0 0}
+	 {x4302649c x43480189}
+	 {x3e991687 xbed70a3d}
+	 {xbf1db22d 0}
+	 {x4303c148 x43476189}
+	 {x3f72b021 0}
+	 {0 xbf595810}
+	 {x43056419 x4348d8d5}
+	 {0 x3f995810}
+	 {x3f476c8b xbe020c4a}
+	 {x4303a45a x434a5439}
+	 {xbf0c49ba x3db645a2}
+	 {0 xbed2f1aa}
+	 {x43029efa x434ae7f0}
+	 {0 x3eb0a3d7}
+	 {xbef8d4fe 0}
+	 {x43036000 x434b70a4}
+	 {x3f0e147b 0}
+	 {xbc656042 x3f004189}
+	 {x43044419 x434aa6a8}
+	 {0 0}
+	 {0 0}
+	 {x43054042 x434aa6a8}
+	 {0 0}
+	 {0 0}
+	 {x43054042 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x430451aa x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x430451aa x434ba4dd}
+	 {0 0}
+	 {0 0}
+	 {x43043f3b x434ba4dd}
+	 {0 0}
+	 {0 0}
+	 {x43043cac x434ba8b4}
+	 {xbe8ed917 x3edc28f6}
+	 {x3f15c28f 0}
+	 {x43030148 x434c45e3}
+	 {xbf51a9fc 0}
+	 {0 x3f789375}
+	 {x43015c29 x434addf4}
+	 {0 0}}}      idem}
+      {tx 0 x43036021 x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape14 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42f994fe x434b6bc7}
+	 {0 0}
+	 {0 0}
+	 {x42f985a2 x434b5db2}
+	 {0 0}
+	 {0 0}
+	 {x42f97646 x434b6c08}
+	 {xbea3d70a x3f1a9fbe}
+	 {x3f43d70a 0}
+	 {x42f6676d x434c45e3}
+	 {xbf2c49ba 0}
+	 {x3e9c28f6 x3f122d0e}
+	 {x42f34831 x434b5c6a}
+	 {0 0}
+	 {0 0}
+	 {x42f34312 x434b57cf}
+	 {0 0}
+	 {0 0}
+	 {x42f31d2f x434b57cf}
+	 {0 0}
+	 {0 0}
+	 {x42f31d2f x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42ef87ae x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42ef87ae x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42f0d47b x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42f0d47b x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42ef87ae x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42ef87ae x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42f48dd3 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42f48dd3 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42f35aa0 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42f35aa0 x434a18d5}
+	 {0 x3f251eb8}
+	 {xbf38d4fe 0}
+	 {x42f571aa x434b645a}
+	 {x3f160419 0}
+	 {0 x3ef020c5}
+	 {x42f72666 x434a6b02}
+	 {0 0}
+	 {0 0}
+	 {x42f72666 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42f5f3b6 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42f5f3b6 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42fae042 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42fae042 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42f9ac8b x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42f9ac8b x434a25a2}
+	 {0 x3f12f1aa}
+	 {xbf48f5c3 0}
+	 {x42fbcd50 x434b645a}
+	 {x3f09ba5e 0}
+	 {0 x3f20c49c}
+	 {x42fd7852 x434a6b02}
+	 {0 0}
+	 {0 0}
+	 {x42fd7852 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42fc45a2 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42fc45a2 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4300a5a2 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x4300a5a2 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42fffe77 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42fffe77 x434ac9ba}
+	 {xbcdd2f1b x3f7c28f6}
+	 {x3f8f3b64 0}
+	 {x42fc8ac1 x434c45e3}
+	 {xbf2a7efa 0}
+	 {x3e9a9fbe x3f0ed917}
+	 {x42f994fe x434b6bc7}
+	 {0 0}}}      idem}
+      {tx 0 x42f86979 x4349e5a2}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape12 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42e4c5a2 x434ac7f0}
+	 {0 0}
+	 {0 0}
+	 {x42e722d1 x434ac7f0}
+	 {x3d48b439 x3f00c49c}
+	 {xbf0e147b 0}
+	 {x42e8f439 x434b8ac1}
+	 {x3f1c6a7f 0}
+	 {0 x3efc6a7f}
+	 {x42ead2f2 x434ac9ba}
+	 {0 0}
+	 {0 0}
+	 {x42ead2f2 x434a649c}
+	 {0 0}
+	 {0 0}
+	 {x42e9d0e5 x434a649c}
+	 {xbf8872b0 0}
+	 {0 x3fc5e354}
+	 {x42e47646 x4348d8d5}
+	 {0 xbf8a7efa}
+	 {xbf3c6a7f 0}
+	 {x42e7a76d x43476189}
+	 {x3f3c6a7f 0}
+	 {xbec624dd xbf181062}
+	 {x42eab2b0 x43482f9e}
+	 {0 0}
+	 {0 0}
+	 {x42eab7cf x434833b6}
+	 {0 0}
+	 {0 0}
+	 {x42eadcac x434833b6}
+	 {0 0}
+	 {0 0}
+	 {x42eadcac x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42ee62d1 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42ee62d1 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42ed2f9e x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42ed2f9e x434a41cb}
+	 {0 x3fbc28f6}
+	 {x3fb78d50 0}
+	 {x42e94106 x434c45e3}
+	 {xbf7e76c9 0}
+	 {x3dcac083 x3fa8f5c3}
+	 {x42e4c5a2 x434ac7f0}
+	 {0 0}}}      idem}
+      {tx 0 x42e96c8b x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape10 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42ddf74c x434e220c}
+	 {0 0}
+	 {0 0}
+	 {x42ddf74c x434d4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42df4419 x434d4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42df4419 x434b7168}
+	 {0 0}
+	 {0 0}
+	 {x42df1db2 x434b7168}
+	 {0 0}
+	 {0 0}
+	 {x42df1917 x434b7646}
+	 {xbe395810 x3ebd70a4}
+	 {x3f589375 0}
+	 {x42dc420c x434c45e3}
+	 {xbfa5a1cb 0}
+	 {0 x3fc9ba5e}
+	 {x42d82042 x4349c1cb}
+	 {0 xbf974bc7}
+	 {xbfaf9db2 0}
+	 {x42dc1917 x43476189}
+	 {x3f49fbe7 0}
+	 {xbedcac08 xbf2d0e56}
+	 {x42df5cac x43484937}
+	 {0 0}
+	 {0 0}
+	 {x42df61cb x43484d0e}
+	 {0 0}
+	 {0 0}
+	 {x42df872b x43484d0e}
+	 {0 0}
+	 {0 0}
+	 {x42df872b x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42e3170a x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42e3170a x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42e1cac1 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42e1cac1 x434e220c}
+	 {0 0}
+	 {0 0}
+	 {x42ddf74c x434e220c}
+	 {0 0}}}      idem}
+      {tx 0 x42dd9ba6 x434ac1cb}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape9 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42d35917 x434b3e35}
+	 {0 0}
+	 {0 0}
+	 {x42d354fe x434b3917}
+	 {0 0}
+	 {0 0}
+	 {x42d32d91 x434b3917}
+	 {0 0}
+	 {0 0}
+	 {x42d32d91 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42cf8937 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42cf8937 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42d0d581 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42d0d581 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42cf8937 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42cf8937 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42d4f53f x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42d4f53f x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42d35c29 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42d35c29 x4349bf3b}
+	 {x3d6978d5 x3f6fdf3b}
+	 {xbf4d9168 0}
+	 {x42d61b23 x434b3df4}
+	 {x3e428f5c 0}
+	 {xbe3a5e35 x3d2c0831}
+	 {x42d73d71 x434b322d}
+	 {0 0}
+	 {0 0}
+	 {x42d73d71 x434c37cf}
+	 {xbe29fbe7 x3d0f5c29}
+	 {x3e3f7cee 0}
+	 {x42d62a7f x434c45e3}
+	 {xbf449ba6 0}
+	 {x3e6147ae x3ef0a3d7}
+	 {x42d35917 x434b3e35}
+	 {0 0}}}      idem}
+      {tx 0 x42d36354 x4349e5a2}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape7 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42c4a979 x4349e312}
+	 {0 xbfcbc6a8}
+	 {xbfc978d5 0}
+	 {x42c99cac x43476189}
+	 {x3f9624dd 0}
+	 {xbe54fdf4 xbf77ced9}
+	 {x42cdf1aa x4348e76d}
+	 {0 0}
+	 {0 0}
+	 {x42cb94fe x4348e76d}
+	 {xbe041893 xbeed9168}
+	 {x3f018937 0}
+	 {x42c9b1aa x43483687}
+	 {xbf410625 0}
+	 {0 xbf4624dd}
+	 {x42c748b4 x434972b0}
+	 {0 0}
+	 {0 0}
+	 {x42c748b4 x43497b64}
+	 {0 0}
+	 {0 0}
+	 {x42ce1581 x43497b64}
+	 {0 x3ea04189}
+	 {x3d6d9168 xbeb5c28f}
+	 {x42cdf74c x434a8083}
+	 {xbe439581 x3f8bc6a8}
+	 {x3f95e354 0}
+	 {x42c98d50 x434c45e3}
+	 {xbfbe147b 0}
+	 {0 x3fb9999a}
+	 {x42c4a979 x4349e312}
+	 {0 0}}}      idem}
+      {tx 0 x42c95f7d x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape6 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42bdc6a8 x434d0d91}
+	 {0 0}
+	 {0 0}
+	 {x42bdc6a8 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42bc46a8 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42bc46a8 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42bdc6a8 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42bdc6a8 x4348b021}
+	 {0 xbf224dd3}
+	 {xbf6b851f 0}
+	 {x42c09ba6 x43476189}
+	 {x3f024dd3 0}
+	 {xbe6e978d xbe77ced9}
+	 {x42c2cfdf x4347bdb2}
+	 {x3e676c8b x3e6f9db2}
+	 {0 xbf01cac1}
+	 {x42c37c6a x4348d852}
+	 {0 x3d0f5c29}
+	 {x3a83126f xbd178d50}
+	 {x42c37b64 x4348f439}
+	 {0 0}
+	 {0 0}
+	 {x42c20396 x4348f439}
+	 {xbbe56042 xbee9fbe7}
+	 {x3e8fdf3b 0}
+	 {x42c125e3 x43484354}
+	 {xbed91687 0}
+	 {0 xbea978d5}
+	 {x42c04ccd x434901cb}
+	 {0 0}
+	 {0 0}
+	 {x42c04ccd x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42c2cccd x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42c2cccd x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42c04ccd x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42c04ccd x434d7fbe}
+	 {xbda9fbe7 xbced9168}
+	 {x3d3020c5 x3c75c28f}
+	 {x42bdc6a8 x434d0d91}
+	 {0 0}}}      idem}
+      {tx 0 x42bfe189 x434a70a4}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape5 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42b30f5c x434addf4}
+	 {0 xbf9a1cac}
+	 {xbf466666 x3e000000}
+	 {x42b689ba x434961cb}
+	 {x3f0dd2f2 xbdb645a2}
+	 {0 x3eda9fbe}
+	 {x42b89a1d x4348c9ba}
+	 {0 xbf08b439}
+	 {x3e3020c5 0}
+	 {x42b721cb x43483687}
+	 {xbf0147ae 0}
+	 {x3ca3d70a xbf1ced91}
+	 {x42b511ec x43491aa0}
+	 {0 0}
+	 {0 0}
+	 {x42b31a1d x43491aa0}
+	 {0 0}
+	 {0 0}
+	 {x42b31a1d x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42b4f6c9 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42b4f6c9 x43480560}
+	 {0 0}
+	 {0 0}
+	 {x42b51ba6 x43480560}
+	 {0 0}
+	 {0 0}
+	 {x42b520c5 x43480189}
+	 {x3e991687 xbed70a3d}
+	 {xbf1df3b6 0}
+	 {x42b7da1d x43476189}
+	 {x3f72b021 0}
+	 {0 xbf595810}
+	 {x42bb2042 x4348d8d5}
+	 {0 x3f995810}
+	 {x3f476c8b xbe020c4a}
+	 {x42b7a042 x434a5439}
+	 {xbf0c49ba x3db645a2}
+	 {0 xbed2f1aa}
+	 {x42b59581 x434ae7f0}
+	 {0 x3eb0a3d7}
+	 {xbef8d4fe 0}
+	 {x42b7178d x434b70a4}
+	 {x3f0e147b 0}
+	 {xbc75c28f x3f004189}
+	 {x42b8dfbe x434aa6a8}
+	 {0 0}
+	 {0 0}
+	 {x42bad810 x434aa6a8}
+	 {0 0}
+	 {0 0}
+	 {x42bad810 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42b8fb64 x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x42b8fb64 x434ba4dd}
+	 {0 0}
+	 {0 0}
+	 {x42b8d604 x434ba4dd}
+	 {0 0}
+	 {0 0}
+	 {x42b8d0e5 x434ba8b4}
+	 {xbe8ed917 x3edc28f6}
+	 {x3f158106 0}
+	 {x42b65a1d x434c45e3}
+	 {xbf51a9fc 0}
+	 {0 x3f789375}
+	 {x42b30f5c x434addf4}
+	 {0 0}}}      idem}
+      {tx 0 x42b717cf x4349d3b6}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape4 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x42a9ec8b x434b6bc7}
+	 {0 0}
+	 {0 0}
+	 {x42a9dd2f x434b5db2}
+	 {0 0}
+	 {0 0}
+	 {x42a9cdd3 x434b6c08}
+	 {xbea45a1d x3f1a9fbe}
+	 {x3f441893 0}
+	 {x42a6be77 x434c45e3}
+	 {xbf2bc6a8 0}
+	 {x3e9c28f6 x3f122d0e}
+	 {x42a3a042 x434b5c6a}
+	 {0 0}
+	 {0 0}
+	 {x42a39b23 x434b57cf}
+	 {0 0}
+	 {0 0}
+	 {x42a374bc x434b57cf}
+	 {0 0}
+	 {0 0}
+	 {x42a374bc x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x429fdf3b x434c220c}
+	 {0 0}
+	 {0 0}
+	 {x429fdf3b x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42a12c08 x434b4d0e}
+	 {0 0}
+	 {0 0}
+	 {x42a12c08 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x429fdf3b x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x429fdf3b x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42a4e560 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42a4e560 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42a3b22d x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42a3b22d x434a18d5}
+	 {0 x3f251eb8}
+	 {xbf389375 0}
+	 {x42a5c8b4 x434b645a}
+	 {x3f1645a2 0}
+	 {0 x3ef020c5}
+	 {x42a77df4 x434a6b02}
+	 {0 0}
+	 {0 0}
+	 {x42a77df4 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42a64ac1 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42a64ac1 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42ab36c9 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42ab36c9 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42aa0419 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42aa0419 x434a25a2}
+	 {0 x3f12f1aa}
+	 {xbf48f5c3 0}
+	 {x42ac24dd x434b645a}
+	 {x3f09ba5e 0}
+	 {0 x3f20c49c}
+	 {x42adcfdf x434a6b02}
+	 {0 0}
+	 {0 0}
+	 {x42adcfdf x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42ac9cac x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42ac9cac x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42b1a2d1 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42b1a2d1 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42b05604 x43485aa0}
+	 {0 0}
+	 {0 0}
+	 {x42b05604 x434ac9ba}
+	 {xbcdd2f1b x3f7c28f6}
+	 {x3f8f3b64 0}
+	 {x42ace24e x434c45e3}
+	 {xbf2a7efa 0}
+	 {x3e9a9fbe x3f0ed917}
+	 {x42a9ec8b x434b6bc7}
+	 {0 0}}}      idem}
+      {tx 0 x42a8c106 x4349e5a2}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}
+     {curvegroup Shape2 512 bezier
+      {{cc
+        {f 8192}
+        {px x41880000
+	 {0 0}
+	 {x429590e5 x434dfe77}
+	 {xbc8b4396 xbd27ef9e}
+	 {0 0}
+	 {x4290f22d x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x428fde35 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x428fde35 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42951810 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x42951810 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x42936b85 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x42944b44 x43498560}
+	 {0 0}
+	 {0 0}
+	 {x4299ce56 x43498560}
+	 {0 0}
+	 {0 0}
+	 {x429ab8d5 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x42990c4a x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x42990c4a x43478560}
+	 {0 0}
+	 {0 0}
+	 {x429e8831 x43478560}
+	 {0 0}
+	 {0 0}
+	 {x429e8831 x4348676d}
+	 {0 0}
+	 {0 0}
+	 {x429d74bc x4348676d}
+	 {0 0}
+	 {x3c8b4396 xbd27ef9e}
+	 {x4298e042 x434dfe77}
+	 {0 0}
+	 {0 0}
+	 {x429590e5 x434dfe77}
+	 {0 0}}}      idem}
+      {tx 0 x42973333 x434ac1ec}
+      {a str 1 ss 0 b x3eb6555c g x3db94d94 r x3e946dc6}}}}}}}
+  toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+  toolbar_brush_hardness 0.200000003
+  toolbar_source_transform_scale {1 1}
+  toolbar_source_transform_center {960 540}
+  color {0.2899000049 0.09047999978 0.3561199903 1}
+  colorOverlay {0 0 0 0}
+  lifetime_type "all frames"
+  motionblur_shutter_offset_type centred
+  name Roto3
+  xpos 746
+  ypos 2816
+ }
+ Merge2 {
+  inputs 2
+  operation stencil
+  name Merge17
+  xpos 689
+  ypos 2912
+ }
+ Reformat {
+  inputs 0
+  format "1024 1024 0 0 1024 1024 1 square_1K"
+  name Reformat11
+  xpos 1082
+  ypos 2493
+ }
+ Roto {
+  output alpha
+  curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097664}
+    {t x44700000 x44070000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Ellipse1 512 bezier
+     {{cc
+       {f 8192}
+       {px x41100000
+        {xc355bbf4 0}
+        {x43d99999 x42f93336}
+        {x4355bbf4 0}
+        {0 xc355bbf4}
+        {x444d8ccc x43ffcccf}
+        {0 x4355bbf4}
+        {x4355bbf4 0}
+        {x43d99999 x4460a669}
+        {xc355bbf4 0}
+        {0 x4355bbf4}
+        {x4240ccc8 x43ffcccf}
+        {0 xc355bbf4}}}     idem}
+     {tx x41100000 x44004000 x44014000}
+     {a osw x41200000 osf 0 str 1 spx x44700000 spy x44070000 sb 1 ltn x41100000 ltm x41100000 tt x40e00000}}}}}}
+  toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 tt 5 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 tt 6 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 tt 7 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 tt 8 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 tt 9 }
+  { createOpenSpline str 1 ssx 1 ssy 1 sf 1 tt 10 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+  toolbar_brush_hardness 0.200000003
+  toolbar_source_transform_scale {1 1}
+  toolbar_source_transform_center {960 540}
+  colorOverlay {0 0 0 0}
+  lifetime_type "all frames"
+  lifetime_start 9
+  lifetime_end 9
+  motionblur_shutter_offset_type centred
+  source_black_outside true
+  name Roto2
+  xpos 1082
+  ypos 2572
+ }
+set N8331dc00 [stack 0]
+ Dot {
+  name Dot14
+  xpos 1213
+  ypos 2581
+ }
+ Transform {
+  translate {218.15 0}
+  center {960 540}
+  name Transform17
+  xpos 1179
+  ypos 2611
+ }
+ Dot {
+  name Dot15
+  xpos 1213
+  ypos 2733
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 1
+  format "1024 1024 0 0 1024 1024 1 square_1K"
+  name Constant29
+  xpos 1283
+  ypos 2579
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy6
+  xpos 1283
+  ypos 2724
+ }
+ Premult {
+  name Premult8
+  xpos 1283
+  ypos 2786
+ }
+push $N8331dc00
+ Dot {
+  name Dot16
+  xpos 1116
+  ypos 2634
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color {0.2933152914 0.09222489595 0.3562249541 1}
+  format "1024 1024 0 0 1024 1024 1 square_1K"
+  name Constant30
+  xpos 969
+  ypos 2521
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy7
+  xpos 969
+  ypos 2625
+ }
+ Premult {
+  name Premult9
+  xpos 969
+  ypos 2661
+ }
+ Dot {
+  name Dot17
+  xpos 1003
+  ypos 2835
+ }
+ Merge2 {
+  inputs 2
+  name Merge13
+  xpos 1283
+  ypos 2832
+ }
+ Transform {
+  translate {810.7999878 -291.7999878}
+  scale 0.0929
+  center {500 526}
+  name Transform18
+  xpos 1283
+  ypos 2876
+ }
+ Dot {
+  name Dot8
+  xpos 1317
+  ypos 2917
+ }
+ Merge2 {
+  inputs 2
+  name Merge4
+  xpos 689
+  ypos 2971
+ }
+ Transform {
+  translate {-1626 -220}
+  scale {1.527999997 1.527999878}
+  center {1624 234}
+  name Transform19
+  xpos 689
+  ypos 3022
+ }
+ Reformat {
+  type "to box"
+  box_width {{"(\[exists parent.input]==1?parent.input.format.w:root.format.w)/4"}}
+  box_height {{width}}
+  resize fit
+  pbb true
+  name Reformat_Logo1
+  xpos 689
+  ypos 3079
+ }
+ Transform {
+  translate {{parent.width/2} {parent.height-((parent.height/100)*88)}}
+  center {512 512}
+  name Transform20
+  xpos 689
+  ypos 3127
+ }
+ ColorBars {
+  inputs 0
+  PAL true
+  name ColorBars2
+  xpos 1031
+  ypos 1692
+ }
+ Reformat {
+  type "to box"
+  box_width {{parent.width}}
+  box_height {{parent.height}}
+  box_fixed true
+  resize distort
+  center false
+  filter impulse
+  name Reformat3
+  xpos 1031
+  ypos 1789
+ }
+ Reformat {
+  type scale
+  scale {1 0.02}
+  resize none
+  center false
+  name Reformat4
+  xpos 1031
+  ypos 1881
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name Shuffle6
+  xpos 1031
+  ypos 1914
+ }
+ Premult {
+  name Premult7
+  xpos 1031
+  ypos 1938
+ }
+ Transform {
+  translate {0 {parent.height-((parent.height/100)*95)}}
+  name Transform15
+  xpos 1031
+  ypos 1962
+ }
+push $N9726c400
+ Dot {
+  name Dot12
+  xpos 438
+  ypos 732
+ }
+set N833c0c00 [stack 0]
+ Dot {
+  name Dot13
+  xpos 897
+  ypos 732
+ }
+ Remove {
+  name Remove1
+  xpos 870
+  ypos 1665
+ }
+ Ramp {
+  p0 {0 0}
+  p1 {{input.width} 0}
+  name Ramp6
+  xpos 870
+  ypos 1716
+ }
+ Posterize {
+  name Posterize5
+  xpos 870
+  ypos 1821
+ }
+ Colorspace {
+  colorspace_in sRGB
+  name Colorspace2
+  xpos 870
+  ypos 1895
+ }
+ Reformat {
+  type scale
+  scale {1 0.05}
+  name Reformat5
+  xpos 870
+  ypos 1919
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name Shuffle5
+  xpos 870
+  ypos 1943
+ }
+ Premult {
+  name Premult6
+  xpos 870
+  ypos 1967
+ }
+ Transform {
+  center {960 27}
+  name Transform16
+  xpos 870
+  ypos 1991
+ }
+ Merge2 {
+  inputs 2
+  name Merge10
+  xpos 870
+  ypos 2121
+ }
+push $N833c0c00
+ NoOp {
+  name frames
+  xpos 404
+  ypos 849
+  addUserKnob {20 User}
+  addUserKnob {3 startfr}
+  startfr {{"\[value parent.input.first_frame]"}}
+  addUserKnob {3 endfr}
+  endfr {{"\[value parent.input.last_frame]"}}
+ }
+ Crop {
+  box {0 0 {parent.width} {parent.height}}
+  name Crop1
+  xpos 404
+  ypos 917
+ }
+ Mirror2 {
+  flip true
+  flop true
+  name Mirror2_1
+  xpos 404
+  ypos 1026
+ }
+ Dot {
+  name Dot11
+  xpos 438
+  ypos 1088
+ }
+set N8341b000 [stack 0]
+ Group {
+  name NFA_Framehold3
+  tile_color 0xafa25dff
+  label "(frame \[python int(nuke.thisNode().knob('first_frame').value())])"
+  xpos 568
+  ypos 1223
+  addUserKnob {20 frameholdtab l FrameHold}
+  addUserKnob {41 first_frame l "first frame" T FrameHold2.first_frame}
+  addUserKnob {22 currentframe l "set to current frame" -STARTLINE T nuke.thisNode().knob('first_frame').setValue(nuke.frame())}
+  addUserKnob {41 increment T FrameHold2.increment}
+ }
+  Input {
+   inputs 0
+   name Input1
+   xpos 86
+   ypos -167
+  }
+  FrameHold {
+   first_frame {{frames.endfr}}
+   name FrameHold2
+   xpos 86
+   ypos -127
+  }
+  Output {
+   name Output1
+   xpos 86
+   ypos -27
+  }
+ end_group
+ Transform {
+  translate {0 {input.height*3}}
+  center {1057.5 666.5}
+  name Transform13
+  xpos 568
+  ypos 1259
+ }
+push $N8341b000
+ Group {
+  name NFA_Framehold2
+  tile_color 0xafa25dff
+  label "(frame \[python int(nuke.thisNode().knob('first_frame').value())])"
+  xpos 456
+  ypos 1223
+  addUserKnob {20 frameholdtab l FrameHold}
+  addUserKnob {41 first_frame l "first frame" T FrameHold2.first_frame}
+  addUserKnob {22 currentframe l "set to current frame" -STARTLINE T nuke.thisNode().knob('first_frame').setValue(nuke.frame())}
+  addUserKnob {41 increment T FrameHold2.increment}
+ }
+  Input {
+   inputs 0
+   name Input1
+   xpos 86
+   ypos -167
+  }
+  FrameHold {
+   first_frame {{((frames.endfr-frames.startfr)/5)*4+frames.startfr}}
+   name FrameHold2
+   xpos 86
+   ypos -127
+  }
+  Output {
+   name Output1
+   xpos 86
+   ypos -27
+  }
+ end_group
+ Transform {
+  translate {0 {input.height*2}}
+  center {1057.5 666.5}
+  name Transform12
+  xpos 456
+  ypos 1259
+ }
+push 0
+push $N8341b000
+ Group {
+  name NFA_Framehold1
+  tile_color 0xafa25dff
+  label "(frame \[python int(nuke.thisNode().knob('first_frame').value())])"
+  xpos 346
+  ypos 1223
+  addUserKnob {20 frameholdtab l FrameHold}
+  addUserKnob {41 first_frame l "first frame" T FrameHold2.first_frame}
+  addUserKnob {22 currentframe l "set to current frame" -STARTLINE T nuke.thisNode().knob('first_frame').setValue(nuke.frame())}
+  addUserKnob {41 increment T FrameHold2.increment}
+ }
+  Input {
+   inputs 0
+   name Input1
+   xpos 86
+   ypos -167
+  }
+  FrameHold {
+   first_frame {{((frames.endfr-frames.startfr)/5)*2+frames.startfr}}
+   name FrameHold2
+   xpos 86
+   ypos -127
+  }
+  Output {
+   name Output1
+   xpos 86
+   ypos -27
+  }
+ end_group
+ Transform {
+  translate {0 {input.height}}
+  center {1057.5 666.5}
+  name Transform11
+  xpos 346
+  ypos 1259
+ }
+push $N8341b000
+ Group {
+  name NFA_Framehold
+  tile_color 0xafa25dff
+  label "(frame \[python int(nuke.thisNode().knob('first_frame').value())])"
+  xpos 237
+  ypos 1222
+  addUserKnob {20 frameholdtab l FrameHold}
+  addUserKnob {41 first_frame l "first frame" T FrameHold2.first_frame}
+  addUserKnob {22 currentframe l "set to current frame" -STARTLINE T nuke.thisNode().knob('first_frame').setValue(nuke.frame())}
+  addUserKnob {41 increment T FrameHold2.increment}
+ }
+  Input {
+   inputs 0
+   name Input1
+   xpos 86
+   ypos -167
+  }
+  FrameHold {
+   first_frame {{frames.startfr}}
+   name FrameHold2
+   xpos 86
+   ypos -127
+  }
+  Output {
+   name Output1
+   xpos 86
+   ypos -27
+  }
+ end_group
+ Transform {
+  center {960 540}
+  name Transform10
+  xpos 237
+  ypos 1258
+ }
+ Merge2 {
+  inputs 4+1
+  name Merge9
+  xpos 400
+  ypos 1447
+ }
+ Transform {
+  scale 0.233
+  name Transform14
+  xpos 400
+  ypos 1555
+ }
+ Mirror2 {
+  flip true
+  flop true
+  name Mirror2_2
+  xpos 400
+  ypos 1605
+ }
+ Merge2 {
+  inputs 2
+  name Merge11
+  xpos 400
+  ypos 2239
+ }
+ Merge2 {
+  inputs 2
+  name Merge15
+  xpos 400
+  ypos 3220
+ }
+ Merge2 {
+  inputs 2
+  name Merge20
+  xpos 400
+  ypos 4126
+ }
+ Merge2 {
+  inputs 2
+  operation under
+  name Merge12
+  xpos 400
+  ypos 4766
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name Shuffle7
+  xpos 400
+  ypos 4916
+ }
+ Crop {
+  box {0 0 {parent.width} {parent.height}}
+  name Crop2
+  xpos 400
+  ypos 4940
+ }
+ Switch {
+  inputs 2
+  which {{"\[python -execlocal first_frame\\ =\\ nuke.root().firstFrame()\\nlast_frame\\ =\\ nuke.root().lastFrame()\\ncurr_frame\\ =\\ nuke.root()\\\[\\\"frame\\\"\\].value()\\n\\nif\\ curr_frame\\ <\\ first_frame:\\n\\ \\ #\\ frames\\ before\\ the\\ start\\ of\\ the\\ sequence\\n\\ \\ #\\ switch\\ to\\ slate\\n\\ \\ ret\\ =\\ 0\\nelse:\\n\\ \\ #\\ play\\ back\\ sequence\\ with\\ burnins\\n\\ \\ ret\\ =\\ 1\\n\\n]" x4 0 x1004 0 x1005 1}}
+  name slate_or_burnin_chooser1
+  label "Switches to the slate if curr_frame < start_frame for the current scene."
+  xpos 400
+  ypos 5411
+ }
+ Output {
+  name Output1
+  xpos 400
+  ypos 5583
+ }
+end_group
