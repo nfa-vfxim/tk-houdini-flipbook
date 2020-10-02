@@ -25,11 +25,15 @@ import subprocess
 
 class CreateSlate(object):
     def __init__(self, app):
+        # initialize and set paths
         self.app = app
-        self.path = app.get_setting("nuke_path")
+        self.nukePath = "%s" % (app.get_setting("nuke_path"))
+        
+        # set slate script path
+        __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+        self.slatePath = os.path.join(__location__, "slate.py")
 
     def runSlate(self, inputFile, outputFile):
-        __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-        self.file = os.path.join(__location__, 'slate.py')
-        launch = "%s -t %s %s %s" % (self.path, self.file, inputFile, outputFile)
-        subprocess.Popen([launch])
+        # call subprocess of nuke and convert
+
+        subprocess.call([self.nukePath, "-t", self.slatePath, inputFile, outputFile], shell=True)

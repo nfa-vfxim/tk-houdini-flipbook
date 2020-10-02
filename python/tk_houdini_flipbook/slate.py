@@ -22,3 +22,9 @@
 
 import nuke
 import sys
+
+r = nuke.nodes.Read(file = sys.argv[1])
+w = nuke.nodes.Write(file = sys.argv[2], colorspace= "default")
+w.setInput(0, r)
+
+nuke.execute("Write1", 1,5)
