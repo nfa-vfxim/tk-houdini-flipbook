@@ -37,6 +37,7 @@ version = int(sys.argv[8])
 resolution = sys.argv[9]
 user_name = sys.argv[10]
 task_name = sys.argv[11]
+fps = sys.argv[12]
 
 output_node = None
 
@@ -149,6 +150,7 @@ try:
     slate_str += "%s\n" % date_formatted
     slate_str += "%s\n" % user_name
     slate_str += "v%s\n \n" % version_str
+    slate_str += "%s\n" % fps
     slate_str += "%s\n" % resolution
 
     burn.node("slate_info")["message"].setValue(slate_str)

@@ -58,6 +58,8 @@ class CreateSlate(object):
         last_frame = settings["frameRange"]
         last_frame = last_frame[1]
         task_name = context.step["name"]
+        self.app.logger.debug(task_name)
+        fps = hou.fps()
         appPath = self.app.disk_location
 
         # calculate version number
@@ -86,6 +88,7 @@ class CreateSlate(object):
                 resolution,
                 user_name,
                 task_name,
+                str(fps),
             ],
             shell=True,
             stdout=subprocess.PIPE,
