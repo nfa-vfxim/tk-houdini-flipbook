@@ -37,9 +37,17 @@ class CreateSlate(object):
             os.path.join(os.getcwd(), os.path.dirname(__file__))
         )
         self.slatePath = os.path.join(__location__, "slate.py")
-        # self.slatePath = r"C:\Users\Bo.Kamphues\Documents\coding\tk-houdini-flipbook\python\tk_houdini_flipbook\slate.py"
 
     def runSlate(self, inputFile, outputFile, settings):
+        # setup environment
+        custom_env = os.environ.copy()
+
+        if custom_env["PYTHONPATH"] != None:
+            del custom_env["PYTHONPATH"]
+
+        if custom_env["PYTHONHOME"] != None:
+            del custom_env["PYTHONHOME"]
+
         # setup arguments for call
         context = self.app.context
         project_name = context.project["name"]
@@ -82,8 +90,9 @@ class CreateSlate(object):
             shell=True,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
+            env=custom_env,
         )
 
         stdout, stderr = process.communicate()
-        print(stdout)
-        print(stderr)
+        self.app.logger.debug(stdout)
+        self.app.logger.debug(stderr)
