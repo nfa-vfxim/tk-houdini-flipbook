@@ -30,12 +30,13 @@ inputPath = sys.argv[1]
 outputPath = sys.argv[2]
 project_name = sys.argv[3]
 file_name = sys.argv[4]
-first_frame = sys.argv[5]
-last_frame = sys.argv[6]
+first_frame = int(sys.argv[5])
+last_frame = int(sys.argv[6])
 appPath = sys.argv[7]
-version = sys.argv[8]
+version = int(sys.argv[8])
 resolution = sys.argv[9]
 user_name = sys.argv[10]
+task_name = sys.argv[11]
 
 output_node = None
 
@@ -55,9 +56,67 @@ color_space = "Output - sRGB"
 # operate in group
 group.begin()
 
+
+def __create_output_node(path):
+
+    # get the Write node settings we'll use for generating the Quicktime
+    wn_settings = __get_quicktime_settings()
+
+    node = nuke.nodes.Write(file_type=wn_settings.get("file_type"))
+
+    # apply any additional knob settings provided by the hook. Now that the knob has been
+    # created, we can be sure specific file_type settings will be valid.
+    for knob_name, knob_value in wn_settings.iteritems():
+        if knob_name != "file_type":
+            node.knob(knob_name).setValue(knob_value)
+
+    root_node = nuke.root()
+    is_proxy = root_node["proxy"].value()
+    if is_proxy:
+        node["proxy"].setValue(path.replace(os.sep, "/"))
+    else:
+        node["file"].setValue(path.replace(os.sep, "/"))
+
+    return node
+
+
+def __get_quicktime_settings():
+    settings = {}
+    settings["file_type"] = "mov"
+    if nuke.NUKE_VERSION_MAJOR >= 9:
+        # Nuke 9.0v1 changed the codec knob name to meta_codec and added an encoder knob
+        # (which defaults to the new mov64 encoder/decoder).
+        settings["meta_codec"] = "jpeg"
+        settings["mov64_quality_max"] = "3"
+
+        # setting output colorspace
+        colorspace = nuke.root().knob("colorManagement").getValue()
+
+        # If OCIO is set, output - rec709
+        if colorspace:
+            settings["colorspace"] = "Output - Rec.709"
+
+        # If no OCIO is set, detect if ACES is used or nuke_default
+        else:
+            ocio_config = nuke.root().knob("OCIO_config").getValue()
+
+            if ocio_config == 2.0:
+                settings["colorspace"] = "rec709"
+
+            else:
+                settings["colorspace"] = "Output - Rec.709"
+
+    else:
+        settings["codec"] = "jpeg"
+
+    return settings
+
+
 try:
     # create read node
-    read = nuke.nodes.Read(name="source", file=inputPath.replace(os.sep, "/"))
+    read = nuke.nodes.Read(
+        name="source", file_type="jpg", file=inputPath.replace(os.sep, "/")
+    )
     read["on_error"].setValue("black")
     read["first"].setValue(first_frame)
     read["last"].setValue(last_frame)
@@ -72,10 +131,8 @@ try:
     version_padding_format = "%%0%dd" % frame_padding
     version_str = version_padding_format % version
 
-    if ctx.task:
-        version_label = "%s, v%s" % (ctx.task["name"], version_str)
-    elif ctx.step:
-        version_label = "%s, v%s" % (ctx.step["name"], version_str)
+    if task_name:
+        version_label = "%s, v%s" % (task_name, version_str)
     else:
         version_label = "v%s" % version_str
 
@@ -84,7 +141,7 @@ try:
     burn.node("bottom_left_text")["message"].setValue(file_name)
     burn.node("bottom_center_text")["message"].setValue(project_name)
 
-     # slate project info
+    # slate project info
     burn.node("slate_projectinfo")["message"].setValue(project_name)
 
     slate_str = "%s\n" % file_name
@@ -111,56 +168,3 @@ if output_node:
 
 # Cleanup after ourselves
 nuke.delete(group)
-
-def __create_output_node(path):
-
-    # get the Write node settings we'll use for generating the Quicktime
-    wn_settings = __get_quicktime_settings()
-
-    node = nuke.nodes.Write(file_type=wn_settings.get("file_type"))
-
-    # apply any additional knob settings provided by the hook. Now that the knob has been
-    # created, we can be sure specific file_type settings will be valid.
-    for knob_name, knob_value in six.iteritems(wn_settings):
-        if knob_name != "file_type":
-            node.knob(knob_name).setValue(knob_value)
-
-    root_node = nuke.root()
-    is_proxy = root_node["proxy"].value()
-    if is_proxy:
-        node["proxy"].setValue(path.replace(os.sep, "/"))
-    else:
-        node["file"].setValue(path.replace(os.sep, "/"))
-
-    return node
-
-def __get_quicktime_settings():
-    settings = {}
-    settings["file_type"] = "mov"
-    if nuke.NUKE_VERSION_MAJOR >= 9:
-        # Nuke 9.0v1 changed the codec knob name to meta_codec and added an encoder knob
-        # (which defaults to the new mov64 encoder/decoder).
-        settings["meta_codec"] = "jpeg"
-        settings["mov64_quality_max"] = "3"
-
-        # setting output colorspace
-        colorspace = nuke.root().knob('colorManagement').getValue()
-
-        # If OCIO is set, output - rec709
-        if colorspace:
-            settings["colorspace"] = "Output - Rec.709"
-
-        # If no OCIO is set, detect if ACES is used or nuke_default
-        else:
-            ocio_config = nuke.root().knob('OCIO_config').getValue()
-
-            if ocio_config == 2.0:
-                settings["colorspace"] = "rec709"
-
-            else:
-                settings["colorspace"] = "Output - Rec.709"
-
-    else:
-        settings["codec"] = "jpeg"
-
-    return settings

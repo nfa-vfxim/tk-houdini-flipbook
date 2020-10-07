@@ -21,10 +21,44 @@
 # SOFTWARE.
 
 import subprocess
+import _socket
 
 nPath = r"C:\Program Files\Nuke12.1v4\Nuke12.1.exe"
 sPath = r"C:\Users\Bo.Kamphues\Documents\coding\tk-houdini-flipbook\python\tk_houdini_flipbook\slate.py"
-inputPath = r'"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.####.jpg"'
-outputPath = r'"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.mp4"'
+inputPath = r"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.%04d.jpg"
+outputPath = r"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.mov"
+project_name = "Verlangen"
+file_name = "ver_asset_model_v001.hip"
+first_frame = 1001
+last_frame = 1004
+appPath = r"C:\Users\Bo.Kamphues\Documents\coding\tk-houdini-flipbook"
+version = 1
+resolution = "1920 x 1080"
+user_name = "Bo Kamphues"
+task_name = "Modelling Shit"
 
-subprocess.call([nPath, "-t", sPath, inputPath, outputPath])
+process = subprocess.Popen(
+    [
+        nPath,
+        "-t",
+        sPath,
+        inputPath,
+        outputPath,
+        project_name,
+        file_name,
+        str(first_frame),
+        str(last_frame),
+        appPath,
+        str(version),
+        resolution,
+        user_name,
+        task_name,
+    ],
+    stdout=subprocess.PIPE,
+    stderr=subprocess.PIPE,
+)
+
+info, err = process.communicate()
+
+print(info)
+print(err)

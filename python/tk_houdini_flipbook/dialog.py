@@ -29,6 +29,7 @@ from PySide2 import QtCore
 from PySide2 import QtWidgets
 from PySide2 import QtUiTools
 
+
 class FlipbookDialog(QtWidgets.QDialog):
     def __init__(self, app, parent=None):
         QtWidgets.QDialog.__init__(self, parent)
@@ -40,13 +41,15 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # other properties
         self.setWindowTitle("SGTK Flipbook")
-        
+
         # define general layout
         layout = QtWidgets.QVBoxLayout()
         groupLayout = QtWidgets.QVBoxLayout()
 
         # widgets
-        self.outputLabel = QtWidgets.QLabel("Flipbooking to: %s" % (self.flipbook.getOutputPath()))
+        self.outputLabel = QtWidgets.QLabel(
+            "Flipbooking to: %s" % (self.flipbook.getOutputPath())
+        )
         self.outputToMplay = QtWidgets.QCheckBox("MPlay Output", self)
         self.beautyPassOnly = QtWidgets.QCheckBox("Beauty Pass", self)
         self.useMotionblur = QtWidgets.QCheckBox("Motion Blur", self)
@@ -86,24 +89,28 @@ class FlipbookDialog(QtWidgets.QDialog):
         self.frameRange = QtWidgets.QGroupBox("Frame range")
         frameRangeGroupLayout = QtWidgets.QHBoxLayout()
 
-        # frame range start sub-widget 
+        # frame range start sub-widget
         self.frameRangeStart = QtWidgets.QWidget()
         frameRangeStartLayout = QtWidgets.QVBoxLayout()
         self.frameRangeStartLabel = QtWidgets.QLabel("Start")
         self.frameRangeStartLine = QtWidgets.QLineEdit()
-        self.frameRangeStartLine.setPlaceholderText("%i" % (self.flipbook.getFrameRange()[0]))
+        self.frameRangeStartLine.setPlaceholderText(
+            "%i" % (self.flipbook.getFrameRange()[0])
+        )
         self.frameRangeStartLine.setInputMask("9000")
         frameRangeStartLayout.addWidget(self.frameRangeStartLabel)
         frameRangeStartLayout.addWidget(self.frameRangeStartLine)
         self.frameRangeStart.setLayout(frameRangeStartLayout)
         frameRangeGroupLayout.addWidget(self.frameRangeStart)
 
-        # frame range end sub-widget 
+        # frame range end sub-widget
         self.frameRangeEnd = QtWidgets.QWidget()
         frameRangeEndLayout = QtWidgets.QVBoxLayout()
         self.frameRangeEndLabel = QtWidgets.QLabel("End")
         self.frameRangeEndLine = QtWidgets.QLineEdit()
-        self.frameRangeEndLine.setPlaceholderText("%i" % (self.flipbook.getFrameRange()[1]))
+        self.frameRangeEndLine.setPlaceholderText(
+            "%i" % (self.flipbook.getFrameRange()[1])
+        )
         self.frameRangeEndLine.setInputMask("9000")
         frameRangeEndLayout.addWidget(self.frameRangeEndLabel)
         frameRangeEndLayout.addWidget(self.frameRangeEndLine)
@@ -166,10 +173,18 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # run the actual flipbook
         try:
-            with hou.InterruptableOperation("Flipbooking...", long_operation_name="Flipbooking...", open_interrupt_dialog=True) as operation:
+            with hou.InterruptableOperation(
+                "Flipbooking...",
+                long_operation_name="Flipbooking...",
+                open_interrupt_dialog=True,
+            ) as operation:
                 self.flipbook.runFlipbook(settings)
                 operation.updateLongProgress(0.5)
-                self.slate.runSlate("C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.####.jpg", "C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.mov", inputSettings) 
+                self.slate.runSlate(
+                    r"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.%04d.jpg",
+                    r"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.mov",
+                    inputSettings,
+                )
             self.closeWindow()
         except Exception as e:
             self.app.logger.error("Oops, something went wrong!")
@@ -180,19 +195,28 @@ class FlipbookDialog(QtWidgets.QDialog):
     def validateFrameRange(self):
         # validating the frame range input
         frameRange = []
-        
+
         if self.frameRangeStartLine.hasAcceptableInput():
-            self.app.logger.debug("Setting start of frame range to %s" % (self.frameRangeStartLine.text()))
-            frameRange.append(int(self.frameRangeStartLine.text()))    
+            self.app.logger.debug(
+                "Setting start of frame range to %s" % (self.frameRangeStartLine.text())
+            )
+            frameRange.append(int(self.frameRangeStartLine.text()))
         else:
-            self.app.logger.debug("Setting start of frame range to %i" % (self.flipbook.getFrameRange()[0]))
+            self.app.logger.debug(
+                "Setting start of frame range to %i"
+                % (self.flipbook.getFrameRange()[0])
+            )
             frameRange.append(self.flipbook.getFrameRange()[0])
 
         if self.frameRangeEndLine.hasAcceptableInput():
-            self.app.logger.debug("Setting end of frame range to %s" % (self.frameRangeEndLine.text()))
+            self.app.logger.debug(
+                "Setting end of frame range to %s" % (self.frameRangeEndLine.text())
+            )
             frameRange.append(int(self.frameRangeEndLine.text()))
         else:
-            self.app.logger.debug("Setting end of frame range to %i" % (self.flipbook.getFrameRange()[1]))
+            self.app.logger.debug(
+                "Setting end of frame range to %i" % (self.flipbook.getFrameRange()[1])
+            )
             frameRange.append(self.flipbook.getFrameRange()[1])
 
         return tuple(frameRange)
@@ -200,19 +224,27 @@ class FlipbookDialog(QtWidgets.QDialog):
     def validateResolution(self):
         # validating the resolution input
         resolution = []
-        
+
         if self.resolutionXLine.hasAcceptableInput():
-            self.app.logger.debug("Setting width resolution to %s" % (self.resolutionXLine.text()))
-            resolution.append(int(self.resolutionXLine.text()))    
+            self.app.logger.debug(
+                "Setting width resolution to %s" % (self.resolutionXLine.text())
+            )
+            resolution.append(int(self.resolutionXLine.text()))
         else:
-            self.app.logger.debug("Setting width resolution to %s" % (self.resolutionX.default))
+            self.app.logger.debug(
+                "Setting width resolution to %s" % (self.resolutionX.default)
+            )
             resolution.append(int(self.resolutionX.default))
 
         if self.resolutionYLine.hasAcceptableInput():
-            self.app.logger.debug("Setting height resolution to %s" % (self.resolutionYLine.text()))
+            self.app.logger.debug(
+                "Setting height resolution to %s" % (self.resolutionYLine.text())
+            )
             resolution.append(int(self.resolutionYLine.text()))
         else:
-            self.app.logger.debug("Setting height resolution to %s" % (self.resolutionY.default))
+            self.app.logger.debug(
+                "Setting height resolution to %s" % (self.resolutionY.default)
+            )
             resolution.append(int(self.resolutionY.default))
 
         return tuple(resolution)
