@@ -20,10 +20,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
 import hou
 import sgtk
 from .create_flipbook import CreateFlipbook
 from .create_slate import CreateSlate
+from .submit_version import SubmitVersion
 
 from PySide2 import QtCore
 from PySide2 import QtWidgets
@@ -36,6 +38,7 @@ class FlipbookDialog(QtWidgets.QDialog):
         self.app = app
 
         # create an instance of CreateFlipbook
+        # create an instance of CreateSlate
         self.flipbook = CreateFlipbook(app)
         self.slate = CreateSlate(app)
 
@@ -48,7 +51,8 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # widgets
         self.outputLabel = QtWidgets.QLabel(
-            "Flipbooking to: %s" % (self.flipbook.getOutputPath())
+            "Flipbooking to: %s"
+            % (os.path.basename(self.flipbook.getOutputPath()["finFile"]))
         )
         self.outputToMplay = QtWidgets.QCheckBox("MPlay Output", self)
         self.beautyPassOnly = QtWidgets.QCheckBox("Beauty Pass", self)
@@ -157,14 +161,16 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         inputSettings = {}
 
+        outputPath = self.flipbook.getOutputPath()
+
         # validation of inputs
         inputSettings["frameRange"] = self.validateFrameRange()
         inputSettings["resolution"] = self.validateResolution()
         inputSettings["mplay"] = self.validateMplay()
         inputSettings["beautyPass"] = self.validateBeauty()
         inputSettings["motionBlur"] = self.validateMotionBlur()
-        inputSettings["output"] = self.flipbook.getOutputPath()
-        inputSettings["sessionLabel"] = self.flipbook.getOutputPath()
+        inputSettings["output"] = outputPath["writeTempFile"]
+        inputSettings["sessionLabel"] = outputPath["finFile"]
 
         self.app.logger.debug("Using the following settings, %s" % (inputSettings))
 
@@ -184,10 +190,11 @@ class FlipbookDialog(QtWidgets.QDialog):
                     0.25, "Rendering to Nuke, please sit tight."
                 )
                 self.slate.runSlate(
-                    settings["inputNuke"],
-                    r"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.mov",
+                    outputPath["inputTempFile"],
+                    outputPath["finFile"],
                     inputSettings,
                 )
+                operation.updateLongProgress(0.5, "Uploading to Shotgun")
                 operation.updateLongProgress(1, "Done, closing window.")
                 self.closeWindow()
 

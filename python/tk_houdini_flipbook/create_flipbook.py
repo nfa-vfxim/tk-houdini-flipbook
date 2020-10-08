@@ -24,6 +24,7 @@ import sgtk
 import hou
 import tempfile
 import shutil
+import re
 import os
 from hou import SceneViewer
 
@@ -62,9 +63,21 @@ class CreateFlipbook(object):
     def getOutputPath(self):
         outputPath = {}
 
-        # create an empty directory for the JPG files
+        # create an temporary directory for the JPG files
         tempDir = tempfile.mkdtemp()
-        outputPath["tempFile"] = os.path.join(tempDir, "temporary.$F4.jpg")
+        outputPath["writeTempFile"] = os.path.join(tempDir, "temporary.$F4.jpg")
+
+        # format temporary path for importing in Nuke
+        outputPath["inputTempFile"] = re.sub(
+            "\$F4", "####", outputPath["writeTempFile"]
+        )
+
+        # get template object from info.yml
+        reviewTemplate = self.app.get_template("review_file_template")
+        workTemplate = self.app.get_template("work_file_template")
+        fields = workTemplate.get_fields(hou.hipFile.path())
+        self.app.logger.debug(fields)
+        outputPath["finFile"] = reviewTemplate.apply_fields(fields)
 
         return outputPath
 
