@@ -22,7 +22,11 @@
 
 import sgtk
 import hou
+import tempfile
+import shutil
+import os
 from hou import SceneViewer
+
 
 class CreateFlipbook(object):
 
@@ -56,9 +60,11 @@ class CreateFlipbook(object):
         return settings
 
     def getOutputPath(self):
-        outputPath = "C:/Users/Bo.Kamphues/Downloads/flipbook_test/test.$F4.jpg"
+        outputPath = {}
 
-        # template = self.app.get_template("houdini_flipbook_publish")
+        # create an empty directory for the JPG files
+        tempDir = tempfile.mkdtemp()
+        outputPath["tempFile"] = os.path.join(tempDir, "temporary.$F4.jpg")
 
         return outputPath
 

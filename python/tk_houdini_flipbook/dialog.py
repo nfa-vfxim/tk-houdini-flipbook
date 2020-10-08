@@ -174,18 +174,23 @@ class FlipbookDialog(QtWidgets.QDialog):
         # run the actual flipbook
         try:
             with hou.InterruptableOperation(
-                "Flipbooking...",
-                long_operation_name="Flipbooking...",
+                "Flipbooking",
+                long_operation_name="Creating a flipbook",
                 open_interrupt_dialog=True,
             ) as operation:
+                operation.updateLongProgress(0, "Starting Flipbook")
                 self.flipbook.runFlipbook(settings)
-                operation.updateLongProgress(0.5)
+                operation.updateLongProgress(
+                    0.25, "Rendering to Nuke, please sit tight."
+                )
                 self.slate.runSlate(
-                    r"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.%04d.jpg",
+                    settings["inputNuke"],
                     r"C:\Users\Bo.Kamphues\Downloads\flipbook_test\test.mov",
                     inputSettings,
                 )
-            self.closeWindow()
+                operation.updateLongProgress(1, "Done, closing window.")
+                self.closeWindow()
+
         except Exception as e:
             self.app.logger.error("Oops, something went wrong!")
             self.app.logger.error(e)

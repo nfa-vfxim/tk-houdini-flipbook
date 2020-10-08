@@ -21,7 +21,6 @@
 # SOFTWARE.
 
 import subprocess
-import _socket
 
 nPath = r"C:\Program Files\Nuke12.1v4\Nuke12.1.exe"
 sPath = r"C:\Users\Bo.Kamphues\Documents\coding\tk-houdini-flipbook\python\tk_houdini_flipbook\slate.py"
@@ -36,6 +35,7 @@ version = 1
 resolution = "1920 x 1080"
 user_name = "Bo Kamphues"
 task_name = "Modelling Shit"
+fps = 24
 
 process = subprocess.Popen(
     [
@@ -53,9 +53,11 @@ process = subprocess.Popen(
         resolution,
         user_name,
         task_name,
+        str(fps),
     ],
     stdout=subprocess.PIPE,
     stderr=subprocess.PIPE,
+    shell=True,
 )
 
 info, err = process.communicate()

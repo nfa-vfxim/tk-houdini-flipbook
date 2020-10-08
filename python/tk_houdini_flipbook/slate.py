@@ -87,25 +87,25 @@ def __get_quicktime_settings():
     if nuke.NUKE_VERSION_MAJOR >= 9:
         # Nuke 9.0v1 changed the codec knob name to meta_codec and added an encoder knob
         # (which defaults to the new mov64 encoder/decoder).
-        settings["meta_codec"] = "jpeg"
-        settings["mov64_quality_max"] = "3"
+        settings["meta_codec"] = "Apple ProRes 422 LT"
+        # settings["mov64_quality_max"] = "3"
 
         # setting output colorspace
         colorspace = nuke.root().knob("colorManagement").getValue()
 
         # If OCIO is set, output - rec709
         if colorspace:
-            settings["colorspace"] = "Output - Rec.709"
+            settings["colorspace"] = "Output - sRGB"
 
         # If no OCIO is set, detect if ACES is used or nuke_default
         else:
             ocio_config = nuke.root().knob("OCIO_config").getValue()
 
             if ocio_config == 2.0:
-                settings["colorspace"] = "rec709"
+                settings["colorspace"] = "sRGB"
 
             else:
-                settings["colorspace"] = "Output - Rec.709"
+                settings["colorspace"] = "Output - sRGB"
 
     else:
         settings["codec"] = "jpeg"

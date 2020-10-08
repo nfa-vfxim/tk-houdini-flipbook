@@ -62,6 +62,8 @@ class CreateSlate(object):
         fps = hou.fps()
         appPath = self.app.disk_location
 
+        # inputFile =
+
         # calculate version number
         template = self.app.get_template("work_file_template")
         fields = template.get_fields(hou.hipFile.path())

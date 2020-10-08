@@ -34,5 +34,10 @@ configuration:
         type: template
         description: "Template for your current work file in Houdini."
         fields: context, version, [name]
+    
+    review_file_template:
+        type: template
+        description: "Template for the exported review file."
+        description: context, version, [name]
 
 supported_engines: [tk-houdini]
