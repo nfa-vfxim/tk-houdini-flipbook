@@ -119,8 +119,6 @@ class UploaderThread(QtCore.QThread):
     # run the actual thread
     def run(self):
 
-        uploadError = False
-
         try:
             self.app.sgtk.shotgun.upload(
                 "Version", self.version["id"], self.file, "sg_uploaded_movie"
