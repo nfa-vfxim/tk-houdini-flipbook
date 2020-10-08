@@ -58,6 +58,10 @@ class FlipbookDialog(QtWidgets.QDialog):
         self.beautyPassOnly = QtWidgets.QCheckBox("Beauty Pass", self)
         self.useMotionblur = QtWidgets.QCheckBox("Motion Blur", self)
 
+        # description widget
+        self.descriptionLabel = QtWidgets.QLabel("Description")
+        self.description = QtWidgets.QLineEdit()
+
         # resolution sub-widgets x
         self.resolutionX = QtWidgets.QWidget()
         resolutionXLayout = QtWidgets.QVBoxLayout()
@@ -142,6 +146,8 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # widgets additions
         layout.addWidget(self.outputLabel)
+        layout.addWidget(self.descriptionLabel)
+        layout.addWidget(self.description)
         layout.addWidget(self.frameRange)
         layout.addWidget(self.resolutionGroup)
         layout.addWidget(self.optionsGroup)
@@ -162,6 +168,16 @@ class FlipbookDialog(QtWidgets.QDialog):
         inputSettings = {}
 
         outputPath = self.flipbook.getOutputPath()
+        description = self.validateDescription()
+
+        # create submitter clas
+        submit = SubmitVersion(
+            self.app,
+            outputPath["finFile"],
+            int(self.validateFrameRange()[0]),
+            int(self.validateFrameRange()[1]),
+            description,
+        )
 
         # validation of inputs
         inputSettings["frameRange"] = self.validateFrameRange()
@@ -194,7 +210,8 @@ class FlipbookDialog(QtWidgets.QDialog):
                     outputPath["finFile"],
                     inputSettings,
                 )
-                operation.updateLongProgress(0.5, "Uploading to Shotgun")
+                operation.updateLongProgress(0.75, "Uploading to Shotgun")
+                submit.submit_version()
                 operation.updateLongProgress(1, "Done, closing window.")
                 self.closeWindow()
 
@@ -275,3 +292,7 @@ class FlipbookDialog(QtWidgets.QDialog):
         # validating the motion blur checkbox
 
         return self.useMotionblur.isChecked()
+
+    def validateDescription(self):
+
+        return str(self.description.text())

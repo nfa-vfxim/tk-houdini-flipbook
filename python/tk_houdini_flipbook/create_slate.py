@@ -62,7 +62,8 @@ class CreateSlate(object):
         fps = hou.fps()
         appPath = self.app.disk_location
 
-        # inputFile =
+        # ensure output path exists
+        self.app.ensure_folder_exists(os.path.dirname(os.path.abspath(outputFile)))
 
         # calculate version number
         template = self.app.get_template("work_file_template")
@@ -100,4 +101,7 @@ class CreateSlate(object):
 
         stdout, stderr = process.communicate()
         self.app.logger.debug(stdout)
-        self.app.logger.debug(stderr)
+        self.app.logger.error(stderr)
+
+        if stderr:
+            raise Exception("Could not correctly render file")
