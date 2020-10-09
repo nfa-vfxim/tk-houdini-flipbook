@@ -87,8 +87,8 @@ def __get_quicktime_settings():
     if nuke.NUKE_VERSION_MAJOR >= 9:
         # Nuke 9.0v1 changed the codec knob name to meta_codec and added an encoder knob
         # (which defaults to the new mov64 encoder/decoder).
-        settings["meta_codec"] = "Apple ProRes 422 LT"
-        # settings["mov64_quality_max"] = "3"
+        settings["meta_codec"] = "jpeg"
+        settings["mov64_quality_max"] = "3"
 
         # setting output colorspace
         colorspace = nuke.root().knob("colorManagement").getValue()
