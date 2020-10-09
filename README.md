@@ -3,7 +3,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/nfa-vfxim/tk-houdini-flipbook)](https://github.com/nfa-vfxim/tk-houdini-flipbook/issues)
 # tk-houdini-flipbook
 
-`tk-houdini-flipbook` is a Shotgun Toolkit app to create flipbooks of your current scene with use of SGTK templates. It uses Nuke to create a preview file that is automatically uploaded to Shotgun and linked to a new version. `tk-houdini-fipbook` also includes a `slate.py` which by default adds a frame at the beginning of the file to include some data about the version and user. It also adds a small semi-transparent bar at the top and bottom of the screen to reflect some more data.
+`tk-houdini-flipbook` is a Shotgun Toolkit app to create flipbooks of your current scene with use of SGTK templates. It uses Nuke to create a preview file that is automatically uploaded to Shotgun and linked to a new version. `tk-houdini-fipbook` also includes a `slate.py` which mirrors the [tk-multi-reviewsubmission](https://github.com/nfa-vfxim/tk-multi-reviewsubmission) slate. This slate, by default, adds a frame at the beginning of the file to include some data about the version and user. It also adds a small semi-transparent bar at the top and bottom of the screen to reflect some more data.
 
 ![ui](resources/ui.png "Flipbook UI App")
 
@@ -30,8 +30,6 @@ The `tk-houdini-flipbook` app is installed by adding it to your Shotgun Toolkit 
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
