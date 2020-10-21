@@ -75,7 +75,11 @@ class SubmitVersion(object):
         data["sg_path_to_movie"] = self.file
 
         # create the version in shotgun
-        version = self.app.sgtk.shotgun.create("Version", data)
+        try:
+            version = self.app.sgtk.shotgun.create("Version", data)
+        except:
+            self.app.logger.debug("This is the error.")
+        
         self.app.logger.debug("Created version in shotgun: %s" % str(data))
 
         # upload the movie files to shotgun
@@ -94,8 +98,9 @@ class SubmitVersion(object):
         thread.start()
         eventLoop.exec_()
 
-        for e in thread.get_errors():
-            self.app.logger.error(e)
+        if thread.get_errors():
+            for e in thread.get_errors():
+                self.app.logger.error(e)
 
 
 class UploaderThread(QtCore.QThread):
