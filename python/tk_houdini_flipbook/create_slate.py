@@ -104,4 +104,4 @@ class CreateSlate(object):
         self.app.logger.error(stderr)
 
         if stderr:
-            raise Exception("Could not correctly render file")
+            raise Exception("Could not correctly render file. Used Nuke version %s" % (self.nukePath))
