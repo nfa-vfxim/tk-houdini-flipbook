@@ -170,7 +170,7 @@ class FlipbookDialog(QtWidgets.QDialog):
         outputPath = self.flipbook.getOutputPath()
         description = self.validateDescription()
 
-        # create submitter clas
+        # create submitter class
         submit = SubmitVersion(
             self.app,
             outputPath["finFile"],
@@ -214,6 +214,7 @@ class FlipbookDialog(QtWidgets.QDialog):
                 submit.submit_version()
                 operation.updateLongProgress(1, "Done, closing window.")
                 self.closeWindow()
+                self.app.logger.info("Flipbook successful")
 
         except Exception as e:
             self.app.logger.error("Oops, something went wrong!")

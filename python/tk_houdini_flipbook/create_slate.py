@@ -101,7 +101,9 @@ class CreateSlate(object):
 
         stdout, stderr = process.communicate()
         self.app.logger.debug(stdout)
-        self.app.logger.error(stderr)
+        
+        if stderr:
+            self.app.logger.error(stderr)
 
         if stderr:
             raise Exception("Could not correctly render file. Used Nuke version %s" % (self.nukePath))
