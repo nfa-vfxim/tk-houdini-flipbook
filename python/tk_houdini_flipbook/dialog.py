@@ -53,8 +53,14 @@ class FlipbookDialog(QtWidgets.QDialog):
             % (os.path.basename(self.flipbook.getOutputPath()["finFile"]))
         )
         self.outputToMplay = QtWidgets.QCheckBox("MPlay Output", self)
+        self.outputToMplay.setChecked(True)
         self.beautyPassOnly = QtWidgets.QCheckBox("Beauty Pass", self)
         self.useMotionblur = QtWidgets.QCheckBox("Motion Blur", self)
+
+        # save new version widget
+        self.saveNewVersionCheckbox = QtWidgets.QCheckBox(
+            "Save New Version", self)
+        self.saveNewVersionCheckbox.setChecked(True)
 
         # description widget
         self.descriptionLabel = QtWidgets.QLabel("Description")
@@ -134,6 +140,7 @@ class FlipbookDialog(QtWidgets.QDialog):
         groupLayout.addWidget(self.outputToMplay)
         groupLayout.addWidget(self.beautyPassOnly)
         groupLayout.addWidget(self.useMotionblur)
+        groupLayout.addWidget(self.saveNewVersionCheckbox)
         groupLayout.addWidget(self.copyPathButton)
         self.optionsGroup.setLayout(groupLayout)
 
@@ -167,14 +174,6 @@ class FlipbookDialog(QtWidgets.QDialog):
 
     def closeWindow(self):
         self.close()
-
-    # copyPathButton callback
-    # copy the output path to the clipboard
-    def copyPathToClipboard(self):
-        path = self.flipbook.getOutputPath()['finFile']
-        self.app.logger.debug("Copying path to clipboard: %s" % path)
-        QtGui.QGuiApplication.clipboard().setText(path)
-        return
 
     def startFlipbook(self):
 
@@ -224,8 +223,10 @@ class FlipbookDialog(QtWidgets.QDialog):
                     outputPath["finFile"],
                     inputSettings,
                 )
-                operation.updateLongProgress(0.75, "Uploading to Shotgun")
+                operation.updateLongProgress(0.5, "Uploading to Shotgun")
                 submit.submit_version()
+                operation.updateLongProgress(0.75, "Saving")
+                self.saveNewVersion()
                 operation.updateLongProgress(1, "Done, closing window.")
                 self.closeWindow()
                 self.app.logger.info("Flipbook successful")
@@ -235,6 +236,30 @@ class FlipbookDialog(QtWidgets.QDialog):
             self.app.logger.error(e)
 
         return
+
+    # copyPathButton callback
+    # copy the output path to the clipboard
+    def copyPathToClipboard(self):
+        path = self.flipbook.getOutputPath()['finFile']
+        self.app.logger.debug("Copying path to clipboard: %s" % path)
+        QtGui.QGuiApplication.clipboard().setText(path)
+        return
+
+    # saveNewVersion callback
+    def saveNewVersion(self):
+
+        # if validateSaveNewVersion returns true, save the current hipfile with an incremented version number
+        if(self.validateSaveNewVersion()):
+            self.app.logger.debug("Saving new version.")
+            hou.hipFile.saveAndIncrementFileName()
+        # if validateSaveNewVersion returns false, just save the current hipfile
+        else:
+            hou.hipFile.save()
+
+    # saveNewVersion validation
+    # check if the save new version option is ticked
+    def validateSaveNewVersion(self):
+        return self.saveNewVersionCheckbox.isChecked()
 
     def validateFrameRange(self):
         # validating the frame range input
