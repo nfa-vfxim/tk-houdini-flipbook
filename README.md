@@ -17,7 +17,7 @@ The `tk-houdini-flipbook` app is installed by adding it to your Shotgun Toolkit 
 ## Configurations
 - `nuke_path`
     - type = `string`
-    - default value = `C:/Program Files/Nuke12.1v4/Nuke12.1.exe`
+    - default value = `C:/Program Files/Nuke12.2v3/Nuke12.2.exe`
     - Path to your Nuke installation for creating slates (using POSIX forward slashes).
 - `work_file_template`
     - type = `template`
