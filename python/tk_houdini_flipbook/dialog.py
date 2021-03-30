@@ -340,4 +340,4 @@ class FlipbookDialog(QtWidgets.QDialog):
 
     def validateDescription(self):
 
-        return str(self.description.text())
+        return str(self.description.text().encode('utf-8'))
