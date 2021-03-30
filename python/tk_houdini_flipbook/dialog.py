@@ -26,9 +26,8 @@ from .create_flipbook import CreateFlipbook
 from .create_slate import CreateSlate
 from .submit_version import SubmitVersion
 
-from PySide2 import QtCore
+from PySide2 import QtGui
 from PySide2 import QtWidgets
-from PySide2 import QtUiTools
 
 
 class FlipbookDialog(QtWidgets.QDialog):
@@ -127,11 +126,15 @@ class FlipbookDialog(QtWidgets.QDialog):
         # frame range widget finalizing
         self.frameRange.setLayout(frameRangeGroupLayout)
 
+        # copy to path widget
+        self.copyPathButton = QtWidgets.QPushButton("Copy Path to Clipboard")
+
         # options group
         self.optionsGroup = QtWidgets.QGroupBox("Flipbook options")
         groupLayout.addWidget(self.outputToMplay)
         groupLayout.addWidget(self.beautyPassOnly)
         groupLayout.addWidget(self.useMotionblur)
+        groupLayout.addWidget(self.copyPathButton)
         self.optionsGroup.setLayout(groupLayout)
 
         # button box buttons
@@ -157,12 +160,21 @@ class FlipbookDialog(QtWidgets.QDialog):
         # connect button functionality
         self.cancelButton.clicked.connect(self.closeWindow)
         self.startButton.clicked.connect(self.startFlipbook)
+        self.copyPathButton.clicked.connect(self.copyPathToClipboard)
 
         # finally, set layout
         self.setLayout(layout)
 
     def closeWindow(self):
         self.close()
+
+    # copyPathButton callback
+    # copy the output path to the clipboard
+    def copyPathToClipboard(self):
+        path = self.flipbook.getOutputPath()['finFile']
+        self.app.logger.debug("Copying path to clipboard: %s" % path)
+        QtGui.QGuiApplication.clipboard().setText(path)
+        return
 
     def startFlipbook(self):
 
