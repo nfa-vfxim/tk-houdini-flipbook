@@ -22,7 +22,6 @@
 
 import os
 import hou
-import sgtk
 from .create_flipbook import CreateFlipbook
 from .create_slate import CreateSlate
 from .submit_version import SubmitVersion
@@ -141,8 +140,10 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # lower right button box
         buttonBox = QtWidgets.QDialogButtonBox()
-        buttonBox.addButton(self.startButton, QtWidgets.QDialogButtonBox.ActionRole)
-        buttonBox.addButton(self.cancelButton, QtWidgets.QDialogButtonBox.ActionRole)
+        buttonBox.addButton(
+            self.startButton, QtWidgets.QDialogButtonBox.ActionRole)
+        buttonBox.addButton(self.cancelButton,
+                            QtWidgets.QDialogButtonBox.ActionRole)
 
         # widgets additions
         layout.addWidget(self.outputLabel)
@@ -188,7 +189,8 @@ class FlipbookDialog(QtWidgets.QDialog):
         inputSettings["output"] = outputPath["writeTempFile"]
         inputSettings["sessionLabel"] = outputPath["finFile"]
 
-        self.app.logger.debug("Using the following settings, %s" % (inputSettings))
+        self.app.logger.debug(
+            "Using the following settings, %s" % (inputSettings))
 
         # retrieve full settings object
         settings = self.flipbook.getFlipbookSettings(inputSettings)
@@ -228,7 +230,8 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         if self.frameRangeStartLine.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting start of frame range to %s" % (self.frameRangeStartLine.text())
+                "Setting start of frame range to %s" % (
+                    self.frameRangeStartLine.text())
             )
             frameRange.append(int(self.frameRangeStartLine.text()))
         else:
@@ -240,12 +243,14 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         if self.frameRangeEndLine.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting end of frame range to %s" % (self.frameRangeEndLine.text())
+                "Setting end of frame range to %s" % (
+                    self.frameRangeEndLine.text())
             )
             frameRange.append(int(self.frameRangeEndLine.text()))
         else:
             self.app.logger.debug(
-                "Setting end of frame range to %i" % (self.flipbook.getFrameRange()[1])
+                "Setting end of frame range to %i" % (
+                    self.flipbook.getFrameRange()[1])
             )
             frameRange.append(self.flipbook.getFrameRange()[1])
 
@@ -257,7 +262,8 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         if self.resolutionXLine.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting width resolution to %s" % (self.resolutionXLine.text())
+                "Setting width resolution to %s" % (
+                    self.resolutionXLine.text())
             )
             resolution.append(int(self.resolutionXLine.text()))
         else:
@@ -268,7 +274,8 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         if self.resolutionYLine.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting height resolution to %s" % (self.resolutionYLine.text())
+                "Setting height resolution to %s" % (
+                    self.resolutionYLine.text())
             )
             resolution.append(int(self.resolutionYLine.text()))
         else:

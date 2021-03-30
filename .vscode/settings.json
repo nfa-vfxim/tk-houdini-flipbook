@@ -5,7 +5,7 @@
     ],
     "python.analysis.extraPaths": [
         "C:\\Program Files\\Side Effects Software\\Houdini 18.5.351\\houdini\\python2.7libs",
-        "C:\\Users\\Bo.Kamphues\\AppData\\Roaming\\Shotgun\\nfa\\p952c1380.basic.desktop\\cfg\\install\\core\\python"
+        "//nfa-vfxim-source.ahk.nl/4ejaar_source/projects/development_2/00_pipeline/install/core/python"
     ],
     "python.formatting.provider": "autopep8"
 }
