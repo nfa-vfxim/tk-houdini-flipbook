@@ -1,0 +1,12 @@
+{
+    "python.pythonPath": "C:\\Python27\\python.exe",
+    "python.autoComplete.extraPaths": [
+        "C:\\Program Files\\Side Effects Software\\Houdini 18.5.351\\houdini\\python2.7libs",
+    ],
+    "python.analysis.extraPaths": [
+        "C:\\Program Files\\Side Effects Software\\Houdini 18.5.351\\houdini\\python2.7libs",
+        "//nfa-vfxim-source.ahk.nl/4ejaar_source/projects/development_2/00_pipeline/install/core/python",
+        "C:\\Program Files\\Side Effects Software\\Houdini 18.5.351\\python27\\lib\\site-packages-forced"
+    ],
+    "python.formatting.provider": "autopep8"
+}

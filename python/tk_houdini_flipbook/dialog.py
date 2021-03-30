@@ -22,14 +22,12 @@
 
 import os
 import hou
-import sgtk
 from .create_flipbook import CreateFlipbook
 from .create_slate import CreateSlate
 from .submit_version import SubmitVersion
 
-from PySide2 import QtCore
+from PySide2 import QtGui
 from PySide2 import QtWidgets
-from PySide2 import QtUiTools
 
 
 class FlipbookDialog(QtWidgets.QDialog):
@@ -55,8 +53,14 @@ class FlipbookDialog(QtWidgets.QDialog):
             % (os.path.basename(self.flipbook.getOutputPath()["finFile"]))
         )
         self.outputToMplay = QtWidgets.QCheckBox("MPlay Output", self)
+        self.outputToMplay.setChecked(True)
         self.beautyPassOnly = QtWidgets.QCheckBox("Beauty Pass", self)
         self.useMotionblur = QtWidgets.QCheckBox("Motion Blur", self)
+
+        # save new version widget
+        self.saveNewVersionCheckbox = QtWidgets.QCheckBox(
+            "Save New Version", self)
+        self.saveNewVersionCheckbox.setChecked(True)
 
         # description widget
         self.descriptionLabel = QtWidgets.QLabel("Description")
@@ -128,11 +132,16 @@ class FlipbookDialog(QtWidgets.QDialog):
         # frame range widget finalizing
         self.frameRange.setLayout(frameRangeGroupLayout)
 
+        # copy to path widget
+        self.copyPathButton = QtWidgets.QPushButton("Copy Path to Clipboard")
+
         # options group
         self.optionsGroup = QtWidgets.QGroupBox("Flipbook options")
         groupLayout.addWidget(self.outputToMplay)
         groupLayout.addWidget(self.beautyPassOnly)
         groupLayout.addWidget(self.useMotionblur)
+        groupLayout.addWidget(self.saveNewVersionCheckbox)
+        groupLayout.addWidget(self.copyPathButton)
         self.optionsGroup.setLayout(groupLayout)
 
         # button box buttons
@@ -141,8 +150,10 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         # lower right button box
         buttonBox = QtWidgets.QDialogButtonBox()
-        buttonBox.addButton(self.startButton, QtWidgets.QDialogButtonBox.ActionRole)
-        buttonBox.addButton(self.cancelButton, QtWidgets.QDialogButtonBox.ActionRole)
+        buttonBox.addButton(
+            self.startButton, QtWidgets.QDialogButtonBox.ActionRole)
+        buttonBox.addButton(self.cancelButton,
+                            QtWidgets.QDialogButtonBox.ActionRole)
 
         # widgets additions
         layout.addWidget(self.outputLabel)
@@ -156,6 +167,7 @@ class FlipbookDialog(QtWidgets.QDialog):
         # connect button functionality
         self.cancelButton.clicked.connect(self.closeWindow)
         self.startButton.clicked.connect(self.startFlipbook)
+        self.copyPathButton.clicked.connect(self.copyPathToClipboard)
 
         # finally, set layout
         self.setLayout(layout)
@@ -188,7 +200,8 @@ class FlipbookDialog(QtWidgets.QDialog):
         inputSettings["output"] = outputPath["writeTempFile"]
         inputSettings["sessionLabel"] = outputPath["finFile"]
 
-        self.app.logger.debug("Using the following settings, %s" % (inputSettings))
+        self.app.logger.debug(
+            "Using the following settings, %s" % (inputSettings))
 
         # retrieve full settings object
         settings = self.flipbook.getFlipbookSettings(inputSettings)
@@ -210,8 +223,10 @@ class FlipbookDialog(QtWidgets.QDialog):
                     outputPath["finFile"],
                     inputSettings,
                 )
-                operation.updateLongProgress(0.75, "Uploading to Shotgun")
+                operation.updateLongProgress(0.5, "Uploading to Shotgun")
                 submit.submit_version()
+                operation.updateLongProgress(0.75, "Saving")
+                self.saveNewVersion()
                 operation.updateLongProgress(1, "Done, closing window.")
                 self.closeWindow()
                 self.app.logger.info("Flipbook successful")
@@ -222,13 +237,38 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         return
 
+    # copyPathButton callback
+    # copy the output path to the clipboard
+    def copyPathToClipboard(self):
+        path = self.flipbook.getOutputPath()['finFile']
+        self.app.logger.debug("Copying path to clipboard: %s" % path)
+        QtGui.QGuiApplication.clipboard().setText(path)
+        return
+
+    # saveNewVersion callback
+    def saveNewVersion(self):
+
+        # if validateSaveNewVersion returns true, save the current hipfile with an incremented version number
+        if(self.validateSaveNewVersion()):
+            self.app.logger.debug("Saving new version.")
+            hou.hipFile.saveAndIncrementFileName()
+        # if validateSaveNewVersion returns false, just save the current hipfile
+        else:
+            hou.hipFile.save()
+
+    # saveNewVersion validation
+    # check if the save new version option is ticked
+    def validateSaveNewVersion(self):
+        return self.saveNewVersionCheckbox.isChecked()
+
     def validateFrameRange(self):
         # validating the frame range input
         frameRange = []
 
         if self.frameRangeStartLine.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting start of frame range to %s" % (self.frameRangeStartLine.text())
+                "Setting start of frame range to %s" % (
+                    self.frameRangeStartLine.text())
             )
             frameRange.append(int(self.frameRangeStartLine.text()))
         else:
@@ -240,12 +280,14 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         if self.frameRangeEndLine.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting end of frame range to %s" % (self.frameRangeEndLine.text())
+                "Setting end of frame range to %s" % (
+                    self.frameRangeEndLine.text())
             )
             frameRange.append(int(self.frameRangeEndLine.text()))
         else:
             self.app.logger.debug(
-                "Setting end of frame range to %i" % (self.flipbook.getFrameRange()[1])
+                "Setting end of frame range to %i" % (
+                    self.flipbook.getFrameRange()[1])
             )
             frameRange.append(self.flipbook.getFrameRange()[1])
 
@@ -257,7 +299,8 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         if self.resolutionXLine.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting width resolution to %s" % (self.resolutionXLine.text())
+                "Setting width resolution to %s" % (
+                    self.resolutionXLine.text())
             )
             resolution.append(int(self.resolutionXLine.text()))
         else:
@@ -268,7 +311,8 @@ class FlipbookDialog(QtWidgets.QDialog):
 
         if self.resolutionYLine.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting height resolution to %s" % (self.resolutionYLine.text())
+                "Setting height resolution to %s" % (
+                    self.resolutionYLine.text())
             )
             resolution.append(int(self.resolutionYLine.text()))
         else:
@@ -296,4 +340,4 @@ class FlipbookDialog(QtWidgets.QDialog):
 
     def validateDescription(self):
 
-        return str(self.description.text())
+        return str(self.description.text().encode('utf-8'))
