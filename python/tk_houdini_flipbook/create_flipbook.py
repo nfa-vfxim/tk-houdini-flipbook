@@ -20,10 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import sgtk
 import hou
 import tempfile
-import shutil
 import re
 import os
 from hou import SceneViewer
@@ -65,7 +63,8 @@ class CreateFlipbook(object):
 
         # create an temporary directory for the JPG files
         tempDir = tempfile.mkdtemp()
-        outputPath["writeTempFile"] = os.path.join(tempDir, "temporary.$F4.jpg")
+        outputPath["writeTempFile"] = os.path.join(
+            tempDir, "temporary.$F4.jpg")
 
         # format temporary path for importing in Nuke
         outputPath["inputTempFile"] = re.sub(
