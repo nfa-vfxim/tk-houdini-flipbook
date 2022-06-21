@@ -30,7 +30,7 @@ class CreateSlate(object):
     def __init__(self, app):
         # initialize and set paths
         self.app = app
-        self.nukePath = "%s" % (app.get_setting("nuke_path"))
+        self.nuke_path = "%s" % (app.get_setting("nuke_path"))
 
         # set slate script path
         __location__ = os.path.realpath(
@@ -38,7 +38,7 @@ class CreateSlate(object):
         )
         self.slatePath = os.path.join(__location__, "slate.py")
 
-    def runSlate(self, inputFile, outputFile, settings):
+    def run_slate(self, inputFile, outputFile, settings):
         # setup environment
         custom_env = os.environ.copy()
 
@@ -60,7 +60,7 @@ class CreateSlate(object):
         task_name = context.step["name"]
         self.app.logger.debug(task_name)
         fps = hou.fps()
-        appPath = self.app.disk_location
+        app_path = self.app.disk_location
 
         # ensure output path exists
         self.app.ensure_folder_exists(os.path.dirname(os.path.abspath(outputFile)))
@@ -77,7 +77,7 @@ class CreateSlate(object):
         # call subprocess of nuke and convert
         process = subprocess.Popen(
             [
-                self.nukePath,
+                self.nuke_path,
                 "-t",
                 self.slatePath,
                 inputFile,
@@ -86,7 +86,7 @@ class CreateSlate(object):
                 file_name,
                 str(first_frame),
                 str(last_frame),
-                appPath,
+                app_path,
                 str(version),
                 resolution,
                 user_name,
@@ -101,9 +101,12 @@ class CreateSlate(object):
 
         stdout, stderr = process.communicate()
         self.app.logger.debug(stdout)
-        
+
         if stderr:
             self.app.logger.error(stderr)
 
         if stderr:
-            raise Exception("Could not correctly render file. Used Nuke version %s" % (self.nukePath))
+            raise Exception(
+                "Could not correctly render file. Used Nuke version %s"
+                % (self.nuke_path)
+            )

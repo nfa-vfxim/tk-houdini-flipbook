@@ -41,170 +41,166 @@ class FlipbookDialog(QtWidgets.QDialog):
         self.slate = CreateSlate(app)
 
         # other properties
-        self.setWindowTitle("SGTK Flipbook")
+        self.setWindowTitle("ShotGrid Flipbook")
 
         # define general layout
         layout = QtWidgets.QVBoxLayout()
-        groupLayout = QtWidgets.QVBoxLayout()
+        group_layout = QtWidgets.QVBoxLayout()
 
         # widgets
-        self.outputLabel = QtWidgets.QLabel(
+        self.output_label = QtWidgets.QLabel(
             "Flipbooking to: %s"
-            % (os.path.basename(self.flipbook.getOutputPath()["finFile"]))
+            % (os.path.basename(self.flipbook.get_output_path()["finFile"]))
         )
-        self.outputToMplay = QtWidgets.QCheckBox("MPlay Output", self)
-        self.outputToMplay.setChecked(True)
-        self.beautyPassOnly = QtWidgets.QCheckBox("Beauty Pass", self)
-        self.useMotionblur = QtWidgets.QCheckBox("Motion Blur", self)
+        self.output_to_mplay = QtWidgets.QCheckBox("MPlay Output", self)
+        self.output_to_mplay.setChecked(True)
+        self.beauty_pass_only = QtWidgets.QCheckBox("Beauty Pass", self)
+        self.use_motionblur = QtWidgets.QCheckBox("Motion Blur", self)
 
         # save new version widget
-        self.saveNewVersionCheckbox = QtWidgets.QCheckBox(
-            "Save New Version", self)
-        self.saveNewVersionCheckbox.setChecked(True)
+        self.save_new_version_checkbox = QtWidgets.QCheckBox("Save New Version", self)
+        self.save_new_version_checkbox.setChecked(True)
 
         # description widget
-        self.descriptionLabel = QtWidgets.QLabel("Description")
+        self.description_label = QtWidgets.QLabel("Description")
         self.description = QtWidgets.QLineEdit()
 
         # resolution sub-widgets x
-        self.resolutionX = QtWidgets.QWidget()
-        resolutionXLayout = QtWidgets.QVBoxLayout()
-        self.resolutionXLabel = QtWidgets.QLabel("Width")
-        self.resolutionXLine = QtWidgets.QLineEdit()
-        self.resolutionX.default = "1920"
-        self.resolutionXLine.setPlaceholderText(self.resolutionX.default)
-        self.resolutionXLine.setInputMask("9990")
-        resolutionXLayout.addWidget(self.resolutionXLabel)
-        resolutionXLayout.addWidget(self.resolutionXLine)
-        self.resolutionX.setLayout(resolutionXLayout)
+        self.resolution_x = QtWidgets.QWidget()
+        resolution_x_layout = QtWidgets.QVBoxLayout()
+        self.resolution_x_label = QtWidgets.QLabel("Width")
+        self.resolution_x_line = QtWidgets.QLineEdit()
+        self.resolution_x.default = "1920"
+        self.resolution_x_line.setPlaceholderText(self.resolution_x.default)
+        self.resolution_x_line.setInputMask("9990")
+        resolution_x_layout.addWidget(self.resolution_x_label)
+        resolution_x_layout.addWidget(self.resolution_x_line)
+        self.resolution_x.setLayout(resolution_x_layout)
 
         # resolution sub-widgets y
-        self.resolutionY = QtWidgets.QWidget()
-        resolutionYLayout = QtWidgets.QVBoxLayout()
-        self.resolutionYLabel = QtWidgets.QLabel("Height")
-        self.resolutionYLine = QtWidgets.QLineEdit()
-        self.resolutionY.default = "1080"
-        self.resolutionYLine.setPlaceholderText(self.resolutionY.default)
-        self.resolutionYLine.setInputMask("9990")
-        resolutionYLayout.addWidget(self.resolutionYLabel)
-        resolutionYLayout.addWidget(self.resolutionYLine)
-        self.resolutionY.setLayout(resolutionYLayout)
+        self.resolution_y = QtWidgets.QWidget()
+        resolution_y_layout = QtWidgets.QVBoxLayout()
+        self.resolution_y_label = QtWidgets.QLabel("Height")
+        self.resolution_y_line = QtWidgets.QLineEdit()
+        self.resolution_y.default = "1080"
+        self.resolution_y_line.setPlaceholderText(self.resolution_y.default)
+        self.resolution_y_line.setInputMask("9990")
+        resolution_y_layout.addWidget(self.resolution_y_label)
+        resolution_y_layout.addWidget(self.resolution_y_line)
+        self.resolution_y.setLayout(resolution_y_layout)
 
         # resolution group
-        self.resolutionGroup = QtWidgets.QGroupBox("Resolution")
-        resolutionGroupLayout = QtWidgets.QHBoxLayout()
-        resolutionGroupLayout.addWidget(self.resolutionX)
-        resolutionGroupLayout.addWidget(self.resolutionY)
-        self.resolutionGroup.setLayout(resolutionGroupLayout)
+        self.resolution_group = QtWidgets.QGroupBox("Resolution")
+        resolution_group_layout = QtWidgets.QHBoxLayout()
+        resolution_group_layout.addWidget(self.resolution_x)
+        resolution_group_layout.addWidget(self.resolution_y)
+        self.resolution_group.setLayout(resolution_group_layout)
 
         # frame range widget
-        self.frameRange = QtWidgets.QGroupBox("Frame range")
-        frameRangeGroupLayout = QtWidgets.QHBoxLayout()
+        self.frame_range = QtWidgets.QGroupBox("Frame range")
+        frame_range_group_layout = QtWidgets.QHBoxLayout()
 
         # frame range start sub-widget
-        self.frameRangeStart = QtWidgets.QWidget()
-        frameRangeStartLayout = QtWidgets.QVBoxLayout()
-        self.frameRangeStartLabel = QtWidgets.QLabel("Start")
-        self.frameRangeStartLine = QtWidgets.QLineEdit()
-        self.frameRangeStartLine.setPlaceholderText(
-            "%i" % (self.flipbook.getFrameRange()[0])
+        self.frame_range_start = QtWidgets.QWidget()
+        frame_range_start_layout = QtWidgets.QVBoxLayout()
+        self.frame_range_start_label = QtWidgets.QLabel("Start")
+        self.frame_range_start_line = QtWidgets.QLineEdit()
+        self.frame_range_start_line.setPlaceholderText(
+            "%i" % (self.flipbook.get_frame_range()[0])
         )
-        self.frameRangeStartLine.setInputMask("9000")
-        frameRangeStartLayout.addWidget(self.frameRangeStartLabel)
-        frameRangeStartLayout.addWidget(self.frameRangeStartLine)
-        self.frameRangeStart.setLayout(frameRangeStartLayout)
-        frameRangeGroupLayout.addWidget(self.frameRangeStart)
+        self.frame_range_start_line.setInputMask("9000")
+        frame_range_start_layout.addWidget(self.frame_range_start_label)
+        frame_range_start_layout.addWidget(self.frame_range_start_line)
+        self.frame_range_start.setLayout(frame_range_start_layout)
+        frame_range_group_layout.addWidget(self.frame_range_start)
 
         # frame range end sub-widget
-        self.frameRangeEnd = QtWidgets.QWidget()
-        frameRangeEndLayout = QtWidgets.QVBoxLayout()
-        self.frameRangeEndLabel = QtWidgets.QLabel("End")
-        self.frameRangeEndLine = QtWidgets.QLineEdit()
-        self.frameRangeEndLine.setPlaceholderText(
-            "%i" % (self.flipbook.getFrameRange()[1])
+        self.frame_range_end = QtWidgets.QWidget()
+        frame_range_end_layout = QtWidgets.QVBoxLayout()
+        self.frame_range_end_label = QtWidgets.QLabel("End")
+        self.frame_range_end_line = QtWidgets.QLineEdit()
+        self.frame_range_end_line.setPlaceholderText(
+            "%i" % (self.flipbook.get_frame_range()[1])
         )
-        self.frameRangeEndLine.setInputMask("9000")
-        frameRangeEndLayout.addWidget(self.frameRangeEndLabel)
-        frameRangeEndLayout.addWidget(self.frameRangeEndLine)
-        self.frameRangeEnd.setLayout(frameRangeEndLayout)
-        frameRangeGroupLayout.addWidget(self.frameRangeEnd)
+        self.frame_range_end_line.setInputMask("9000")
+        frame_range_end_layout.addWidget(self.frame_range_end_label)
+        frame_range_end_layout.addWidget(self.frame_range_end_line)
+        self.frame_range_end.setLayout(frame_range_end_layout)
+        frame_range_group_layout.addWidget(self.frame_range_end)
 
         # frame range widget finalizing
-        self.frameRange.setLayout(frameRangeGroupLayout)
+        self.frame_range.setLayout(frame_range_group_layout)
 
         # copy to path widget
-        self.copyPathButton = QtWidgets.QPushButton("Copy Path to Clipboard")
+        self.copy_path_button = QtWidgets.QPushButton("Copy Path to Clipboard")
 
         # options group
-        self.optionsGroup = QtWidgets.QGroupBox("Flipbook options")
-        groupLayout.addWidget(self.outputToMplay)
-        groupLayout.addWidget(self.beautyPassOnly)
-        groupLayout.addWidget(self.useMotionblur)
-        groupLayout.addWidget(self.saveNewVersionCheckbox)
-        groupLayout.addWidget(self.copyPathButton)
-        self.optionsGroup.setLayout(groupLayout)
+        self.options_group = QtWidgets.QGroupBox("Flipbook options")
+        group_layout.addWidget(self.output_to_mplay)
+        group_layout.addWidget(self.beauty_pass_only)
+        group_layout.addWidget(self.use_motionblur)
+        group_layout.addWidget(self.save_new_version_checkbox)
+        group_layout.addWidget(self.copy_path_button)
+        self.options_group.setLayout(group_layout)
 
         # button box buttons
-        self.cancelButton = QtWidgets.QPushButton("Cancel")
-        self.startButton = QtWidgets.QPushButton("Start Flipbook")
+        self.cancel_button = QtWidgets.QPushButton("Cancel")
+        self.start_button = QtWidgets.QPushButton("Start Flipbook")
 
         # lower right button box
-        buttonBox = QtWidgets.QDialogButtonBox()
-        buttonBox.addButton(
-            self.startButton, QtWidgets.QDialogButtonBox.ActionRole)
-        buttonBox.addButton(self.cancelButton,
-                            QtWidgets.QDialogButtonBox.ActionRole)
+        button_box = QtWidgets.QDialogButtonBox()
+        button_box.addButton(self.start_button, QtWidgets.QDialogButtonBox.ActionRole)
+        button_box.addButton(self.cancel_button, QtWidgets.QDialogButtonBox.ActionRole)
 
         # widgets additions
-        layout.addWidget(self.outputLabel)
-        layout.addWidget(self.descriptionLabel)
+        layout.addWidget(self.output_label)
+        layout.addWidget(self.description_label)
         layout.addWidget(self.description)
-        layout.addWidget(self.frameRange)
-        layout.addWidget(self.resolutionGroup)
-        layout.addWidget(self.optionsGroup)
-        layout.addWidget(buttonBox)
+        layout.addWidget(self.frame_range)
+        layout.addWidget(self.resolution_group)
+        layout.addWidget(self.options_group)
+        layout.addWidget(button_box)
 
         # connect button functionality
-        self.cancelButton.clicked.connect(self.closeWindow)
-        self.startButton.clicked.connect(self.startFlipbook)
-        self.copyPathButton.clicked.connect(self.copyPathToClipboard)
+        self.cancel_button.clicked.connect(self.close_window)
+        self.start_button.clicked.connect(self.start_flipbook)
+        self.copy_path_button.clicked.connect(self.copy_path_to_clipboard)
 
         # finally, set layout
         self.setLayout(layout)
 
-    def closeWindow(self):
+    def close_window(self):
         self.close()
 
-    def startFlipbook(self):
+    def start_flipbook(self):
 
-        inputSettings = {}
+        input_settings = {}
 
-        outputPath = self.flipbook.getOutputPath()
-        description = self.validateDescription()
+        output_path = self.flipbook.get_output_path()
+        description = self.validate_description()
 
         # create submitter class
         submit = SubmitVersion(
             self.app,
-            outputPath["finFile"],
-            int(self.validateFrameRange()[0]),
-            int(self.validateFrameRange()[1]),
+            output_path["finFile"],
+            int(self.validate_frame_range()[0]),
+            int(self.validate_frame_range()[1]),
             description,
         )
 
         # validation of inputs
-        inputSettings["frameRange"] = self.validateFrameRange()
-        inputSettings["resolution"] = self.validateResolution()
-        inputSettings["mplay"] = self.validateMplay()
-        inputSettings["beautyPass"] = self.validateBeauty()
-        inputSettings["motionBlur"] = self.validateMotionBlur()
-        inputSettings["output"] = outputPath["writeTempFile"]
-        inputSettings["sessionLabel"] = outputPath["finFile"]
+        input_settings["frameRange"] = self.validate_frame_range()
+        input_settings["resolution"] = self.validate_resolution()
+        input_settings["mplay"] = self.validate_mplay()
+        input_settings["beautyPass"] = self.validate_beauty()
+        input_settings["motionBlur"] = self.validate_motionblur()
+        input_settings["output"] = output_path["writeTempFile"]
+        input_settings["sessionLabel"] = output_path["finFile"]
 
-        self.app.logger.debug(
-            "Using the following settings, %s" % (inputSettings))
+        self.app.logger.debug("Using the following settings, %s" % (input_settings))
 
         # retrieve full settings object
-        settings = self.flipbook.getFlipbookSettings(inputSettings)
+        settings = self.flipbook.get_flipbook_settings(input_settings)
 
         # run the actual flipbook
         try:
@@ -214,21 +210,21 @@ class FlipbookDialog(QtWidgets.QDialog):
                 open_interrupt_dialog=True,
             ) as operation:
                 operation.updateLongProgress(0, "Starting Flipbook")
-                self.flipbook.runFlipbook(settings)
+                self.flipbook.run_flipbook(settings)
                 operation.updateLongProgress(
                     0.25, "Rendering to Nuke, please sit tight."
                 )
-                self.slate.runSlate(
-                    outputPath["inputTempFile"],
-                    outputPath["finFile"],
-                    inputSettings,
+                self.slate.run_slate(
+                    output_path["inputTempFile"],
+                    output_path["finFile"],
+                    input_settings,
                 )
                 operation.updateLongProgress(0.5, "Uploading to Shotgun")
                 submit.submit_version()
                 operation.updateLongProgress(0.75, "Saving")
-                self.saveNewVersion()
+                self.save_new_version()
                 operation.updateLongProgress(1, "Done, closing window.")
-                self.closeWindow()
+                self.close_window()
                 self.app.logger.info("Flipbook successful")
 
         except Exception as e:
@@ -239,105 +235,102 @@ class FlipbookDialog(QtWidgets.QDialog):
 
     # copyPathButton callback
     # copy the output path to the clipboard
-    def copyPathToClipboard(self):
-        path = self.flipbook.getOutputPath()['finFile']
+    def copy_path_to_clipboard(self):
+        path = self.flipbook.get_output_path()["finFile"]
         self.app.logger.debug("Copying path to clipboard: %s" % path)
         QtGui.QGuiApplication.clipboard().setText(path)
         return
 
-    # saveNewVersion callback
-    def saveNewVersion(self):
+    # save_new_version callback
+    def save_new_version(self):
 
-        # if validateSaveNewVersion returns true, save the current hipfile with an incremented version number
-        if(self.validateSaveNewVersion()):
+        # if validate_save_new_version returns true, save the current hipfile with an incremented version number
+        if self.validate_save_new_version():
             self.app.logger.debug("Saving new version.")
             hou.hipFile.saveAndIncrementFileName()
-        # if validateSaveNewVersion returns false, just save the current hipfile
+        # if validate_save_new_version returns false, just save the current hipfile
         else:
             hou.hipFile.save()
 
-    # saveNewVersion validation
+    # save_new_version validation
     # check if the save new version option is ticked
-    def validateSaveNewVersion(self):
-        return self.saveNewVersionCheckbox.isChecked()
+    def validate_save_new_version(self):
+        return self.save_new_version_checkbox.isChecked()
 
-    def validateFrameRange(self):
+    def validate_frame_range(self):
         # validating the frame range input
-        frameRange = []
+        frame_range = []
 
-        if self.frameRangeStartLine.hasAcceptableInput():
+        if self.frame_range_start_line.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting start of frame range to %s" % (
-                    self.frameRangeStartLine.text())
+                "Setting start of frame range to %s"
+                % (self.frame_range_start_line.text())
             )
-            frameRange.append(int(self.frameRangeStartLine.text()))
+            frame_range.append(int(self.frame_range_start_line.text()))
         else:
             self.app.logger.debug(
                 "Setting start of frame range to %i"
-                % (self.flipbook.getFrameRange()[0])
+                % (self.flipbook.get_frame_range()[0])
             )
-            frameRange.append(self.flipbook.getFrameRange()[0])
+            frame_range.append(self.flipbook.get_frame_range()[0])
 
-        if self.frameRangeEndLine.hasAcceptableInput():
+        if self.frame_range_end_line.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting end of frame range to %s" % (
-                    self.frameRangeEndLine.text())
+                "Setting end of frame range to %s" % (self.frame_range_end_line.text())
             )
-            frameRange.append(int(self.frameRangeEndLine.text()))
+            frame_range.append(int(self.frame_range_end_line.text()))
         else:
             self.app.logger.debug(
-                "Setting end of frame range to %i" % (
-                    self.flipbook.getFrameRange()[1])
+                "Setting end of frame range to %i"
+                % (self.flipbook.get_frame_range()[1])
             )
-            frameRange.append(self.flipbook.getFrameRange()[1])
+            frame_range.append(self.flipbook.get_frame_range()[1])
 
-        return tuple(frameRange)
+        return tuple(frame_range)
 
-    def validateResolution(self):
+    def validate_resolution(self):
         # validating the resolution input
         resolution = []
 
-        if self.resolutionXLine.hasAcceptableInput():
+        if self.resolution_x_line.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting width resolution to %s" % (
-                    self.resolutionXLine.text())
+                "Setting width resolution to %s" % (self.resolution_x_line.text())
             )
-            resolution.append(int(self.resolutionXLine.text()))
+            resolution.append(int(self.resolution_x_line.text()))
         else:
             self.app.logger.debug(
-                "Setting width resolution to %s" % (self.resolutionX.default)
+                "Setting width resolution to %s" % (self.resolution_x.default)
             )
-            resolution.append(int(self.resolutionX.default))
+            resolution.append(int(self.resolution_x.default))
 
-        if self.resolutionYLine.hasAcceptableInput():
+        if self.resolution_y_line.hasAcceptableInput():
             self.app.logger.debug(
-                "Setting height resolution to %s" % (
-                    self.resolutionYLine.text())
+                "Setting height resolution to %s" % (self.resolution_y_line.text())
             )
-            resolution.append(int(self.resolutionYLine.text()))
+            resolution.append(int(self.resolution_y_line.text()))
         else:
             self.app.logger.debug(
-                "Setting height resolution to %s" % (self.resolutionY.default)
+                "Setting height resolution to %s" % (self.resolution_y.default)
             )
-            resolution.append(int(self.resolutionY.default))
+            resolution.append(int(self.resolution_y.default))
 
         return tuple(resolution)
 
-    def validateMplay(self):
+    def validate_mplay(self):
         # validating the mplay checkbox
 
-        return self.outputToMplay.isChecked()
+        return self.output_to_mplay.isChecked()
 
-    def validateBeauty(self):
+    def validate_beauty(self):
         # validating the beauty pass checkbox
 
-        return self.beautyPassOnly.isChecked()
+        return self.beauty_pass_only.isChecked()
 
-    def validateMotionBlur(self):
+    def validate_motionblur(self):
         # validating the motion blur checkbox
 
-        return self.useMotionblur.isChecked()
+        return self.use_motionblur.isChecked()
 
-    def validateDescription(self):
+    def validate_description(self):
 
-        return str(self.description.text().encode('utf-8'))
+        return str(self.description.text().encode("utf-8"))

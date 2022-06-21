@@ -34,12 +34,12 @@ class CreateFlipbook(object):
         self.app = app
 
     # run a flipbook render with given settings
-    def runFlipbook(self, settings):
+    def run_flipbook(self, settings):
         SceneViewer.flipbook(self.scene, settings=settings)
 
     # get a flipbook settings object and return with given inputs
-    def getFlipbookSettings(self, inputSettings):
-        self.__getSceneViewer()
+    def get_flipbook_settings(self, inputSettings):
+        self.__get_scene_viewer()
 
         settings = self.scene.flipbookSettings().stash()
         self.app.logger.debug("Using %s object" % (settings))
@@ -58,36 +58,35 @@ class CreateFlipbook(object):
 
         return settings
 
-    def getOutputPath(self):
-        outputPath = {}
+    def get_output_path(self):
+        output_path = {}
 
         # create an temporary directory for the JPG files
-        tempDir = tempfile.mkdtemp()
-        outputPath["writeTempFile"] = os.path.join(
-            tempDir, "temporary.$F4.jpg")
+        temp_dir = tempfile.mkdtemp()
+        output_path["writeTempFile"] = os.path.join(temp_dir, "temporary.$F4.jpg")
 
         # format temporary path for importing in Nuke
-        outputPath["inputTempFile"] = re.sub(
-            "\$F4", "####", outputPath["writeTempFile"]
+        output_path["inputTempFile"] = re.sub(
+            "\$F4", "####", output_path["writeTempFile"]
         )
 
         # get template object from info.yml
-        reviewTemplate = self.app.get_template("review_file_template")
-        workTemplate = self.app.get_template("work_file_template")
-        fields = workTemplate.get_fields(hou.hipFile.path())
+        review_template = self.app.get_template("review_file_template")
+        work_template = self.app.get_template("work_file_template")
+        fields = work_template.get_fields(hou.hipFile.path())
         self.app.logger.debug(fields)
-        outputPath["finFile"] = reviewTemplate.apply_fields(fields)
+        output_path["finFile"] = review_template.apply_fields(fields)
 
-        return outputPath
+        return output_path
 
-    def getFrameRange(self):
-        frameRange = []
+    def get_frame_range(self):
+        frame_range = []
 
-        frameRange.append(hou.hscriptExpression("$FSTART"))
-        frameRange.append(hou.hscriptExpression("$FEND"))
+        frame_range.append(hou.hscriptExpression("$FSTART"))
+        frame_range.append(hou.hscriptExpression("$FEND"))
 
-        return frameRange
+        return frame_range
 
-    def __getSceneViewer(self):
+    def __get_scene_viewer(self):
         self.scene = hou.ui.paneTabOfType(hou.paneTabType.SceneViewer)
         self.app.logger.debug("Using panetab %s" % (self.scene))

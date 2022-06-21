@@ -26,8 +26,8 @@ import datetime
 import time
 import os
 
-inputPath = sys.argv[1]
-outputPath = sys.argv[2]
+input_path = sys.argv[1]
+output_path = sys.argv[2]
 project_name = sys.argv[3]
 file_name = sys.argv[4]
 first_frame = int(float(sys.argv[5]))
@@ -67,7 +67,8 @@ def __create_output_node(path):
 
     # apply any additional knob settings provided by the hook. Now that the knob has been
     # created, we can be sure specific file_type settings will be valid.
-    for knob_name, knob_value in wn_settings.iteritems():
+    for knob_name in wn_settings.keys():
+        knob_value = wn_settings.get(knob_name)
         if knob_name != "file_type":
             node.knob(knob_name).setValue(knob_value)
 
@@ -94,7 +95,7 @@ def __get_quicktime_settings():
         # setting output colorspace
         colorspace = nuke.root().knob("colorManagement").getValue()
 
-        # If OCIO is set, output - rec709
+        # If OCIO is set, Output - sRGB
         if colorspace:
             settings["colorspace"] = "Output - sRGB"
 
@@ -117,7 +118,7 @@ def __get_quicktime_settings():
 try:
     # create read node
     read = nuke.nodes.Read(
-        name="source", file_type="jpg", file=inputPath.replace(os.sep, "/")
+        name="source", file_type="jpg", file=input_path.replace(os.sep, "/")
     )
     read["on_error"].setValue("black")
     read["first"].setValue(first_frame)
@@ -157,7 +158,7 @@ try:
     burn.node("slate_info")["message"].setValue(slate_str)
 
     # Create the output node
-    output_node = __create_output_node(outputPath)
+    output_node = __create_output_node(output_path)
     output_node.setInput(0, burn)
 
 finally:
