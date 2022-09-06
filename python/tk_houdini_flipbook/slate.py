@@ -42,8 +42,7 @@ fps = float(sys.argv[12])
 output_node = None
 
 frame_padding = 3
-_burnin_nk = os.path.join(appPath, "resources", "burnin.nk")
-_font = os.path.join(appPath, "resources", "liberationsans_regular.ttf")
+_burnin_nk = os.path.join(appPath, "resources", "nfaSlate.nk")
 
 # create group
 group = nuke.nodes.Group()
@@ -120,7 +119,7 @@ try:
     read = nuke.nodes.Read(
         name="source", file_type="jpg", file=input_path.replace(os.sep, "/")
     )
-    read["on_error"].setValue("black")
+    read["on_error"].setValue("checkerboard")
     read["first"].setValue(first_frame)
     read["last"].setValue(last_frame)
     if color_space:
@@ -139,24 +138,20 @@ try:
     else:
         version_label = "v%s" % version_str
 
-    burn.node("top_left_text")["message"].setValue(company_name)
-    burn.node("top_right_text")["message"].setValue(date_formatted)
-    burn.node("bottom_left_text")["message"].setValue(file_name)
-    burn.node("bottom_center_text")["message"].setValue(project_name)
+    burn.knob("project").setValue(project_name)
+    burn.knob("company").setValue(date_formatted)
+    burn.knob("file").setValue(file_name)
+    burn.knob("date").setValue(date_formatted)
 
-    # slate project info
-    burn.node("slate_projectinfo")["message"].setValue(project_name)
-
-    slate_str = "%s\n" % file_name
-    slate_str += "%s - %s\n" % (first_frame, last_frame)
-    slate_str += "%s\n" % date_formatted
-    slate_str += "%s\n" % user_name
-    slate_str += "v%s\n \n" % version_str
-    slate_str += "%s\n" % fps
-    slate_str += "%s\n" % resolution
-
-    burn.node("slate_info")["message"].setValue(slate_str)
-
+    framelist = "%i - %i (%i)" % (first_frame, last_frame, last_frame - first_frame)
+    burn.knob("framelist").setValue(framelist)
+    burn.knob("artist").setValue(user_name)
+    burn.knob("task").setValue(task_name)
+    burn.knob("version").setValue(version)
+    burn.knob("fps").setValue(fps)
+    burn.knob("colorspaceIDT").setValue("Output - sRGB")
+    burn.knob("colorspaceODT").setValue("Output - sRGB")
+    
     # Create the output node
     output_node = __create_output_node(output_path)
     output_node.setInput(0, burn)
